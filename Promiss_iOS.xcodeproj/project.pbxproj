@@ -9,17 +9,23 @@
 /* Begin PBXBuildFile section */
 		3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413192231FC6C3003F0931 /* MainViewController.swift */; };
 		3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413197231FC7C9003F0931 /* UIColor+.swift */; };
+		3A41319C2321081E003F0931 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41319B2321081E003F0931 /* Keys.swift */; };
 		955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078D1231D2BDD00311DB8 /* AppDelegate.swift */; };
 		955078D7231D2BDD00311DB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955078D5231D2BDD00311DB8 /* Main.storyboard */; };
 		955078D9231D2BDE00311DB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955078D8231D2BDE00311DB8 /* Assets.xcassets */; };
 		955078DC231D2BDE00311DB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955078DA231D2BDE00311DB8 /* LaunchScreen.storyboard */; };
 		955078E6231D3DFF00311DB8 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078E5231D3DFF00311DB8 /* SignupViewController.swift */; };
 		955078E8231D3E1800311DB8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078E7231D3E1800311DB8 /* LoginViewController.swift */; };
+		ACCD9C77BF4AA6FD4AA6194B /* Pods_Promiss_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0466DD62E331A23D7BA3877C /* Pods-Promiss_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Promiss_iOS.debug.xcconfig"; path = "Target Support Files/Pods-Promiss_iOS/Pods-Promiss_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		3976B24AC869CF3E09BA0F51 /* Pods-Promiss_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Promiss_iOS.release.xcconfig"; path = "Target Support Files/Pods-Promiss_iOS/Pods-Promiss_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3A413192231FC6C3003F0931 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3A413197231FC7C9003F0931 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		3A41319B2321081E003F0931 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Promiss_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078CE231D2BDD00311DB8 /* Promiss_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Promiss_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078D1231D2BDD00311DB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		955078D6231D2BDD00311DB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACCD9C77BF4AA6FD4AA6194B /* Pods_Promiss_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +61,8 @@
 			children = (
 				955078D0231D2BDD00311DB8 /* Promiss_iOS */,
 				955078CF231D2BDD00311DB8 /* Products */,
+				F925AB112C44AEFF98F3CA3B /* Pods */,
+				FEA3FA0C50FCD6C31AB6E711 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,8 +86,26 @@
 				955078E7231D3E1800311DB8 /* LoginViewController.swift */,
 				3A413192231FC6C3003F0931 /* MainViewController.swift */,
 				3A413196231FC7B7003F0931 /* Extension */,
+				3A41319B2321081E003F0931 /* Keys.swift */,
 			);
 			path = Promiss_iOS;
+			sourceTree = "<group>";
+		};
+		F925AB112C44AEFF98F3CA3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0466DD62E331A23D7BA3877C /* Pods-Promiss_iOS.debug.xcconfig */,
+				3976B24AC869CF3E09BA0F51 /* Pods-Promiss_iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FEA3FA0C50FCD6C31AB6E711 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 955078E0231D2BDE00311DB8 /* Build configuration list for PBXNativeTarget "Promiss_iOS" */;
 			buildPhases = (
+				4F725504A6F889684F06F6FA /* [CP] Check Pods Manifest.lock */,
 				955078CA231D2BDD00311DB8 /* Sources */,
 				955078CB231D2BDD00311DB8 /* Frameworks */,
 				955078CC231D2BDD00311DB8 /* Resources */,
+				E44E44C2750E54A100046274 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,12 +177,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F725504A6F889684F06F6FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Promiss_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E44E44C2750E54A100046274 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Promiss_iOS/Pods-Promiss_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Promiss_iOS/Pods-Promiss_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Promiss_iOS/Pods-Promiss_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		955078CA231D2BDD00311DB8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				955078E8231D3E1800311DB8 /* LoginViewController.swift in Sources */,
+				3A41319C2321081E003F0931 /* Keys.swift in Sources */,
 				955078E6231D3DFF00311DB8 /* SignupViewController.swift in Sources */,
 				955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */,
 				3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */,
@@ -301,15 +373,18 @@
 		};
 		955078E1231D2BDE00311DB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0466DD62E331A23D7BA3877C /* Pods-Promiss_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PFQJNQ37T;
 				INFOPLIST_FILE = Promiss_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "anna.Promiss-iOS";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skhu.cse.promiss-com.skhu.cse.promiss-com.skhu.cse.promisscom.skhu.cse.promiss-com.skhu.cse.promiss";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -318,15 +393,17 @@
 		};
 		955078E2231D2BDE00311DB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3976B24AC869CF3E09BA0F51 /* Pods-Promiss_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PFQJNQ37T;
 				INFOPLIST_FILE = Promiss_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "anna.Promiss-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.skhu.cse.promiss-com.skhu.cse.promiss-com.skhu.cse.promisscom.skhu.cse.promiss-com.skhu.cse.promiss";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -10,7 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var titleView: UIView!
     
     @IBOutlet weak var profileButton: UIButton!
@@ -24,6 +23,5 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }
