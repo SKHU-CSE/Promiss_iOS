@@ -67,7 +67,22 @@ extension MainViewController {
         present(profileAlert, animated: true)
     }
     
-    func logout() { }
+    func logout() {
+        let logoutAlert = UIAlertController(title: "로그아웃 되었습니다.", message: "로그인 페이지로 돌아갑니다.", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default) { action in
+            guard let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "login") as? LoginViewController else {
+                return
+            }
+            self.present(loginVC, animated: true)
+            
+            // 세션 삭제 미구현
+        }
+        
+        logoutAlert.addAction(okAction)
+        present(logoutAlert, animated: true)
+    }
+    
     func goToChangePassword() { }
     func goToUnsubscribe() { }
 }
