@@ -83,6 +83,12 @@ extension MainViewController {
         present(logoutAlert, animated: true)
     }
     
-    func goToChangePassword() { }
+    func goToChangePassword() {
+        guard let changePwdVC = self.storyboard?.instantiateViewController(withIdentifier: "changePwd1") as? ChangePwdViewController1 else {
+            return
+        }
+        self.present(changePwdVC, animated: true)
+    }
+    
     func goToUnsubscribe() { }
 }

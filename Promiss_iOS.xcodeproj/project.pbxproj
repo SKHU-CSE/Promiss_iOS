@@ -10,6 +10,7 @@
 		3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413192231FC6C3003F0931 /* MainViewController.swift */; };
 		3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413197231FC7C9003F0931 /* UIColor+.swift */; };
 		3A41319C2321081E003F0931 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41319B2321081E003F0931 /* Keys.swift */; };
+		3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */; };
 		955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078D1231D2BDD00311DB8 /* AppDelegate.swift */; };
 		955078D7231D2BDD00311DB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955078D5231D2BDD00311DB8 /* Main.storyboard */; };
 		955078D9231D2BDE00311DB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955078D8231D2BDE00311DB8 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		3A413192231FC6C3003F0931 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3A413197231FC7C9003F0931 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		3A41319B2321081E003F0931 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwdViewController1.swift; sourceTree = "<group>"; };
 		6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Promiss_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078CE231D2BDD00311DB8 /* Promiss_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Promiss_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078D1231D2BDD00311DB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		3A4131A323218E29003F0931 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
 		955078C5231D2BDD00311DB8 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 				955078E5231D3DFF00311DB8 /* SignupViewController.swift */,
 				955078E7231D3E1800311DB8 /* LoginViewController.swift */,
 				3A41319D2321844B003F0931 /* Main */,
+				3A4131A323218E29003F0931 /* ChangePassword */,
 				3A413196231FC7B7003F0931 /* Extension */,
 				3A41319B2321081E003F0931 /* Keys.swift */,
 			);
@@ -238,6 +249,7 @@
 				955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */,
 				3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */,
 				3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */,
+				3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
