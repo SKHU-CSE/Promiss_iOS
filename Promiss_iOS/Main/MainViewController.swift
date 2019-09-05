@@ -27,6 +27,12 @@ class MainViewController: UIViewController {
         setupTitleView()
     }
     
+    @IBAction func clickProfileButton(_ sender: Any) {
+        showProfileAlert()
+    }
+}
+
+extension MainViewController {
     func setupTitleView() {
         let colorTop = UIColor.white.cgColor
         let colorBottom = UIColor(white: 1, alpha: 0).cgColor
@@ -38,4 +44,30 @@ class MainViewController: UIViewController {
         
         self.titleView.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+    func showProfileAlert() {
+        let profileAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let logoutAction = UIAlertAction(title: "로그아웃", style: .default) { _ in
+            self.logout()
+        }
+        let changePwAction = UIAlertAction(title: "비밀번호 변경", style: .default) { _ in
+            self.goToChangePassword()
+        }
+        let unsubscribeAction = UIAlertAction(title: "회원 탈퇴", style: .destructive) { _ in
+            self.goToUnsubscribe()
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        profileAlert.addAction(logoutAction)
+        profileAlert.addAction(changePwAction)
+        profileAlert.addAction(unsubscribeAction)
+        profileAlert.addAction(cancelAction)
+        
+        present(profileAlert, animated: true)
+    }
+    
+    func logout() { }
+    func goToChangePassword() { }
+    func goToUnsubscribe() { }
 }

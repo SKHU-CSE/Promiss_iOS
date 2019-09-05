@@ -146,6 +146,9 @@
                                             <constraint firstAttribute="width" secondItem="med-3y-JZW" secondAttribute="height" multiplier="1:1" id="UO2-Lh-EXS"/>
                                         </constraints>
                                         <state key="normal" image="btn_profile"/>
+                                        <connections>
+                                            <action selector="clickProfileButton:" destination="W02-5c-NIt" eventType="touchUpInside" id="H3r-YW-J38"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID : unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oK5-Yb-htn">
                                         <rect key="frame" x="71" y="20" width="96" height="20"/>
