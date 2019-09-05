@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,6 +56,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		3A41319D2321844B003F0931 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3A413192231FC6C3003F0931 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		955078C5231D2BDD00311DB8 = {
 			isa = PBXGroup;
 			children = (
@@ -77,14 +85,14 @@
 		955078D0231D2BDD00311DB8 /* Promiss_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				955078D8231D2BDE00311DB8 /* Assets.xcassets */,
 				955078D1231D2BDD00311DB8 /* AppDelegate.swift */,
 				955078D5231D2BDD00311DB8 /* Main.storyboard */,
-				955078D8231D2BDE00311DB8 /* Assets.xcassets */,
 				955078DA231D2BDE00311DB8 /* LaunchScreen.storyboard */,
 				955078DD231D2BDE00311DB8 /* Info.plist */,
 				955078E5231D3DFF00311DB8 /* SignupViewController.swift */,
 				955078E7231D3E1800311DB8 /* LoginViewController.swift */,
-				3A413192231FC6C3003F0931 /* MainViewController.swift */,
+				3A41319D2321844B003F0931 /* Main */,
 				3A413196231FC7B7003F0931 /* Extension */,
 				3A41319B2321081E003F0931 /* Keys.swift */,
 			);

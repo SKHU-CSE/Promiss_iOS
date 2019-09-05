@@ -23,5 +23,19 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTitleView()
+    }
+    
+    func setupTitleView() {
+        let colorTop = UIColor.white.cgColor
+        let colorBottom = UIColor(white: 1, alpha: 0).cgColor
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.titleView.bounds
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0.0, 1.0]
+        
+        self.titleView.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
