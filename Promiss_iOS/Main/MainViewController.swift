@@ -90,5 +90,10 @@ extension MainViewController {
         self.present(changePwdVC, animated: true)
     }
     
-    func goToUnsubscribe() { }
+    func goToUnsubscribe() {
+        guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") as? UnsubscribeViewController1 else {
+            return
+        }
+        self.present(unsubscribeVC, animated: true)
+    }
 }
