@@ -178,3 +178,6 @@ Dependencies/
 Pods/
 
 # End of https://www.gitignore.io/api/cocoapods
+
+Promiss_iOS/Keys.swift
+
