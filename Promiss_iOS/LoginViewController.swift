@@ -53,6 +53,7 @@ extension LoginViewController {
         idTextField.layer.borderWidth = 2
         idTextField.layer.cornerRadius = 6
         idTextField.textColor = UIColor.white
+        
         pwTextField.layer.borderColor = UIColor.white.cgColor
         pwTextField.layer.borderWidth = 2
         pwTextField.layer.cornerRadius = 6
