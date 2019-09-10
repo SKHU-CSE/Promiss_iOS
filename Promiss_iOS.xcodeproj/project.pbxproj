@@ -418,7 +418,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.skhu.cse.promiss-com.skhu.cse.promiss-com.skhu.cse.promisscom.skhu.cse.promiss-com.skhu.cse.promiss";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -437,7 +437,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.skhu.cse.promiss-com.skhu.cse.promiss-com.skhu.cse.promisscom.skhu.cse.promiss-com.skhu.cse.promiss";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

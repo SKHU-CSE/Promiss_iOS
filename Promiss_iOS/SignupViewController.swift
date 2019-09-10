@@ -10,12 +10,19 @@ import UIKit
 
 class SignupViewController: UIViewController {
  
+    @IBOutlet weak var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupCustomButton()
     }
+    
     @IBAction func clickSignUpButton(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    func setupCustomButton(){
+        signUpButton.layer.cornerRadius = 6
     }
 }
