@@ -8,8 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController ,UITextFieldDelegate{
-    
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var promissLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
@@ -18,31 +17,38 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         idTextField.delegate = self
         pwTextField.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        buttonCustom()
-        textFieldCustom()
+        
+        setupCustomButton()
+        setupCustomTextfield()
     }
    
-   @IBAction func clickSignUpButton(_ sender: Any) {
-    guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "signup") as? SignupViewController
-        else {
-            return
-        }
-    self.present(signUpViewController, animated: true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func clickSignUpButton(_ sender: Any) {
+        guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "signup") as? SignupViewController else { return }
+        self.present(signUpViewController, animated: true)
     }
     
     @IBAction func clickLoginButton(_ sender: Any) {
+        // 로그인
     }
+}
+
+extension LoginViewController {
     
-    func buttonCustom(){
+    func setupCustomButton(){
         loginButton.layer.cornerRadius = 6
     }
     
-    func textFieldCustom(){
+    func setupCustomTextfield(){
         idTextField.layer.borderColor = UIColor.white.cgColor
         idTextField.layer.borderWidth = 2
         idTextField.layer.cornerRadius = 6
@@ -52,6 +58,9 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         pwTextField.layer.cornerRadius = 6
         pwTextField.textColor = UIColor.white
     }
+}
+
+extension LoginViewController: UITextFieldDelegate {
     
     @objc func keyboardWillShow(_ sender: Notification) {
         self.view.frame.origin.y = -200
@@ -67,10 +76,4 @@ class LoginViewController: UIViewController ,UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-    }
-    
-    
 }
