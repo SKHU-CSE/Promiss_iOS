@@ -11,13 +11,13 @@
 		3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413197231FC7C9003F0931 /* UIColor+.swift */; };
 		3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */; };
 		3A4131A623218F5A003F0931 /* UnsubscribeViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4131A523218F5A003F0931 /* UnsubscribeViewController1.swift */; };
-		3A4131A82327A31B003F0931 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4131A72327A31B003F0931 /* Keys.swift */; };
 		955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078D1231D2BDD00311DB8 /* AppDelegate.swift */; };
 		955078D7231D2BDD00311DB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955078D5231D2BDD00311DB8 /* Main.storyboard */; };
 		955078D9231D2BDE00311DB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955078D8231D2BDE00311DB8 /* Assets.xcassets */; };
 		955078DC231D2BDE00311DB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955078DA231D2BDE00311DB8 /* LaunchScreen.storyboard */; };
 		955078E6231D3DFF00311DB8 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078E5231D3DFF00311DB8 /* SignupViewController.swift */; };
 		955078E8231D3E1800311DB8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078E7231D3E1800311DB8 /* LoginViewController.swift */; };
+		957AF98323323EDA00C6A764 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957AF98223323EDA00C6A764 /* Keys.swift */; };
 		ACCD9C77BF4AA6FD4AA6194B /* Pods_Promiss_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,6 @@
 		3A413197231FC7C9003F0931 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwdViewController1.swift; sourceTree = "<group>"; };
 		3A4131A523218F5A003F0931 /* UnsubscribeViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsubscribeViewController1.swift; sourceTree = "<group>"; };
-		3A4131A72327A31B003F0931 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Promiss_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078CE231D2BDD00311DB8 /* Promiss_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Promiss_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078D1231D2BDD00311DB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		955078DD231D2BDE00311DB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		955078E5231D3DFF00311DB8 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		955078E7231D3E1800311DB8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		957AF98223323EDA00C6A764 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 				3A4131A323218E29003F0931 /* ChangePassword */,
 				3A4131A423218F36003F0931 /* Unsubscribe */,
 				3A413196231FC7B7003F0931 /* Extension */,
-				3A4131A72327A31B003F0931 /* Keys.swift */,
+				957AF98223323EDA00C6A764 /* Keys.swift */,
 			);
 			path = Promiss_iOS;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A4131A623218F5A003F0931 /* UnsubscribeViewController1.swift in Sources */,
-				3A4131A82327A31B003F0931 /* Keys.swift in Sources */,
+				957AF98323323EDA00C6A764 /* Keys.swift in Sources */,
 				955078E8231D3E1800311DB8 /* LoginViewController.swift in Sources */,
 				955078E6231D3DFF00311DB8 /* SignupViewController.swift in Sources */,
 				955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */,
