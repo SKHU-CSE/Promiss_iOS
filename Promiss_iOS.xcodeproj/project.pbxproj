@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A34A41B233241F0008BB7E7 /* AddNew1_NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A41A233241F0008BB7E7 /* AddNew1_NameViewController.swift */; };
+		3A34A41D23324763008BB7E7 /* MainViewController+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A41C23324763008BB7E7 /* MainViewController+layout.swift */; };
+		3A34A41F23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A41E23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift */; };
+		3A34A42123325530008BB7E7 /* AddNew3_DateTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42023325530008BB7E7 /* AddNew3_DateTimeViewController.swift */; };
+		3A34A42323325544008BB7E7 /* AddNew4_PenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42223325544008BB7E7 /* AddNew4_PenaltyViewController.swift */; };
+		3A34A42523325551008BB7E7 /* AddNew5_MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42423325551008BB7E7 /* AddNew5_MemberViewController.swift */; };
+		3A34A42723334516008BB7E7 /* AddNew6_FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42623334516008BB7E7 /* AddNew6_FinishViewController.swift */; };
 		3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413192231FC6C3003F0931 /* MainViewController.swift */; };
 		3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413197231FC7C9003F0931 /* UIColor+.swift */; };
 		3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */; };
@@ -24,6 +31,13 @@
 /* Begin PBXFileReference section */
 		0466DD62E331A23D7BA3877C /* Pods-Promiss_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Promiss_iOS.debug.xcconfig"; path = "Target Support Files/Pods-Promiss_iOS/Pods-Promiss_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		3976B24AC869CF3E09BA0F51 /* Pods-Promiss_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Promiss_iOS.release.xcconfig"; path = "Target Support Files/Pods-Promiss_iOS/Pods-Promiss_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		3A34A41A233241F0008BB7E7 /* AddNew1_NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew1_NameViewController.swift; sourceTree = "<group>"; };
+		3A34A41C23324763008BB7E7 /* MainViewController+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+layout.swift"; sourceTree = "<group>"; };
+		3A34A41E23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew2_PlaceViewController.swift; sourceTree = "<group>"; };
+		3A34A42023325530008BB7E7 /* AddNew3_DateTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew3_DateTimeViewController.swift; sourceTree = "<group>"; };
+		3A34A42223325544008BB7E7 /* AddNew4_PenaltyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew4_PenaltyViewController.swift; sourceTree = "<group>"; };
+		3A34A42423325551008BB7E7 /* AddNew5_MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew5_MemberViewController.swift; sourceTree = "<group>"; };
+		3A34A42623334516008BB7E7 /* AddNew6_FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew6_FinishViewController.swift; sourceTree = "<group>"; };
 		3A413192231FC6C3003F0931 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3A413197231FC7C9003F0931 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwdViewController1.swift; sourceTree = "<group>"; };
@@ -52,6 +66,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A34A41923324185008BB7E7 /* AddNewAppointment */ = {
+			isa = PBXGroup;
+			children = (
+				3A34A41A233241F0008BB7E7 /* AddNew1_NameViewController.swift */,
+				3A34A41E23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift */,
+				3A34A42023325530008BB7E7 /* AddNew3_DateTimeViewController.swift */,
+				3A34A42223325544008BB7E7 /* AddNew4_PenaltyViewController.swift */,
+				3A34A42423325551008BB7E7 /* AddNew5_MemberViewController.swift */,
+				3A34A42623334516008BB7E7 /* AddNew6_FinishViewController.swift */,
+			);
+			path = AddNewAppointment;
+			sourceTree = "<group>";
+		};
 		3A413196231FC7B7003F0931 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				3A413192231FC6C3003F0931 /* MainViewController.swift */,
+				3A34A41C23324763008BB7E7 /* MainViewController+layout.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -115,6 +143,7 @@
 				3A41319D2321844B003F0931 /* Main */,
 				3A4131A323218E29003F0931 /* ChangePassword */,
 				3A4131A423218F36003F0931 /* Unsubscribe */,
+				3A34A41923324185008BB7E7 /* AddNewAppointment */,
 				3A413196231FC7B7003F0931 /* Extension */,
 				957AF98223323EDA00C6A764 /* Keys.swift */,
 			);
@@ -254,14 +283,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A34A42123325530008BB7E7 /* AddNew3_DateTimeViewController.swift in Sources */,
 				3A4131A623218F5A003F0931 /* UnsubscribeViewController1.swift in Sources */,
 				957AF98323323EDA00C6A764 /* Keys.swift in Sources */,
 				955078E8231D3E1800311DB8 /* LoginViewController.swift in Sources */,
+				3A34A42323325544008BB7E7 /* AddNew4_PenaltyViewController.swift in Sources */,
+				3A34A41D23324763008BB7E7 /* MainViewController+layout.swift in Sources */,
 				955078E6231D3DFF00311DB8 /* SignupViewController.swift in Sources */,
+				3A34A42523325551008BB7E7 /* AddNew5_MemberViewController.swift in Sources */,
 				955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */,
+				3A34A41B233241F0008BB7E7 /* AddNew1_NameViewController.swift in Sources */,
 				3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */,
 				3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */,
+				3A34A41F23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift in Sources */,
 				3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */,
+				3A34A42723334516008BB7E7 /* AddNew6_FinishViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
