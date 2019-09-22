@@ -14,6 +14,10 @@
 		3A34A42323325544008BB7E7 /* AddNew4_PenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42223325544008BB7E7 /* AddNew4_PenaltyViewController.swift */; };
 		3A34A42523325551008BB7E7 /* AddNew5_MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42423325551008BB7E7 /* AddNew5_MemberViewController.swift */; };
 		3A34A42723334516008BB7E7 /* AddNew6_FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42623334516008BB7E7 /* AddNew6_FinishViewController.swift */; };
+		3A34A42A23365DED008BB7E7 /* SetupViewDesgin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42923365DED008BB7E7 /* SetupViewDesgin.swift */; };
+		3A34A42C23373D8E008BB7E7 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42B23373D8E008BB7E7 /* UIButton+.swift */; };
+		3A34A42E23373F57008BB7E7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42D23373F57008BB7E7 /* UITextField+.swift */; };
+		3A34A430233745F4008BB7E7 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34A42F233745F4008BB7E7 /* UIView+.swift */; };
 		3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413192231FC6C3003F0931 /* MainViewController.swift */; };
 		3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413197231FC7C9003F0931 /* UIColor+.swift */; };
 		3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */; };
@@ -38,6 +42,10 @@
 		3A34A42223325544008BB7E7 /* AddNew4_PenaltyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew4_PenaltyViewController.swift; sourceTree = "<group>"; };
 		3A34A42423325551008BB7E7 /* AddNew5_MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew5_MemberViewController.swift; sourceTree = "<group>"; };
 		3A34A42623334516008BB7E7 /* AddNew6_FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNew6_FinishViewController.swift; sourceTree = "<group>"; };
+		3A34A42923365DED008BB7E7 /* SetupViewDesgin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewDesgin.swift; sourceTree = "<group>"; };
+		3A34A42B23373D8E008BB7E7 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		3A34A42D23373F57008BB7E7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		3A34A42F233745F4008BB7E7 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		3A413192231FC6C3003F0931 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3A413197231FC7C9003F0931 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwdViewController1.swift; sourceTree = "<group>"; };
@@ -79,10 +87,21 @@
 			path = AddNewAppointment;
 			sourceTree = "<group>";
 		};
+		3A34A42823365DC5008BB7E7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3A34A42923365DED008BB7E7 /* SetupViewDesgin.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		3A413196231FC7B7003F0931 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				3A413197231FC7C9003F0931 /* UIColor+.swift */,
+				3A34A42B23373D8E008BB7E7 /* UIButton+.swift */,
+				3A34A42D23373F57008BB7E7 /* UITextField+.swift */,
+				3A34A42F233745F4008BB7E7 /* UIView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -140,6 +159,7 @@
 				955078DD231D2BDE00311DB8 /* Info.plist */,
 				955078E5231D3DFF00311DB8 /* SignupViewController.swift */,
 				955078E7231D3E1800311DB8 /* LoginViewController.swift */,
+				3A34A42823365DC5008BB7E7 /* Common */,
 				3A41319D2321844B003F0931 /* Main */,
 				3A4131A323218E29003F0931 /* ChangePassword */,
 				3A4131A423218F36003F0931 /* Unsubscribe */,
@@ -287,8 +307,10 @@
 				3A4131A623218F5A003F0931 /* UnsubscribeViewController1.swift in Sources */,
 				957AF98323323EDA00C6A764 /* Keys.swift in Sources */,
 				955078E8231D3E1800311DB8 /* LoginViewController.swift in Sources */,
+				3A34A42C23373D8E008BB7E7 /* UIButton+.swift in Sources */,
 				3A34A42323325544008BB7E7 /* AddNew4_PenaltyViewController.swift in Sources */,
 				3A34A41D23324763008BB7E7 /* MainViewController+layout.swift in Sources */,
+				3A34A42A23365DED008BB7E7 /* SetupViewDesgin.swift in Sources */,
 				955078E6231D3DFF00311DB8 /* SignupViewController.swift in Sources */,
 				3A34A42523325551008BB7E7 /* AddNew5_MemberViewController.swift in Sources */,
 				955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */,
@@ -296,6 +318,8 @@
 				3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */,
 				3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */,
 				3A34A41F23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift in Sources */,
+				3A34A430233745F4008BB7E7 /* UIView+.swift in Sources */,
+				3A34A42E23373F57008BB7E7 /* UITextField+.swift in Sources */,
 				3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */,
 				3A34A42723334516008BB7E7 /* AddNew6_FinishViewController.swift in Sources */,
 			);

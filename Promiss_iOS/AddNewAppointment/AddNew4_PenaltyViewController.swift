@@ -10,8 +10,13 @@ import UIKit
 
 class AddNew4_PenaltyViewController: UIViewController {
 
+    @IBOutlet weak var minTextField: UITextField!
+    @IBOutlet weak var moneyTextField: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewDesign()
     }
     
     @IBAction func clickBackButton(_ sender: Any) {
@@ -19,6 +24,22 @@ class AddNew4_PenaltyViewController: UIViewController {
     }
     
     @IBAction func clickExitButton(_ sender: Any) {
+        showExitAlert()
+    }
+    
+    @IBAction func clickNextButton(_ sender: Any) {
+        showNextViewController()
+    }
+}
+
+extension AddNew4_PenaltyViewController {
+    func setupViewDesign() {
+        minTextField.setWhiteBorder()
+        moneyTextField.setWhiteBorder()
+        nextButton.setAsYellowButton()
+    }
+    
+    func showExitAlert() {
         let alert = UIAlertController(title: "약속만들기 취소", message: "약속 정보가 저장되지 않습니다.\n정말로 취소하시겠습니까?", preferredStyle: .alert)
         let cancelButton = UIAlertAction(title: "계속 만들기", style: .cancel, handler: nil)
         let okButton = UIAlertAction(title: "만들기 취소", style: .destructive, handler: { action in
@@ -30,7 +51,7 @@ class AddNew4_PenaltyViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    @IBAction func clickNextButton(_ sender: Any) {
+    func showNextViewController() {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew5") else { return }
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

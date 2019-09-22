@@ -10,8 +10,11 @@ import UIKit
 
 class AddNew6_FinishViewController: UIViewController {
 
+    @IBOutlet weak var detailButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewDesign()
     }
     
     @IBAction func clickExitButton(_ sender: Any) {
@@ -22,4 +25,10 @@ class AddNew6_FinishViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension AddNew6_FinishViewController {
+    func setupViewDesign() {
+        detailButton.setAsYellowButton()
+    }
 }
