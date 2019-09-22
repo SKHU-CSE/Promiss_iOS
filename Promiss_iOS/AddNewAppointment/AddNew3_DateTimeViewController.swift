@@ -39,14 +39,10 @@ extension AddNew3_DateTimeViewController {
         dateButton.setWhiteBorder()
         timeButton.setWhiteBorder()
         nextButton.setAsYellowButton()
-    }
-    
-    private func setButtonDesign(buttons: UIButton...) {
-        for btn in buttons {
-            btn.layer.cornerRadius = 6
-            btn.layer.borderWidth = 2
-            btn.layer.borderColor = UIColor.white.cgColor
-        }
+        
+        let after3Hours = Date(timeIntervalSinceNow: 60*60*3)
+        dateButton.setTitle(getDateString(date: after3Hours), for: .normal)
+        timeButton.setTitle(getTimeString(date: after3Hours), for: .normal)
     }
     
     func showExitAlert() {
@@ -64,5 +60,41 @@ extension AddNew3_DateTimeViewController {
     func showNextViewController() {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew4") else { return }
         self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func getDateString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let dateString = formatter.string(from: date)
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let weekday = calendar.component(.weekday, from: date)
+        var weekdayString = String()
+        
+        switch weekday % 7 {
+        case 0: weekdayString = "(토)"
+        case 1: weekdayString = "(일)"
+        case 2: weekdayString = "(월)"
+        case 3: weekdayString = "(화)"
+        case 4: weekdayString = "(수)"
+        case 5: weekdayString = "(목)"
+        case 6: weekdayString = "(금)"
+        default: break
+        }
+        
+        return "\(dateString) \(weekdayString)"
+    }
+    
+    func getTimeString(date: Date) -> String {
+        let hourFormatter = DateFormatter()
+        
+        hourFormatter.dateFormat = "HH"
+        let hour = Int(hourFormatter.string(from: date)) ?? 0
+        let ampm = (hour >= 12) ? "오전" : "오후"
+        
+        hourFormatter.dateFormat = "hh:mm"
+        let timeString = hourFormatter.string(from: date)
+        
+        return "\(ampm) \(timeString)"
     }
 }
