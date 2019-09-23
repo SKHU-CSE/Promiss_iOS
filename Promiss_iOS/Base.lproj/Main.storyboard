@@ -1039,6 +1039,9 @@
                                                         <state key="normal" title="+">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="clickPlusMinButton:" destination="6Dn-h7-PzL" eventType="touchUpInside" id="RGQ-8z-9NS"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWV-Rg-5B0">
                                                         <rect key="frame" x="0.0" y="25" width="24" height="25"/>
@@ -1049,6 +1052,9 @@
                                                         <state key="normal" title="-">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="clickMinusMinButton:" destination="6Dn-h7-PzL" eventType="touchUpInside" id="EZe-Bk-Xov"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -1061,7 +1067,7 @@
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   분 마다 측정합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-w5-gv3">
                                                 <rect key="frame" x="148" y="15.5" width="177" height="19.5"/>
@@ -1112,6 +1118,9 @@
                                                         <state key="normal" title="+">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="clickPlusMoneyButton:" destination="6Dn-h7-PzL" eventType="touchUpInside" id="Qbg-M9-ZHH"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-6v-mED">
                                                         <rect key="frame" x="0.0" y="25" width="22" height="25"/>
@@ -1122,6 +1131,9 @@
                                                         <state key="normal" title="-">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="clicMinusMoneyButton:" destination="6Dn-h7-PzL" eventType="touchUpInside" id="Wgr-SO-v84"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -1134,7 +1146,7 @@
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   원 씩 부과됩니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUR-EH-nD2">
                                                 <rect key="frame" x="146" y="15.5" width="179" height="19.5"/>
@@ -1155,19 +1167,35 @@
                                     <constraint firstItem="939-cQ-ZQ0" firstAttribute="leading" secondItem="D9I-Bm-d1o" secondAttribute="leading" id="jhi-KJ-aUn"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="벌금 주기는 5분이상 60분 이하로 설정 가능합니다." textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5U-A3-xpJ">
+                                <rect key="frame" x="25" y="334" width="325" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.87843137250000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="벌금 금액은 100원 이상 10000원 이하로 설정 가능합니다." textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNn-kF-HFc">
+                                <rect key="frame" x="25" y="491" width="325" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.87843137250000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.22352941179999999" green="0.25490196079999999" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="TSu-fB-tav" firstAttribute="leading" secondItem="07D-qy-4G5" secondAttribute="leading" id="1qs-pC-0Oe"/>
                             <constraint firstItem="YSb-vb-lDi" firstAttribute="leading" secondItem="HMR-jV-Mix" secondAttribute="leading" constant="16" id="1zd-eR-1Du"/>
+                            <constraint firstItem="x5U-A3-xpJ" firstAttribute="trailing" secondItem="7is-cZ-iOl" secondAttribute="trailing" id="2fI-MM-EmQ"/>
                             <constraint firstItem="TSu-fB-tav" firstAttribute="centerX" secondItem="Jp2-LN-raW" secondAttribute="centerX" id="3Vk-Ye-Vyc"/>
                             <constraint firstItem="vIU-IW-ire" firstAttribute="leading" secondItem="HMR-jV-Mix" secondAttribute="leading" id="4e5-2B-61e"/>
                             <constraint firstItem="vIU-IW-ire" firstAttribute="top" secondItem="HMR-jV-Mix" secondAttribute="top" id="65k-t9-NTI"/>
+                            <constraint firstItem="mNn-kF-HFc" firstAttribute="leading" secondItem="D9I-Bm-d1o" secondAttribute="leading" id="767-EY-ENl"/>
                             <constraint firstItem="YSb-vb-lDi" firstAttribute="centerX" secondItem="Jp2-LN-raW" secondAttribute="centerX" id="7AN-ZM-qru"/>
+                            <constraint firstItem="x5U-A3-xpJ" firstAttribute="leading" secondItem="7is-cZ-iOl" secondAttribute="leading" id="Crs-m1-2aD"/>
                             <constraint firstItem="vIU-IW-ire" firstAttribute="top" secondItem="Fff-xg-n7s" secondAttribute="bottom" id="DBv-2h-Uzi"/>
                             <constraint firstItem="7is-cZ-iOl" firstAttribute="centerX" secondItem="Jp2-LN-raW" secondAttribute="centerX" id="EUP-sI-plp"/>
                             <constraint firstItem="07D-qy-4G5" firstAttribute="leading" secondItem="HMR-jV-Mix" secondAttribute="leading" constant="25" id="Kw1-jw-u3w"/>
                             <constraint firstItem="D9I-Bm-d1o" firstAttribute="leading" secondItem="7is-cZ-iOl" secondAttribute="leading" id="Lqy-vW-bA9"/>
+                            <constraint firstItem="mNn-kF-HFc" firstAttribute="trailing" secondItem="D9I-Bm-d1o" secondAttribute="trailing" id="P4J-Vt-I2D"/>
                             <constraint firstItem="Fff-xg-n7s" firstAttribute="top" secondItem="Jp2-LN-raW" secondAttribute="top" id="QU4-3a-YyZ"/>
                             <constraint firstItem="7is-cZ-iOl" firstAttribute="top" secondItem="TSu-fB-tav" secondAttribute="bottom" constant="50" id="UA0-SS-g2r"/>
                             <constraint firstItem="HMR-jV-Mix" firstAttribute="bottom" secondItem="YSb-vb-lDi" secondAttribute="bottom" constant="35" id="XcV-k5-Nxk"/>
@@ -1175,9 +1203,11 @@
                             <constraint firstItem="D9I-Bm-d1o" firstAttribute="top" secondItem="7is-cZ-iOl" secondAttribute="bottom" constant="50" id="ajb-c9-3rb"/>
                             <constraint firstItem="HMR-jV-Mix" firstAttribute="trailing" secondItem="vIU-IW-ire" secondAttribute="trailing" id="c7s-H7-29J"/>
                             <constraint firstAttribute="trailing" secondItem="Fff-xg-n7s" secondAttribute="trailing" id="eWY-YX-XUi"/>
+                            <constraint firstItem="mNn-kF-HFc" firstAttribute="top" secondItem="D9I-Bm-d1o" secondAttribute="bottom" constant="8" id="ewL-Hq-dNE"/>
                             <constraint firstItem="Fff-xg-n7s" firstAttribute="leading" secondItem="HMR-jV-Mix" secondAttribute="leading" id="gyj-cf-sjh"/>
                             <constraint firstItem="7is-cZ-iOl" firstAttribute="leading" secondItem="TSu-fB-tav" secondAttribute="leading" id="ksk-sm-k6B"/>
                             <constraint firstItem="07D-qy-4G5" firstAttribute="top" secondItem="vIU-IW-ire" secondAttribute="bottom" constant="35" id="lLB-Ys-ueA"/>
+                            <constraint firstItem="x5U-A3-xpJ" firstAttribute="top" secondItem="3hi-vc-M0e" secondAttribute="bottom" constant="8" id="xSH-3T-U16"/>
                             <constraint firstItem="D9I-Bm-d1o" firstAttribute="centerX" secondItem="Jp2-LN-raW" secondAttribute="centerX" id="xey-zH-IBH"/>
                             <constraint firstItem="TSu-fB-tav" firstAttribute="top" secondItem="07D-qy-4G5" secondAttribute="bottom" constant="8" id="y7O-Ie-h59"/>
                             <constraint firstItem="07D-qy-4G5" firstAttribute="centerX" secondItem="Jp2-LN-raW" secondAttribute="centerX" id="yIJ-f7-u3I"/>
@@ -1186,9 +1216,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="ukB-pl-93E"/>
                     <connections>
+                        <outlet property="minNotificationLabel" destination="x5U-A3-xpJ" id="3jh-EX-PWN"/>
                         <outlet property="minTextField" destination="3hi-vc-M0e" id="rQ6-cW-vDC"/>
+                        <outlet property="minusMinButton" destination="gWV-Rg-5B0" id="w0q-6t-vaL"/>
+                        <outlet property="minusMoneyButton" destination="DxL-6v-mED" id="MdB-b2-cbp"/>
+                        <outlet property="moneyNotificationLabel" destination="mNn-kF-HFc" id="Z5s-3y-qaa"/>
                         <outlet property="moneyTextField" destination="6wG-z0-Iwl" id="LPR-3S-lPb"/>
                         <outlet property="nextButton" destination="YSb-vb-lDi" id="FJ6-gm-dMT"/>
+                        <outlet property="plusMinButton" destination="wHa-0k-Hnp" id="1AV-Ji-hcp"/>
+                        <outlet property="plusMoneyButton" destination="uhb-eq-pGv" id="MZd-Td-BPE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMu-su-ovB" userLabel="First Responder" sceneMemberID="firstResponder"/>
