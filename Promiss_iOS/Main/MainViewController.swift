@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import NMapsMap
 
 class MainViewController: UIViewController {
-
+    
+    let locationManager = CLLocationManager()
+    var myLocationMarker: NMFMarker = NMFMarker()
+    var locationFollowMode: Bool = true
+    
     @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var naverMapView: NMFMapView!
     
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var idLabel: UILabel!
@@ -27,7 +33,15 @@ class MainViewController: UIViewController {
         setupTitleView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        checkLocationAuthorization()
+    }
+    
     @IBAction func clickProfileButton(_ sender: Any) {
+        if CLLocationManager.authorizationStatus() != .authorizedAlways {
+            showLocationAuthAlert()
+            return
+        }
         showProfileAlert()
     }
 }

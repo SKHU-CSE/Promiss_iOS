@@ -257,6 +257,7 @@
                         <outlet property="idLabel" destination="oK5-Yb-htn" id="NMH-kG-mdK"/>
                         <outlet property="leftTimeLabel" destination="gfA-N2-kKB" id="Yl8-9p-euC"/>
                         <outlet property="logoLabel" destination="lt4-vM-4TW" id="iO3-Si-6eX"/>
+                        <outlet property="naverMapView" destination="oJB-AJ-hsh" id="RBG-Xy-JAT"/>
                         <outlet property="profileButton" destination="med-3y-JZW" id="G0j-aU-T7O"/>
                         <outlet property="titleView" destination="LIr-vh-xin" id="zIO-bK-pXv"/>
                     </connections>
