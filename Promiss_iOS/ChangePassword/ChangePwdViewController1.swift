@@ -12,10 +12,22 @@ class ChangePwdViewController1: UIViewController {
 
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomButton()
         setupCustomTextfield()
+    }
+    
+    @IBAction func clickBackButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func clickCheckButton(_ sender: Any) {
+        if let uvc = self.storyboard?.instantiateViewController(withIdentifier: "cpw2"){
+            
+            self.navigationController?.pushViewController(uvc, animated: true)
+        }
     }
 }
 

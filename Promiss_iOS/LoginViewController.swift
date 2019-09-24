@@ -65,12 +65,12 @@ extension LoginViewController: UITextFieldDelegate {
     
     @objc func keyboardWillShow(_ sender: Notification) {
         self.view.frame.origin.y = -200
-        promissLabel.frame.origin.y = 228
+        promissLabel.frame.origin.y = 260
     }
     
     @objc func keyboardWillHide(_ sender: Notification) {
         self.view.frame.origin.y = 0
-        promissLabel.frame.origin.y = 28
+        promissLabel.frame.origin.y = 60
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
