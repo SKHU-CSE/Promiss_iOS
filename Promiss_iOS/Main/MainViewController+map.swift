@@ -9,7 +9,19 @@
 import UIKit
 import NMapsMap
 
+extension MainViewController: NMFMapViewDelegate {
+    func mapViewRegionIsChanging(_ mapView: NMFMapView, byReason reason: Int) {
+        if reason == -1 {   // 사용자의 제스처로 지도가 이동되면
+            locationFollowMode = false
+            print("위치이동")
+        }
+    }
+}
 extension MainViewController {
+    func setupMapView() {
+        naverMapView.delegate = self
+    }
+    
     // 마커 위치 갱신
     func updateMarker(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees){
         myLocationMarker.position = NMGLatLng(lat: latitude, lng: longitude)

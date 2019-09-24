@@ -61,6 +61,7 @@ extension MainViewController: CLLocationManagerDelegate {
             print("\(String(coor.latitude))/\(String(coor.longitude))")
             updateMarker(coor.latitude, coor.longitude)
             if locationFollowMode {
+                print("followmode")
                 updateCamera(coor.latitude, coor.longitude)
             }
         }

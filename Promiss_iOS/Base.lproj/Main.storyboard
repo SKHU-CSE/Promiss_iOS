@@ -186,6 +186,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJB-AJ-hsh" customClass="NMFMapView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="718"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1F2-sM-jHz">
+                                <rect key="frame" x="321" y="712" width="73" height="30"/>
+                                <state key="normal" title="내 위치 보기"/>
+                                <connections>
+                                    <action selector="clickShowMyLocation:" destination="W02-5c-NIt" eventType="touchUpInside" id="cNe-zj-YeV"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIr-vh-xin">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
@@ -233,6 +240,7 @@
                         <constraints>
                             <constraint firstItem="oJB-AJ-hsh" firstAttribute="leading" secondItem="19H-Zt-ZXF" secondAttribute="leading" id="0Jz-U8-j07"/>
                             <constraint firstItem="CzP-gr-SaP" firstAttribute="top" secondItem="oJB-AJ-hsh" secondAttribute="bottom" id="4Fg-XX-yCp"/>
+                            <constraint firstItem="CzP-gr-SaP" firstAttribute="top" secondItem="1F2-sM-jHz" secondAttribute="bottom" constant="20" id="C4r-JB-6Yy"/>
                             <constraint firstItem="19H-Zt-ZXF" firstAttribute="trailing" secondItem="eX1-lp-LkN" secondAttribute="trailing" id="CiE-Hh-f9K"/>
                             <constraint firstItem="CzP-gr-SaP" firstAttribute="leading" secondItem="19H-Zt-ZXF" secondAttribute="leading" id="FIz-oa-ukX"/>
                             <constraint firstItem="eX1-lp-LkN" firstAttribute="top" secondItem="CzP-gr-SaP" secondAttribute="bottom" id="FLe-I6-0Wp"/>
@@ -245,6 +253,7 @@
                             <constraint firstItem="19H-Zt-ZXF" firstAttribute="trailing" secondItem="At0-00-L5n" secondAttribute="trailing" id="X9p-OF-kNv"/>
                             <constraint firstItem="19H-Zt-ZXF" firstAttribute="bottom" secondItem="eX1-lp-LkN" secondAttribute="bottom" id="bcR-SM-60J"/>
                             <constraint firstAttribute="bottom" secondItem="At0-00-L5n" secondAttribute="bottom" id="dgc-75-M9m"/>
+                            <constraint firstItem="19H-Zt-ZXF" firstAttribute="trailing" secondItem="1F2-sM-jHz" secondAttribute="trailing" constant="20" id="fWS-JU-XRW"/>
                             <constraint firstItem="19H-Zt-ZXF" firstAttribute="trailing" secondItem="LIr-vh-xin" secondAttribute="trailing" id="mCq-gH-7Bd"/>
                             <constraint firstItem="LIr-vh-xin" firstAttribute="leading" secondItem="19H-Zt-ZXF" secondAttribute="leading" id="tz0-GY-Myn"/>
                             <constraint firstItem="LIr-vh-xin" firstAttribute="top" secondItem="19H-Zt-ZXF" secondAttribute="top" id="y9M-FE-SEc"/>

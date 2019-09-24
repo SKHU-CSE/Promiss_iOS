@@ -31,6 +31,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         setupTitleView()
+        setupMapView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +44,10 @@ class MainViewController: UIViewController {
             return
         }
         showProfileAlert()
+    }
+    @IBAction func clickShowMyLocation(_ sender: Any) {
+        locationFollowMode = true
+        updateCamera(myLocationMarker.position.lat, myLocationMarker.position.lng)
     }
 }
 
