@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    var isInProgress: Bool = false
+    
     @IBOutlet weak var titleView: UIView!
     
     @IBOutlet weak var profileButton: UIButton!
@@ -19,32 +21,29 @@ class MainViewController: UIViewController {
     @IBOutlet weak var appointmentNameLabel: UILabel!
     @IBOutlet weak var leftTimeLabel: UILabel!
     
-    @IBOutlet weak var createOrDetailButton: NSLayoutConstraint!
+    @IBOutlet weak var createOrDetailButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTitleView()
+        setupMainInfo()
     }
     
     @IBAction func clickProfileButton(_ sender: Any) {
         showProfileAlert()
     }
+    
+    @IBAction func clickCreateOrDetailButton(_ sender: Any) {
+        if isInProgress {
+            goToAppointmentDetailInfo()
+        } else {
+            goToAddNewAppointment()
+        }
+    }
 }
 
 extension MainViewController {
-    func setupTitleView() {
-        let colorTop = UIColor.white.cgColor
-        let colorBottom = UIColor(white: 1, alpha: 0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.titleView.bounds
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        
-        self.titleView.layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
     func showProfileAlert() {
         let profileAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -95,5 +94,14 @@ extension MainViewController {
             return
         }
         self.present(unsubscribeVC, animated: true)
+    }
+    
+    func goToAppointmentDetailInfo() {
+        
+    }
+    
+    func goToAddNewAppointment() {
+        guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "addNew") else {return}
+        self.present(addNew, animated: true, completion: nil)
     }
 }
