@@ -553,12 +553,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dy-rj-GBc">
-                                <rect key="frame" x="354" y="437" width="30" height="30"/>
+                                <rect key="frame" x="359" y="442" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="RGj-u8-y2w"/>
-                                    <constraint firstAttribute="width" constant="30" id="Yxr-jo-ob0"/>
+                                    <constraint firstAttribute="height" constant="25" id="RGj-u8-y2w"/>
+                                    <constraint firstAttribute="width" constant="25" id="Yxr-jo-ob0"/>
                                 </constraints>
-                                <state key="normal" title="+">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -566,7 +567,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(총 n명)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGn-OY-cxR">
-                                <rect key="frame" x="297" y="442.5" width="53" height="19.5"/>
+                                <rect key="frame" x="302" y="445" width="53" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -627,6 +628,10 @@
                         <viewLayoutGuide key="safeArea" id="MrP-wF-WEH"/>
                     </view>
                     <navigationItem key="navigationItem" id="ec9-rL-g6u"/>
+                    <connections>
+                        <outlet property="appointmentCancelButton" destination="830-3w-TMq" id="Xmp-Gy-E3b"/>
+                        <outlet property="plusButton" destination="8dy-rj-GBc" id="p6p-nV-6V5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSf-7p-x0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

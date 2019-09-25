@@ -9,10 +9,12 @@
 import UIKit
 
 class DetailInfoViewController: UIViewController {
-
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var appointmentCancelButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupViewDesign()
     }
     
     @IBAction func clickExitButton(_ sender: Any) {
@@ -28,6 +30,11 @@ class DetailInfoViewController: UIViewController {
 }
 
 extension DetailInfoViewController {
+    func setupViewDesign() {
+        plusButton.setImage(UIImage(named: "btn_plus"), for: .normal)
+        appointmentCancelButton.layer.cornerRadius = 6
+    }
+    
     func goToAddMemberVC() {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addMember") else {
             print("addMember 없음")
