@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    var isInProgress: Bool = true
+    
     @IBOutlet weak var titleView: UIView!
     
     @IBOutlet weak var profileButton: UIButton!
@@ -18,17 +20,23 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var appointmentNameLabel: UILabel!
     @IBOutlet weak var leftTimeLabel: UILabel!
-    
-    @IBOutlet weak var createOrDetailButton: NSLayoutConstraint!
+    @IBOutlet weak var createOrDetailButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTitleView()
+        setupMainInfo()
     }
     
     @IBAction func clickProfileButton(_ sender: Any) {
         showProfileAlert()
+    }
+    
+    @IBAction func clickCreateOrDetailButton(_ sender: Any) {
+        if isInProgress {
+            goToAppointmentDetailInfo()
+        }
     }
 }
 
@@ -43,6 +51,18 @@ extension MainViewController {
         gradientLayer.locations = [0.0, 1.0]
         
         self.titleView.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    func setupMainInfo() {
+        if isInProgress {
+            appointmentNameLabel.text = "현재 약속 이름 표시"
+            leftTimeLabel.text = "999:99:99"
+            createOrDetailButton.setTitle("상세보기", for: .normal)
+        } else {
+            appointmentNameLabel.text = "현재 약속이 없습니다."
+            leftTimeLabel.text = ""
+            createOrDetailButton.setTitle("약속 만들기", for: .normal)
+        }
     }
     
     func showProfileAlert() {
@@ -95,5 +115,10 @@ extension MainViewController {
             return
         }
         self.present(unsubscribeVC, animated: true)
+    }
+    
+    func goToAppointmentDetailInfo() {
+        guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "detail") else {return}
+        self.present(addNew, animated: true, completion: nil)
     }
 }
