@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import NMapsMap
 
 class MainViewController: UIViewController {
 
+    let locationManager = CLLocationManager()
+    var myLocationMarker: NMFMarker = NMFMarker()
+    var locationFollowMode: Bool = true
     var isInProgress: Bool = true
     
     @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var naverMapView: NMFMapView!
     
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var idLabel: UILabel!
@@ -20,51 +25,44 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var appointmentNameLabel: UILabel!
     @IBOutlet weak var leftTimeLabel: UILabel!
+    
     @IBOutlet weak var createOrDetailButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTitleView()
+        setupMapView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkLocationAuthorization()
         setupMainInfo()
     }
     
     @IBAction func clickProfileButton(_ sender: Any) {
+        if CLLocationManager.authorizationStatus() != .authorizedAlways {
+            showLocationAuthAlert()
+            return
+        }
         showProfileAlert()
+    }
+    
+    @IBAction func clickShowMyLocation(_ sender: Any) {
+        locationFollowMode = true
+        updateCamera(myLocationMarker.position.lat, myLocationMarker.position.lng)
     }
     
     @IBAction func clickCreateOrDetailButton(_ sender: Any) {
         if isInProgress {
             goToAppointmentDetailInfo()
+        } else {
+            goToAddNewAppointment()
         }
     }
 }
 
 extension MainViewController {
-    func setupTitleView() {
-        let colorTop = UIColor.white.cgColor
-        let colorBottom = UIColor(white: 1, alpha: 0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.titleView.bounds
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        
-        self.titleView.layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
-    func setupMainInfo() {
-        if isInProgress {
-            appointmentNameLabel.text = "현재 약속 이름 표시"
-            leftTimeLabel.text = "999:99:99"
-            createOrDetailButton.setTitle("상세보기", for: .normal)
-        } else {
-            appointmentNameLabel.text = "현재 약속이 없습니다."
-            leftTimeLabel.text = ""
-            createOrDetailButton.setTitle("약속 만들기", for: .normal)
-        }
-    }
-    
     func showProfileAlert() {
         let profileAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -104,21 +102,27 @@ extension MainViewController {
     }
     
     func goToChangePassword() {
-        guard let changePwdVC = self.storyboard?.instantiateViewController(withIdentifier: "changePwd1") as? ChangePwdViewController1 else {
+        guard let changePwdVC = self.storyboard?.instantiateViewController(withIdentifier: "changePwd") else {
             return
         }
-        self.present(changePwdVC, animated: true)
+        self.present(changePwdVC, animated: true, completion: nil)
     }
     
     func goToUnsubscribe() {
-        guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") as? UnsubscribeViewController1 else {
+        guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") else {
             return
         }
-        self.present(unsubscribeVC, animated: true)
+        self.present(unsubscribeVC, animated: true, completion: nil)
     }
     
     func goToAppointmentDetailInfo() {
         guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "detail") else {return}
         self.present(addNew, animated: true, completion: nil)
     }
+    
+    func goToAddNewAppointment() {
+        guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "addNew") else {return}
+        self.present(addNew, animated: true, completion: nil)
+    }
+    
 }
