@@ -83,17 +83,17 @@ extension MainViewController {
     }
     
     func goToChangePassword() {
-        guard let changePwdVC = self.storyboard?.instantiateViewController(withIdentifier: "changePwd1") as? ChangePwdViewController1 else {
+        guard let changePwdVC = self.storyboard?.instantiateViewController(withIdentifier: "changePwd") else {
             return
         }
-        self.present(changePwdVC, animated: true)
+        self.present(changePwdVC, animated: true, completion: nil)
     }
     
     func goToUnsubscribe() {
-        guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") as? UnsubscribeViewController1 else {
+        guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") else {
             return
         }
-        self.present(unsubscribeVC, animated: true)
+        self.present(unsubscribeVC, animated: true, completion: nil)
     }
     
     func goToAppointmentDetailInfo() {
