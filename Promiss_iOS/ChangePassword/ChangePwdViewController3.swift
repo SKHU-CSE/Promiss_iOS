@@ -17,7 +17,9 @@ class ChangePwdViewController3: UIViewController {
     }
     
     @IBAction func clickCheckButton(_ sender: Any) {
-        super.dismiss(animated: true)
+        if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "login"){
+            self.navigationController?.pushViewController(loginVC, animated: true)
+        }
     }
 }
 

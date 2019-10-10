@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func clickLoginButton(_ sender: Any) {
         // 로그인
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

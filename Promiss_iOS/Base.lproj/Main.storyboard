@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W02-5c-NIt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -64,7 +64,6 @@
                                 </state>
                                 <connections>
                                     <action selector="clickLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uav-Lq-rHA"/>
-                                    <segue destination="W02-5c-NIt" kind="show" id="p3h-ox-vdd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFR-9g-WBV">
@@ -1009,7 +1008,7 @@
         <!--Unsubscribe View Controller1-->
         <scene sceneID="LUl-NA-QkD">
             <objects>
-                <viewController storyboardIdentifier="unsubscribe" id="p40-w0-bjB" customClass="UnsubscribeViewController1" customModule="Promiss_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="unsubscribe1" id="p40-w0-bjB" customClass="UnsubscribeViewController1" customModule="Promiss_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="th4-TB-Zgi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1144,7 +1143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="roX-SD-fkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="1451"/>
+            <point key="canvasLocation" x="1530" y="1483"/>
         </scene>
         <!--Unsubscribe View Controller2-->
         <scene sceneID="vLj-Pd-76l">
@@ -1240,24 +1239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeC-lG-JI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2222" y="1450"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xCg-mM-8fe">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Bof-2l-Cq4" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gMC-gl-vYq">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="p40-w0-bjB" kind="relationship" relationship="rootViewController" id="b5D-Gh-7Kk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ja4-yQ-SYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="829" y="1451"/>
+            <point key="canvasLocation" x="2209" y="1483"/>
         </scene>
         <!--Add New2 Place View Controller-->
         <scene sceneID="Iad-k1-QMw">
@@ -2206,6 +2188,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqV-WR-uSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5558" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XVI-s3-GwS">
+            <objects>
+                <navigationController storyboardIdentifier="unsubscribe" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ip5-pa-oWc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arb-sf-MZi">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="p40-w0-bjB" kind="relationship" relationship="rootViewController" id="TC7-ci-fY5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZMs-PV-86Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="1483"/>
         </scene>
     </scenes>
     <resources>

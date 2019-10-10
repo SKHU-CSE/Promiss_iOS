@@ -44,23 +44,21 @@ extension UnsubscribeViewController1 {
     func showProfileAlert() {
         let alert = UIAlertController(title: "회원탈퇴", message: "정말로 탈퇴하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
         
-        let okAction = UIAlertAction(title: "확인", style: .default){_ in
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "확인", style: .destructive){ _ in
             self.confirm()
         }
         
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        
-        alert.addAction(cancel)
+        alert.addAction(cancelAction)
         alert.addAction(okAction)
         
         present(alert, animated: true, completion: nil)
     }
     
     func confirm() {
-        guard let unsubscribe = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe2") else {
-            return
+        if let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe2"){
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
-        self.present(unsubscribe, animated: true, completion: nil)
     }
 }
 

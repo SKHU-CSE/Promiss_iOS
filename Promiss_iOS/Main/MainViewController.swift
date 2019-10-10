@@ -90,10 +90,10 @@ extension MainViewController {
     }
     
     func goToUnsubscribe() {
-        guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") as? UnsubscribeViewController1 else {
+        guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") else {
             return
         }
-        self.present(unsubscribeVC, animated: true)
+        self.present(unsubscribeVC, animated: true, completion: nil)
     }
     
     func goToAppointmentDetailInfo() {

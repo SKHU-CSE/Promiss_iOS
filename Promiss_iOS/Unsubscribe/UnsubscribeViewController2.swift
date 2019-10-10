@@ -18,7 +18,7 @@ class UnsubscribeViewController2: UIViewController {
 
     @IBAction func clickLoginButton(_ sender: Any) {
         guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "login") as? LoginViewController else { return }
-        self.present(loginViewController, animated: true)
+        navigationController?.pushViewController(loginViewController, animated: true)
         
     }
     
