@@ -10,10 +10,11 @@ import UIKit
 import NMapsMap
 
 class MainViewController: UIViewController {
-    
+
     let locationManager = CLLocationManager()
     var myLocationMarker: NMFMarker = NMFMarker()
     var locationFollowMode: Bool = true
+    var isInProgress: Bool = false
     
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var naverMapView: NMFMapView!
@@ -25,7 +26,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var appointmentNameLabel: UILabel!
     @IBOutlet weak var leftTimeLabel: UILabel!
     
-    @IBOutlet weak var createOrDetailButton: NSLayoutConstraint!
+    @IBOutlet weak var createOrDetailButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         checkLocationAuthorization()
+        setupMainInfo()
     }
     
     @IBAction func clickProfileButton(_ sender: Any) {
@@ -45,25 +47,22 @@ class MainViewController: UIViewController {
         }
         showProfileAlert()
     }
+    
     @IBAction func clickShowMyLocation(_ sender: Any) {
         locationFollowMode = true
         updateCamera(myLocationMarker.position.lat, myLocationMarker.position.lng)
     }
+    
+    @IBAction func clickCreateOrDetailButton(_ sender: Any) {
+        if isInProgress {
+            goToAppointmentDetailInfo()
+        } else {
+            goToAddNewAppointment()
+        }
+    }
 }
 
 extension MainViewController {
-    func setupTitleView() {
-        let colorTop = UIColor.white.cgColor
-        let colorBottom = UIColor(white: 1, alpha: 0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.titleView.bounds
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        
-        self.titleView.layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
     func showProfileAlert() {
         let profileAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -103,16 +102,25 @@ extension MainViewController {
     }
     
     func goToChangePassword() {
-        guard let changePwdVC = self.storyboard?.instantiateViewController(withIdentifier: "changePwd1") as? ChangePwdViewController1 else {
+        guard let changePwdVC = self.storyboard?.instantiateViewController(withIdentifier: "changePwd") else {
             return
         }
-        self.present(changePwdVC, animated: true)
+        self.present(changePwdVC, animated: true, completion: nil)
     }
     
     func goToUnsubscribe() {
-        guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") as? UnsubscribeViewController1 else {
+        guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") else {
             return
         }
-        self.present(unsubscribeVC, animated: true)
+        self.present(unsubscribeVC, animated: true, completion: nil)
+    }
+    
+    func goToAppointmentDetailInfo() {
+        
+    }
+    
+    func goToAddNewAppointment() {
+        guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "addNew") else {return}
+        self.present(addNew, animated: true, completion: nil)
     }
 }
