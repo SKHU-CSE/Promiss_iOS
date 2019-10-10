@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     let locationManager = CLLocationManager()
     var myLocationMarker: NMFMarker = NMFMarker()
     var locationFollowMode: Bool = true
-    var isInProgress: Bool = false
+    var isInProgress: Bool = true
     
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var naverMapView: NMFMapView!
@@ -116,11 +116,13 @@ extension MainViewController {
     }
     
     func goToAppointmentDetailInfo() {
-        
+        guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "detail") else {return}
+        self.present(addNew, animated: true, completion: nil)
     }
     
     func goToAddNewAppointment() {
         guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "addNew") else {return}
         self.present(addNew, animated: true, completion: nil)
     }
+    
 }
