@@ -13,14 +13,18 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var checkPwTextField: UITextField!
+    
+    @IBOutlet weak var idAlertLabel: UILabel!
+    @IBOutlet weak var pwAlertLabel: UILabel!
+    @IBOutlet weak var pwCheckAlertLabel: UILabel!
+    
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var view1: UIView!
-    @IBOutlet weak var view2: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomButton()
-        setupCustomTextfield()
+        setupCustomTextfield(textFields: idTextField, pwTextField, checkPwTextField)
+        setupAlertLabel()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -42,19 +46,19 @@ extension SignupViewController{
         signUpButton.layer.cornerRadius = 6
     }
     
-    func setupCustomTextfield(){
-        idTextField.layer.borderColor = UIColor.white.cgColor
-        idTextField.layer.borderWidth = 2
-        idTextField.layer.cornerRadius = 6
-        idTextField.textColor = UIColor.white
-        pwTextField.layer.borderColor = UIColor.white.cgColor
-        pwTextField.layer.borderWidth = 2
-        pwTextField.layer.cornerRadius = 6
-        pwTextField.textColor = UIColor.white
-        checkPwTextField.layer.borderColor = UIColor.white.cgColor
-        checkPwTextField.layer.borderWidth = 2
-        checkPwTextField.layer.cornerRadius = 6
-        checkPwTextField.textColor = UIColor.white
+    func setupCustomTextfield(textFields: UITextField...){
+        for textField in textFields {
+            textField.layer.borderColor = UIColor.white.cgColor
+            textField.layer.borderWidth = 2
+            textField.layer.cornerRadius = 6
+            textField.textColor = UIColor.white
+        }
+    }
+    
+    func setupAlertLabel(){
+        idAlertLabel.isHidden = true
+        pwAlertLabel.isHidden = true
+        pwCheckAlertLabel.isHidden = true
     }
 }
 
