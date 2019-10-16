@@ -760,7 +760,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZB-FI-xta">
                                 <rect key="frame" x="30" y="345" width="120.5" height="19.5"/>
@@ -781,7 +781,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.22352941179999999" green="0.25490196079999999" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -823,11 +823,11 @@
                         <viewLayoutGuide key="safeArea" id="TMa-K4-kIR"/>
                     </view>
                     <connections>
+                        <outlet property="checkPwAlertLabel" destination="fsy-vR-Ula" id="RKw-fI-g7i"/>
                         <outlet property="checkPwTextField" destination="uNG-wx-6Yk" id="BYk-tx-Q2u"/>
                         <outlet property="idAlertLabel" destination="LAr-TU-NbQ" id="cyw-cI-gIf"/>
                         <outlet property="idTextField" destination="dgI-Gy-pAc" id="8A3-GR-99x"/>
                         <outlet property="pwAlertLabel" destination="kBd-15-nj1" id="xut-3E-g8L"/>
-                        <outlet property="pwCheckAlertLabel" destination="fsy-vR-Ula" id="RKw-fI-g7i"/>
                         <outlet property="pwTextField" destination="QMy-Ea-lR9" id="J6n-qH-aEC"/>
                         <outlet property="signUpButton" destination="plA-pX-jvJ" id="gin-8F-lnR"/>
                     </connections>
