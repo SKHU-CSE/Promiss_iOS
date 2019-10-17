@@ -39,6 +39,9 @@ class MainViewController: UIViewController {
         checkLocationAuthorization()
         setupMainInfo()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        checkUserInfo()
+    }
     
     @IBAction func clickProfileButton(_ sender: Any) {
         if CLLocationManager.authorizationStatus() != .authorizedAlways {
@@ -89,12 +92,8 @@ extension MainViewController {
         let logoutAlert = UIAlertController(title: "로그아웃 되었습니다.", message: "로그인 페이지로 돌아갑니다.", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "확인", style: .default) { action in
-            guard let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "login") as? LoginViewController else {
-                return
-            }
-            self.present(loginVC, animated: true)
-            
-            // 세션 삭제 미구현
+            self.goToLogin()
+            self.removeUserInfo()
         }
         
         logoutAlert.addAction(okAction)
@@ -123,6 +122,11 @@ extension MainViewController {
     func goToAddNewAppointment() {
         guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "addNew") else {return}
         self.present(addNew, animated: true, completion: nil)
+    }
+    
+    func goToLogin(){
+        guard let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "login") as? LoginViewController else {return}
+        self.present(loginVC, animated: true)
     }
     
 }

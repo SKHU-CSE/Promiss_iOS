@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
                 self.showLoginFailAlert()
             case 2000:  //success
                 guard let data = loginResult.data else {return}
-                self.saveUserInfo(id: data.user_name, appointment: data.appointment_id)
+                self.saveUserInfo(id: data.user_name, pw: data.user_pw, appointment: data.appointment_id)
                 self.dismiss(animated: true, completion: nil)
             default:
                 return
@@ -56,9 +56,10 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func saveUserInfo(id: String, appointment: Int){
-        UserInfo.shared.user_id = id
-        UserInfo.shared.appointment_id = appointment
+    private func saveUserInfo(id: String, pw: String, appointment: Int){
+        UserDefaults.standard.set(id, forKey: "id")
+        UserDefaults.standard.set(pw, forKey: "pw")
+        UserDefaults.standard.set(appointment, forKey: "appointment")
     }
     
     private func showLoginFailAlert() {

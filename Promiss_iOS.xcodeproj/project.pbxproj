@@ -31,7 +31,7 @@
 		3A66CF7423584F02006FE754 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7323584F02006FE754 /* APIConstants.swift */; };
 		3A66CF76235858EF006FE754 /* ErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF75235858EF006FE754 /* ErrorResult.swift */; };
 		3A66CF79235879FF006FE754 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF78235879FF006FE754 /* LoginService.swift */; };
-		3A66CF7B23587B86006FE754 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7A23587B86006FE754 /* UserInfo.swift */; };
+		3A66CF7D2358802C006FE754 /* MainViewController+user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7C2358802C006FE754 /* MainViewController+user.swift */; };
 		3A7308E5233B8EB800847A1E /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7308E4233B8EB800847A1E /* Keys.swift */; };
 		955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078D1231D2BDD00311DB8 /* AppDelegate.swift */; };
 		955078D7231D2BDD00311DB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955078D5231D2BDD00311DB8 /* Main.storyboard */; };
@@ -73,7 +73,7 @@
 		3A66CF7323584F02006FE754 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		3A66CF75235858EF006FE754 /* ErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResult.swift; sourceTree = "<group>"; };
 		3A66CF78235879FF006FE754 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		3A66CF7A23587B86006FE754 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		3A66CF7C2358802C006FE754 /* MainViewController+user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+user.swift"; sourceTree = "<group>"; };
 		3A7308E4233B8EB800847A1E /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Promiss_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078CE231D2BDD00311DB8 /* Promiss_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Promiss_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +150,7 @@
 				3A34A435233A226B008BB7E7 /* MainViewController+location.swift */,
 				3A34A437233A3DEC008BB7E7 /* MainViewController+map.swift */,
 				3A34A41C23324763008BB7E7 /* MainViewController+layout.swift */,
+				3A66CF7C2358802C006FE754 /* MainViewController+user.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -201,7 +202,6 @@
 		3A66CF7023584D78006FE754 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3A66CF7A23587B86006FE754 /* UserInfo.swift */,
 				3A66CF7123584DA3006FE754 /* UserResult.swift */,
 				3A66CF7323584F02006FE754 /* APIConstants.swift */,
 				3A66CF75235858EF006FE754 /* ErrorResult.swift */,
@@ -393,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A66CF7D2358802C006FE754 /* MainViewController+user.swift in Sources */,
 				3A34A42123325530008BB7E7 /* AddNew3_DateTimeViewController.swift in Sources */,
 				3A4131A623218F5A003F0931 /* UnsubscribeViewController1.swift in Sources */,
 				957AF98323323EDA00C6A764 /* Keys.swift in Sources */,
@@ -424,7 +425,6 @@
 				3A66CF7423584F02006FE754 /* APIConstants.swift in Sources */,
 				3A34A438233A3DEC008BB7E7 /* MainViewController+map.swift in Sources */,
 				3A34A436233A226B008BB7E7 /* MainViewController+location.swift in Sources */,
-				3A66CF7B23587B86006FE754 /* UserInfo.swift in Sources */,
 				3A34A42723334516008BB7E7 /* AddNew6_FinishViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
