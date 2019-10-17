@@ -25,6 +25,11 @@ extension MainViewController {
                 guard let data = loginResult.data else {return}
                 self.saveUserInfo(id: data.user_name, pw: data.user_pw, appointment: data.appointment_id)
                 self.idLabel.text = userId
+                if data.appointment_id == -1 {
+                    self.isInProgress = false
+                } else {
+                    self.isInProgress = true
+                }
             default:
                 return
             }

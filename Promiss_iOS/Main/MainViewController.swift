@@ -14,7 +14,11 @@ class MainViewController: UIViewController {
     let locationManager = CLLocationManager()
     var myLocationMarker: NMFMarker = NMFMarker()
     var locationFollowMode: Bool = true
-    var isInProgress: Bool = true
+    var isInProgress: Bool = true {
+        didSet{
+            self.setupMainInfo()
+        }
+    }
     
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var naverMapView: NMFMapView!
