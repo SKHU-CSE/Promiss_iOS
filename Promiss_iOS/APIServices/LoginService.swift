@@ -1,5 +1,5 @@
 //
-//  AuthServices.swift
+//  LoginService.swift
 //  Promiss_iOS
 //
 //  Created by 임수현 on 17/10/2019.
@@ -9,21 +9,20 @@
 import Foundation
 import Alamofire
 
-struct SignupService {
-    
-    static let shared = SignupService()
+struct LoginService {
+    static let shared = LoginService()
     let header: HTTPHeaders = [
         "Content-Type" : "application/json"
     ]
     
-    func signup(_ id: String, _ password: String, completion: @escaping (_ result: UserResult) -> Void) {
+    func login(_ id: String, _ password: String, completion: @escaping (_ result: UserResult) -> Void) {
         
         let body: Parameters = [
             "id": id,
             "pw": password
         ]
         
-        Alamofire.request(APIConstants.SignupURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON{ response in
+        Alamofire.request(APIConstants.LoginURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON{ response in
             print(response)
             switch response.result {
             case .success:

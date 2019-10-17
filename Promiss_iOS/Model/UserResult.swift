@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct SignUpResult: Codable {
+struct UserResult: Codable {
     let result: Int
     let message: String?
     let data: UserData?
     
     struct UserData: Codable {
-        let id: Int?
-        let user_name: String?
-        let user_pw: String?
-        let appointment_id: Int?
-        let last_date: String?
+        let id: Int
+        let user_name: String
+        let user_pw: String
+        let appointment_id: Int
+        let last_date: String
     }
 }
 
