@@ -34,11 +34,41 @@ class SignupViewController: UIViewController {
     @IBAction func clickCloseButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
+    
     @IBAction func clickSignUpButton(_ sender: Any) {
-        // 회원가입 통신
-        // 성공 시 dismiss
-        // 실패 시 idAlertLabel 띄우기
-        self.dismiss(animated: true)
+        guard let id = idTextField.text, let pw = pwTextField.text else {
+            return
+        }
+        
+        SignupService.shared.signup(id, pw) { signupResult in
+            switch signupResult.result {
+            case 1000:  //fail
+                self.showIdAlertLabel()
+            case 2000:  //success
+                self.showSuccessAlert()
+            default:
+                return
+            }
+        }
+    }
+    
+    func showIdAlertLabel(){
+        idAlertLabel.isHidden = false
+        Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(hideIdAlertLabel), userInfo: nil, repeats: false)
+    }
+    
+    @objc func hideIdAlertLabel() {
+        idAlertLabel.isHidden = true
+    }
+    
+    private func showSuccessAlert() {
+        let alert = UIAlertController(title: "회원가입 성공", message: "회원가입이 완료되었습니다. 로그인 화면으로 돌아갑니다", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: { action in
+            self.dismiss(animated: true)
+        })
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
     }
 }
 
