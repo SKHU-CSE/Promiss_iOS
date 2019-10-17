@@ -169,6 +169,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		3A66CF6C23584BBB006FE754 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				955078E5231D3DFF00311DB8 /* SignupViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		955078C5231D2BDD00311DB8 = {
 			isa = PBXGroup;
 			children = (
@@ -197,14 +205,14 @@
 				955078D5231D2BDD00311DB8 /* Main.storyboard */,
 				955078DA231D2BDE00311DB8 /* LaunchScreen.storyboard */,
 				955078DD231D2BDE00311DB8 /* Info.plist */,
-				955078E5231D3DFF00311DB8 /* SignupViewController.swift */,
 				955078E7231D3E1800311DB8 /* LoginViewController.swift */,
+				3A413196231FC7B7003F0931 /* Extension */,
 				3A34A42823365DC5008BB7E7 /* Common */,
 				3A41319D2321844B003F0931 /* Main */,
+				3A66CF6C23584BBB006FE754 /* SignUp */,
 				3A4131A323218E29003F0931 /* ChangePassword */,
 				3A4131A423218F36003F0931 /* Unsubscribe */,
 				3A34A41923324185008BB7E7 /* AddNewAppointment */,
-				3A413196231FC7B7003F0931 /* Extension */,
 				3A34A439233B7752008BB7E7 /* DetailInfo */,
 			);
 			path = Promiss_iOS;
