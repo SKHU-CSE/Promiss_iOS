@@ -18,14 +18,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idTextField.delegate = self
-        pwTextField.delegate = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        setupCustomButton()
-        setupCustomTextfield()
+        setupLayout()
     }
    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -33,8 +26,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func clickSignUpButton(_ sender: Any) {
-        guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "signup") as? SignupViewController else { return }
-        self.present(signUpViewController, animated: true)
+        goToSignUp()
     }
     
     @IBAction func clickLoginButton(_ sender: Any) {
@@ -55,6 +47,14 @@ class LoginViewController: UIViewController {
             }
         }
     }
+}
+
+// MARK: - 기능들
+extension LoginViewController {
+    private func goToSignUp() {
+        guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "signup") as? SignupViewController else { return }
+        self.present(signUpViewController, animated: true)
+    }
     
     private func saveUserInfo(id: String, pw: String, appointment: Int){
         UserDefaults.standard.set(id, forKey: "id")
@@ -70,25 +70,7 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController {
-    
-    func setupCustomButton(){
-        loginButton.layer.cornerRadius = 6
-    }
-    
-    func setupCustomTextfield(){
-        idTextField.layer.borderColor = UIColor.white.cgColor
-        idTextField.layer.borderWidth = 2
-        idTextField.layer.cornerRadius = 6
-        idTextField.textColor = UIColor.white
-        
-        pwTextField.layer.borderColor = UIColor.white.cgColor
-        pwTextField.layer.borderWidth = 2
-        pwTextField.layer.cornerRadius = 6
-        pwTextField.textColor = UIColor.white
-    }
-}
-
+// MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     
     @objc func keyboardWillShow(_ sender: Notification) {
