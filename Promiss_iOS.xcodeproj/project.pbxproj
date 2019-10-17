@@ -27,9 +27,11 @@
 		3A66CF6A234EFE1A006FE754 /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF68234EFE1A006FE754 /* DetailInfoViewController.swift */; };
 		3A66CF6B234EFE1A006FE754 /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */; };
 		3A66CF6F23584D37006FE754 /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF6E23584D37006FE754 /* SignupService.swift */; };
-		3A66CF7223584DA3006FE754 /* SignUpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7123584DA3006FE754 /* SignUpResult.swift */; };
+		3A66CF7223584DA3006FE754 /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7123584DA3006FE754 /* UserResult.swift */; };
 		3A66CF7423584F02006FE754 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7323584F02006FE754 /* APIConstants.swift */; };
 		3A66CF76235858EF006FE754 /* ErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF75235858EF006FE754 /* ErrorResult.swift */; };
+		3A66CF79235879FF006FE754 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF78235879FF006FE754 /* LoginService.swift */; };
+		3A66CF7B23587B86006FE754 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7A23587B86006FE754 /* UserInfo.swift */; };
 		3A7308E5233B8EB800847A1E /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7308E4233B8EB800847A1E /* Keys.swift */; };
 		955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078D1231D2BDD00311DB8 /* AppDelegate.swift */; };
 		955078D7231D2BDD00311DB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955078D5231D2BDD00311DB8 /* Main.storyboard */; };
@@ -67,9 +69,11 @@
 		3A66CF68234EFE1A006FE754 /* DetailInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailInfoViewController.swift; path = Promiss_iOS/DetailInfo/DetailInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddMemberViewController.swift; path = Promiss_iOS/DetailInfo/AddMemberViewController.swift; sourceTree = SOURCE_ROOT; };
 		3A66CF6E23584D37006FE754 /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
-		3A66CF7123584DA3006FE754 /* SignUpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResult.swift; sourceTree = "<group>"; };
+		3A66CF7123584DA3006FE754 /* UserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResult.swift; sourceTree = "<group>"; };
 		3A66CF7323584F02006FE754 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		3A66CF75235858EF006FE754 /* ErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResult.swift; sourceTree = "<group>"; };
+		3A66CF78235879FF006FE754 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		3A66CF7A23587B86006FE754 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		3A7308E4233B8EB800847A1E /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Promiss_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078CE231D2BDD00311DB8 /* Promiss_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Promiss_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				3A66CF6E23584D37006FE754 /* SignupService.swift */,
+				3A66CF78235879FF006FE754 /* LoginService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -196,11 +201,20 @@
 		3A66CF7023584D78006FE754 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3A66CF7123584DA3006FE754 /* SignUpResult.swift */,
+				3A66CF7A23587B86006FE754 /* UserInfo.swift */,
+				3A66CF7123584DA3006FE754 /* UserResult.swift */,
 				3A66CF7323584F02006FE754 /* APIConstants.swift */,
 				3A66CF75235858EF006FE754 /* ErrorResult.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3A66CF77235879CF006FE754 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				955078E7231D3E1800311DB8 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		955078C5231D2BDD00311DB8 = {
@@ -231,12 +245,12 @@
 				955078D5231D2BDD00311DB8 /* Main.storyboard */,
 				955078DA231D2BDE00311DB8 /* LaunchScreen.storyboard */,
 				955078DD231D2BDE00311DB8 /* Info.plist */,
-				955078E7231D3E1800311DB8 /* LoginViewController.swift */,
 				3A66CF6D23584D16006FE754 /* APIServices */,
 				3A66CF7023584D78006FE754 /* Model */,
 				3A413196231FC7B7003F0931 /* Extension */,
 				3A34A42823365DC5008BB7E7 /* Common */,
 				3A41319D2321844B003F0931 /* Main */,
+				3A66CF77235879CF006FE754 /* Login */,
 				3A66CF6C23584BBB006FE754 /* SignUp */,
 				3A4131A323218E29003F0931 /* ChangePassword */,
 				3A4131A423218F36003F0931 /* Unsubscribe */,
@@ -395,13 +409,14 @@
 				955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */,
 				957AF98D2338B24100C6A764 /* UnsubscribeViewController2.swift in Sources */,
 				957AF9852332596500C6A764 /* ChangePwdViewController2.swift in Sources */,
-				3A66CF7223584DA3006FE754 /* SignUpResult.swift in Sources */,
+				3A66CF7223584DA3006FE754 /* UserResult.swift in Sources */,
 				3A34A41B233241F0008BB7E7 /* AddNew1_NameViewController.swift in Sources */,
 				3A66CF6A234EFE1A006FE754 /* DetailInfoViewController.swift in Sources */,
 				3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */,
 				3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */,
 				3A34A41F23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift in Sources */,
 				3A34A430233745F4008BB7E7 /* UIView+.swift in Sources */,
+				3A66CF79235879FF006FE754 /* LoginService.swift in Sources */,
 				3A34A42E23373F57008BB7E7 /* UITextField+.swift in Sources */,
 				3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */,
 				3A66CF6F23584D37006FE754 /* SignupService.swift in Sources */,
@@ -409,6 +424,7 @@
 				3A66CF7423584F02006FE754 /* APIConstants.swift in Sources */,
 				3A34A438233A3DEC008BB7E7 /* MainViewController+map.swift in Sources */,
 				3A34A436233A226B008BB7E7 /* MainViewController+location.swift in Sources */,
+				3A66CF7B23587B86006FE754 /* UserInfo.swift in Sources */,
 				3A34A42723334516008BB7E7 /* AddNew6_FinishViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -38,8 +38,34 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func clickLoginButton(_ sender: Any) {
-        // 로그인
-        self.dismiss(animated: true, completion: nil)
+        guard let id = idTextField.text, let pw = pwTextField.text else {
+            return
+        }
+        
+        LoginService.shared.login(id, pw) { loginResult in
+            switch loginResult.result {
+            case 1000:  //fail
+                self.showLoginFailAlert()
+            case 2000:  //success
+                guard let data = loginResult.data else {return}
+                self.saveUserInfo(id: data.user_name, appointment: data.appointment_id)
+                self.dismiss(animated: true, completion: nil)
+            default:
+                return
+            }
+        }
+    }
+    
+    private func saveUserInfo(id: String, appointment: Int){
+        UserInfo.shared.user_id = id
+        UserInfo.shared.appointment_id = appointment
+    }
+    
+    private func showLoginFailAlert() {
+        let alert = UIAlertController(title: "로그인 실패", message: "아이디와 비밀번호가 일치하지 않습니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
 
