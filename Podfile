@@ -7,5 +7,6 @@ target 'Promiss_iOS' do
 
   # Pods for Promiss_iOS
   pod 'NMapsMap', '~> 3.2.0'
+  pod 'Alamofire', '~> 4.9.0'
 
 end
