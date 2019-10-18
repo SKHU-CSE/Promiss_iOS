@@ -22,13 +22,23 @@ extension MainViewController {
     }
     
     func setupMainInfo() {
-        if isInProgress {
-            appointmentNameLabel.text = "현재 약속 이름 표시"
+        switch appointmentStatus{
+        case .Progress:
+            appointmentNameLabel.text = AppointmentInfo.shared.name
             leftTimeLabel.text = "남은시간 표시"
+            createOrDetailButton.isHidden = true
+            break
+            
+        case .Wait:
+            appointmentNameLabel.text = AppointmentInfo.shared.name
+            leftTimeLabel.text = "남은시간 표시"
+            createOrDetailButton.isHidden = false
             createOrDetailButton.setTitle("상세보기", for: .normal)
-        } else {
+            
+        case .Done:
             appointmentNameLabel.text = "현재 약속이 없습니다."
             leftTimeLabel.text = ""
+            createOrDetailButton.isHidden = false
             createOrDetailButton.setTitle("약속 만들기", for: .normal)
         }
     }

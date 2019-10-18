@@ -10,14 +10,21 @@ import Foundation
 
 struct APIConstants {
     static let BaseURL: String = "http://106.10.54.206/api"
-    static let UserURL: String = BaseURL + "/User"
     
+    static let gpsURL: String = BaseURL + "/gpsUpdate"
+    
+    static let UserURL: String = BaseURL + "/User"
     static let LoginURL: String = UserURL + "/Login"
     static let SignupURL: String = UserURL + "/register"
     static let DeleteURL: String = UserURL + "/delete"
     static let ChangePwdURL: String = UserURL + "/changePassword"
     static let SearchURL: String = UserURL + "/search"
     
-    static let gpsURL: String = BaseURL + "/gpsUpdate"
-    
+    static let AppointmentURL: String = BaseURL + "/Appointment"
+    static let NewAppURL: String = AppointmentURL + "/newAppointment"
+    static let NewMemberURL: String = AppointmentURL + "/newMember"
+    static let CheckInviteURL: String = AppointmentURL + "/CheckInvite"
+    static let AcceptInviteURL: String = AppointmentURL + "/acceptInvite"
+    static let AppInfoURL: String = AppointmentURL + "/getAppointment"
+    static let AppDetailInfoURL: String = AppointmentURL + "/getAppointment_detail"
 }

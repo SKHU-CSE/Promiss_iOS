@@ -90,6 +90,9 @@ extension AddNew3_DateTimeViewController {
     // 올바른 시간 범위 선택 시 다음 뷰로 이동
     func showNextViewController() {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew4") else { return }
+        
+        AppointmentInfo.shared.time = datePicker.date
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

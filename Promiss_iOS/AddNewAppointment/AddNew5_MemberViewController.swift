@@ -29,7 +29,32 @@ class AddNew5_MemberViewController: UIViewController {
     }
     
     @IBAction func clickNextButton(_ sender: Any) {
-        showNextViewController()
+        let info = AppointmentInfo.shared
+        
+        AppointmentService.shared.addAppointment(
+            id: UserInfo.shared.id,
+            name: info.name,
+            address: info.address,
+            detail: info.detailAddress ?? "",
+            latitude: info.latitude,
+            longitude: info.longitude,
+            date: info.dateString,
+            time: info.timeString,
+            fineTime: info.fineTime,
+            fineMoney: info.fineMoney,
+            members: []) { addResult in
+                
+                switch addResult.result {
+                case 1000:  //fail
+                    self.showFailAlert()
+                case 2000:  //success
+                    guard let data = addResult.data else {return}
+                    AppointmentInfo.shared.saveAppointmentInfo(data: data)
+                    self.showNextViewController()
+                default:
+                    return
+                }
+        }
     }
 }
 
@@ -48,6 +73,13 @@ extension AddNew5_MemberViewController {
         })
         
         alert.addAction(cancelButton)
+        alert.addAction(okButton)
+        present(alert, animated: true)
+    }
+    
+    func showFailAlert() {
+        let alert = UIAlertController(title: "약속만들기 실패", message: "약속만들기에 실패하였습니다.\n잠시 후에 시도해주세요.", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(okButton)
         present(alert, animated: true)
     }

@@ -54,7 +54,13 @@ extension AddNew2_PlaceViewController {
     }
     
     func showNextViewController() {
-        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew3") else { return }
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew3") as? AddNew3_DateTimeViewController else { return }
+        
+        AppointmentInfo.shared.address = "성공회대학교"
+        AppointmentInfo.shared.detailAddress = "정보과학관 6109 프로젝트실"
+        AppointmentInfo.shared.latitude = 37.487117
+        AppointmentInfo.shared.longitude = 126.826409
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

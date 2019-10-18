@@ -23,7 +23,7 @@ struct LoginService {
         ]
         
         Alamofire.request(APIConstants.LoginURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON{ response in
-            print(response)
+            print("로그인 응답: \(response)")
             switch response.result {
             case .success:
                 guard let result = response.data else {return}

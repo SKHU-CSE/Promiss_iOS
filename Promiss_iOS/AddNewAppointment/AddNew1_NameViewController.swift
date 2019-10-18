@@ -46,7 +46,9 @@ extension AddNew1_NameViewController {
     }
     
     func showNextViewController() {
-        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew2") else { return }
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew2") as? AddNew2_PlaceViewController else { return }
+//        nextVC.appName = appointmentNameTextfield.text
+        AppointmentInfo.shared.name = appointmentNameTextfield.text
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
