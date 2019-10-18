@@ -70,7 +70,7 @@ class AppointmentInfo {
         fineCurrent = nil
     }
     
-    func saveAppointmentInfo(data: AppointmentResult.AppointmentData){
+    func saveAppointmentInfo(data: AppointmentData){
         id = data.id
         name = data.name
         address = data.address
@@ -78,13 +78,13 @@ class AppointmentInfo {
         latitude = data.latitude
         longitude = data.longitude
         radius = data.radius
-        fineMoney = data.Fine_money
-        fineTime = data.Fine_time
-        fineCurrent = data.Fine_current
+        fineMoney = data.fineMoney
+        fineTime = data.fineTime
+        fineCurrent = data.fineCurrent
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-        time = dateFormatter.date(from: "\(data.date) \(data.date_time)") ?? Date()
+        time = dateFormatter.date(from: "\(data.date) \(data.dateTime)") ?? Date()
     }
 }

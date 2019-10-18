@@ -84,4 +84,32 @@ struct AppointmentService {
                 
         }
     }
+    
+    func getDetailAppointmentInfo(id: Int, completion: @escaping (_ result: AppointmentResult) -> Void) {
+        
+        let body: Parameters = [
+            "id": id
+        ]
+        
+        Alamofire.request(APIConstants.AppDetailInfoURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON{ response in
+            print("약속 상세정보 응답: \(response)")
+            
+            switch response.result {
+            case .success:
+                guard let result = response.data else {return}
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let json = try decoder.decode(AppointmentResult.self, from: result)
+                    
+                    completion(json)
+                } catch {
+                    print(error)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+        }
+    }
 }

@@ -22,9 +22,13 @@ extension MainViewController {
         print(leftTime)
         
         if leftTime >= 0 {
+            if leftTime < 7200 {
+                appointmentStatus = .Progress
+            } else {
+                appointmentStatus = .Wait
+            }
             AppointmentInfo.shared.leftTime -= 1
             leftTimeLabel.text = getLeftTimeString(time: leftTime)
-            
         } else { // 시간 종료 시
             timer?.invalidate()
             self.navigationController?.popViewController(animated: false)

@@ -105,6 +105,8 @@ extension MainViewController {
         let okAction = UIAlertAction(title: "확인", style: .default) { action in
             self.goToLogin()
             self.removeUserInfo()
+            self.removeAppointmentInfo()
+            AppointmentInfo.shared.clearAppointmentInfo()
         }
         
         logoutAlert.addAction(okAction)
@@ -115,6 +117,7 @@ extension MainViewController {
         guard let changePwdVC = self.storyboard?.instantiateViewController(withIdentifier: "changePwd") else {
             return
         }
+        changePwdVC.modalPresentationStyle = .fullScreen
         self.present(changePwdVC, animated: true, completion: nil)
     }
     
@@ -122,21 +125,25 @@ extension MainViewController {
         guard let unsubscribeVC = self.storyboard?.instantiateViewController(withIdentifier: "unsubscribe") else {
             return
         }
+        unsubscribeVC.modalPresentationStyle = .fullScreen
         self.present(unsubscribeVC, animated: true, completion: nil)
     }
     
     func goToAppointmentDetailInfo() {
-        guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "detail") else {return}
-        self.present(addNew, animated: true, completion: nil)
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detail") else {return}
+        detailVC.modalPresentationStyle = .fullScreen
+        self.present(detailVC, animated: true, completion: nil)
     }
     
     func goToAddNewAppointment() {
-        guard let addNew = self.storyboard?.instantiateViewController(withIdentifier: "addNew") else {return}
-        self.present(addNew, animated: true, completion: nil)
+        guard let addNewVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew") else {return}
+        addNewVC.modalPresentationStyle = .fullScreen
+        self.present(addNewVC, animated: true, completion: nil)
     }
     
     func goToLogin(){
         guard let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "login") as? LoginViewController else {return}
+        loginVC.modalPresentationStyle = .fullScreen
         self.present(loginVC, animated: true)
     }
     
