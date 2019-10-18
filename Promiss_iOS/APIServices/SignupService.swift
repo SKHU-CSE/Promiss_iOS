@@ -24,7 +24,7 @@ struct SignupService {
         ]
         
         Alamofire.request(APIConstants.SignupURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON{ response in
-            print(response)
+            print("회원가입 응답: \(response)")
             switch response.result {
             case .success:
                 guard let result = response.data else {return}

@@ -33,6 +33,10 @@
 		3A66CF79235879FF006FE754 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF78235879FF006FE754 /* LoginService.swift */; };
 		3A66CF7D2358802C006FE754 /* MainViewController+user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7C2358802C006FE754 /* MainViewController+user.swift */; };
 		3A66CF7F23588718006FE754 /* LoginViewController+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7E23588718006FE754 /* LoginViewController+layout.swift */; };
+		3A66CF812358923D006FE754 /* AppointmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF802358923D006FE754 /* AppointmentService.swift */; };
+		3A66CF832358BF56006FE754 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF822358BF56006FE754 /* UserInfo.swift */; };
+		3A66CF852358C457006FE754 /* AppointmentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF842358C457006FE754 /* AppointmentResult.swift */; };
+		3A66CF8723598F91006FE754 /* MainViewController+timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF8623598F91006FE754 /* MainViewController+timer.swift */; };
 		3A7308E5233B8EB800847A1E /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7308E4233B8EB800847A1E /* Keys.swift */; };
 		955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955078D1231D2BDD00311DB8 /* AppDelegate.swift */; };
 		955078D7231D2BDD00311DB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955078D5231D2BDD00311DB8 /* Main.storyboard */; };
@@ -76,6 +80,10 @@
 		3A66CF78235879FF006FE754 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		3A66CF7C2358802C006FE754 /* MainViewController+user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+user.swift"; sourceTree = "<group>"; };
 		3A66CF7E23588718006FE754 /* LoginViewController+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+layout.swift"; sourceTree = "<group>"; };
+		3A66CF802358923D006FE754 /* AppointmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentService.swift; sourceTree = "<group>"; };
+		3A66CF822358BF56006FE754 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		3A66CF842358C457006FE754 /* AppointmentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentResult.swift; sourceTree = "<group>"; };
+		3A66CF8623598F91006FE754 /* MainViewController+timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+timer.swift"; sourceTree = "<group>"; };
 		3A7308E4233B8EB800847A1E /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Promiss_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078CE231D2BDD00311DB8 /* Promiss_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Promiss_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +161,7 @@
 				3A34A437233A3DEC008BB7E7 /* MainViewController+map.swift */,
 				3A34A41C23324763008BB7E7 /* MainViewController+layout.swift */,
 				3A66CF7C2358802C006FE754 /* MainViewController+user.swift */,
+				3A66CF8623598F91006FE754 /* MainViewController+timer.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -197,6 +206,7 @@
 			children = (
 				3A66CF6E23584D37006FE754 /* SignupService.swift */,
 				3A66CF78235879FF006FE754 /* LoginService.swift */,
+				3A66CF802358923D006FE754 /* AppointmentService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -207,6 +217,8 @@
 				3A66CF7123584DA3006FE754 /* UserResult.swift */,
 				3A66CF7323584F02006FE754 /* APIConstants.swift */,
 				3A66CF75235858EF006FE754 /* ErrorResult.swift */,
+				3A66CF822358BF56006FE754 /* UserInfo.swift */,
+				3A66CF842358C457006FE754 /* AppointmentResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,14 +417,17 @@
 				957AF98723388C3D00C6A764 /* ChangePwdViewController3.swift in Sources */,
 				3A66CF76235858EF006FE754 /* ErrorResult.swift in Sources */,
 				955078E8231D3E1800311DB8 /* LoginViewController.swift in Sources */,
+				3A66CF812358923D006FE754 /* AppointmentService.swift in Sources */,
 				3A34A42C23373D8E008BB7E7 /* UIButton+.swift in Sources */,
 				3A34A42323325544008BB7E7 /* AddNew4_PenaltyViewController.swift in Sources */,
 				3A34A41D23324763008BB7E7 /* MainViewController+layout.swift in Sources */,
 				3A34A42A23365DED008BB7E7 /* SetupViewDesgin.swift in Sources */,
 				955078E6231D3DFF00311DB8 /* SignupViewController.swift in Sources */,
 				3A34A42523325551008BB7E7 /* AddNew5_MemberViewController.swift in Sources */,
+				3A66CF832358BF56006FE754 /* UserInfo.swift in Sources */,
 				955078D2231D2BDD00311DB8 /* AppDelegate.swift in Sources */,
 				957AF98D2338B24100C6A764 /* UnsubscribeViewController2.swift in Sources */,
+				3A66CF8723598F91006FE754 /* MainViewController+timer.swift in Sources */,
 				957AF9852332596500C6A764 /* ChangePwdViewController2.swift in Sources */,
 				3A66CF7223584DA3006FE754 /* UserResult.swift in Sources */,
 				3A34A41B233241F0008BB7E7 /* AddNew1_NameViewController.swift in Sources */,
@@ -422,6 +437,7 @@
 				3A34A41F23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift in Sources */,
 				3A34A430233745F4008BB7E7 /* UIView+.swift in Sources */,
 				3A66CF79235879FF006FE754 /* LoginService.swift in Sources */,
+				3A66CF852358C457006FE754 /* AppointmentResult.swift in Sources */,
 				3A34A42E23373F57008BB7E7 /* UITextField+.swift in Sources */,
 				3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */,
 				3A66CF6F23584D37006FE754 /* SignupService.swift in Sources */,

@@ -14,7 +14,15 @@ class MainViewController: UIViewController {
     let locationManager = CLLocationManager()
     var myLocationMarker: NMFMarker = NMFMarker()
     var locationFollowMode: Bool = true
-    var isInProgress: Bool = true
+    var timer: Timer?
+    var appointmentStatus: AppStatus = .Done {
+        didSet{
+            self.setupMainInfo()
+        }
+    }
+    enum AppStatus {
+        case Progress, Wait, Done
+    }
     
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var naverMapView: NMFMapView!
@@ -37,10 +45,10 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         checkLocationAuthorization()
-        setupMainInfo()
     }
     override func viewDidAppear(_ animated: Bool) {
         checkUserInfo()
+        setupMainInfo()
     }
     
     @IBAction func clickProfileButton(_ sender: Any) {
@@ -57,9 +65,12 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func clickCreateOrDetailButton(_ sender: Any) {
-        if isInProgress {
+        switch appointmentStatus{
+        case .Progress:
+            break
+        case .Wait:
             goToAppointmentDetailInfo()
-        } else {
+        case .Done:
             goToAddNewAppointment()
         }
     }

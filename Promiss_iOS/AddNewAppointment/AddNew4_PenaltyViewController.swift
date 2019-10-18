@@ -79,6 +79,24 @@ extension AddNew4_PenaltyViewController {
     
     func showNextViewController() {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew5") else { return }
+        
+        AppointmentInfo.shared.fineTime = Int(minTextField.text ?? "5")
+        AppointmentInfo.shared.fineMoney = Int(moneyTextField.text ?? "100")
+        
+        print(AppointmentInfo.shared.name)
+        
+        print(AppointmentInfo.shared.address)
+        print(AppointmentInfo.shared.detailAddress)
+        print(AppointmentInfo.shared.latitude)
+        print(AppointmentInfo.shared.longitude)
+        
+        print(AppointmentInfo.shared.dateString)
+        print(AppointmentInfo.shared.timeString)
+        
+        print(AppointmentInfo.shared.fineTime)
+        print(AppointmentInfo.shared.fineMoney)
+        
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
