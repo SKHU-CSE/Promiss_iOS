@@ -750,13 +750,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AQa-cI-D8K">
+                                <rect key="frame" x="20" y="179" width="374" height="523"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fTS-os-AmI" firstAttribute="top" secondItem="AQa-cI-D8K" secondAttribute="bottom" constant="60" id="47H-Er-OR3"/>
                             <constraint firstItem="L7s-rZ-tQH" firstAttribute="leading" secondItem="QHG-Rv-dzV" secondAttribute="leading" id="4hh-3A-vza"/>
                             <constraint firstItem="QHG-Rv-dzV" firstAttribute="trailing" secondItem="fTS-os-AmI" secondAttribute="trailing" id="4oY-FP-b7l"/>
                             <constraint firstItem="QHG-Rv-dzV" firstAttribute="trailing" secondItem="g3F-bl-wiv" secondAttribute="trailing" id="5mC-gS-pKW"/>
                             <constraint firstItem="fTS-os-AmI" firstAttribute="top" secondItem="O2V-Qw-cdE" secondAttribute="bottom" id="8EA-s0-e6m"/>
+                            <constraint firstItem="AQa-cI-D8K" firstAttribute="top" secondItem="fm8-Kd-vka" secondAttribute="bottom" constant="20" id="8s3-6p-lDW"/>
+                            <constraint firstItem="QHG-Rv-dzV" firstAttribute="trailing" secondItem="AQa-cI-D8K" secondAttribute="trailing" constant="20" id="AbH-xt-sb7"/>
                             <constraint firstAttribute="trailing" secondItem="CfP-TI-Qce" secondAttribute="trailing" id="Iav-5Z-IH0"/>
                             <constraint firstItem="L7s-rZ-tQH" firstAttribute="top" secondItem="CfP-TI-Qce" secondAttribute="bottom" id="KWv-rY-QPO"/>
                             <constraint firstItem="QHG-Rv-dzV" firstAttribute="trailing" secondItem="O2V-Qw-cdE" secondAttribute="trailing" id="OwO-LI-CsL"/>
@@ -772,6 +779,7 @@
                             <constraint firstItem="CfP-TI-Qce" firstAttribute="leading" secondItem="Tv5-NA-m4C" secondAttribute="leading" id="ei7-EH-2iC"/>
                             <constraint firstItem="g3F-bl-wiv" firstAttribute="leading" secondItem="QHG-Rv-dzV" secondAttribute="leading" id="fIb-DZ-jhk"/>
                             <constraint firstItem="O2V-Qw-cdE" firstAttribute="top" secondItem="L7s-rZ-tQH" secondAttribute="bottom" id="gD8-S6-RK3"/>
+                            <constraint firstItem="AQa-cI-D8K" firstAttribute="leading" secondItem="QHG-Rv-dzV" secondAttribute="leading" constant="20" id="mON-sP-VTY"/>
                             <constraint firstItem="ZOQ-HJ-tZ9" firstAttribute="centerX" secondItem="Tv5-NA-m4C" secondAttribute="centerX" id="niZ-aX-m5B"/>
                             <constraint firstItem="ZOQ-HJ-tZ9" firstAttribute="centerY" secondItem="Tv5-NA-m4C" secondAttribute="centerY" id="vNX-tf-RXd"/>
                             <constraint firstItem="fTS-os-AmI" firstAttribute="leading" secondItem="QHG-Rv-dzV" secondAttribute="leading" id="wca-81-NUP"/>
@@ -782,13 +790,14 @@
                         <outlet property="addressLabel" destination="Zd6-5A-Lnn" id="cc5-T3-zbi"/>
                         <outlet property="exitButton" destination="f5y-Sy-SoV" id="YHI-Ad-vef"/>
                         <outlet property="mapView" destination="O2V-Qw-cdE" id="dru-Ej-aWY"/>
+                        <outlet property="searchResultTableView" destination="AQa-cI-D8K" id="WZd-rp-hrS"/>
                         <outlet property="searchTextField" destination="fm8-Kd-vka" id="0dX-56-V8P"/>
                         <outlet property="setPlaceButton" destination="g3F-bl-wiv" id="2eh-vp-VVt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTt-Jv-1vI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3617" y="810"/>
+            <point key="canvasLocation" x="3615.9420289855075" y="809.59821428571422"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="P1P-WW-Ldf">
