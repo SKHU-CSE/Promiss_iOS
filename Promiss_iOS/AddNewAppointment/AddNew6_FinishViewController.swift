@@ -22,7 +22,9 @@ class AddNew6_FinishViewController: UIViewController {
     }
     
     @IBAction func clickDetailButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detail") else {return}
+        detailVC.modalPresentationStyle = .fullScreen
+        present(detailVC, animated: true, completion: nil)
     }
     
 }

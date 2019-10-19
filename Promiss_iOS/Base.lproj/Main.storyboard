@@ -1439,7 +1439,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oT-6M-bc2">
                                         <rect key="frame" x="47" y="0.0" width="317" height="35"/>
-                                        <state key="normal" title="현재 위치의 주소가 표시됩니다.">
+                                        <state key="normal" title="탭하여 주소를 설정해주세요.">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>

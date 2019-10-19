@@ -65,14 +65,20 @@ extension AddNew2_PlaceViewController {
     }
     
     func showNextViewController() {
+        guard let marker = dstMarker else {
+            let alert = UIAlertController(title: "약속 만들기", message: "먼저 정확한 장소를 설정해 주세요.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew3") as? AddNew3_DateTimeViewController else { return }
-        
-        AppointmentInfo.shared.address = "성공회대학교"
-        AppointmentInfo.shared.detailAddress = "정보과학관 6109 프로젝트실"
-        AppointmentInfo.shared.latitude = 37.487117
-        AppointmentInfo.shared.longitude = 126.826409
-        
         self.navigationController?.pushViewController(nextVC, animated: true)
+        
+        AppointmentInfo.shared.address = addressButton.title(for: .normal)
+        AppointmentInfo.shared.detailAddress = detailAddressTextView.text
+        AppointmentInfo.shared.latitude = marker.position.lat
+        AppointmentInfo.shared.longitude = marker.position.lng
     }
 }
 
