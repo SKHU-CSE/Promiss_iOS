@@ -25,13 +25,11 @@ extension MainViewController {
         switch appointmentStatus{
         case .Progress:
             appointmentNameLabel.text = AppointmentInfo.shared.name
-            leftTimeLabel.text = "남은시간 표시"
             createOrDetailButton.isHidden = true
             break
             
         case .Wait:
             appointmentNameLabel.text = AppointmentInfo.shared.name
-            leftTimeLabel.text = "남은시간 표시"
             createOrDetailButton.isHidden = false
             createOrDetailButton.setTitle("상세보기", for: .normal)
             

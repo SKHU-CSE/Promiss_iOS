@@ -17,17 +17,31 @@ class UserInfo{
     var latitude: Double?
     var longitude: Double?
     
+    
+    func saveUserInfo(id: Int, userId: String, userPw: String){
+        UserDefaults.standard.set(userId, forKey: "id")
+        UserDefaults.standard.set(userPw, forKey: "pw")
+        
+        self.id = id
+        self.userId = userId
+    }
+    
     func clearUserInfo(){
         id = -1
         userId = "unknown"
         latitude = nil
         longitude = nil
+        
+        UserDefaults.standard.removeObject(forKey: "id")
+        UserDefaults.standard.removeObject(forKey: "pw")
     }
 }
 
 class AppointmentInfo {
     static let shared: AppointmentInfo = AppointmentInfo()
     private init() {}
+    
+    var timer: Timer?
     
     var id: Int!
     var status: Int!
@@ -56,6 +70,8 @@ class AppointmentInfo {
     }
     
     func clearAppointmentInfo(){
+        timer?.invalidate()
+        
         id = -1
         status = nil
         name = nil

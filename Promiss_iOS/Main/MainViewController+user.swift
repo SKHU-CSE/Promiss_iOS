@@ -23,7 +23,7 @@ extension MainViewController {
                 
             case 2000:  //success
                 guard let data = loginResult.data else {return}
-                self.saveUserInfo(id: data.id, userId: data.user_name, userPw: data.user_pw)
+                UserInfo.shared.saveUserInfo(id: data.id, userId: data.user_name, userPw: data.user_pw)
                 self.idLabel.text = userId
                 
                 if data.appointment_id == -1 {
@@ -64,25 +64,5 @@ extension MainViewController {
             }
             self.getLeftTime()
         })
-    }
-    
-    private func saveUserInfo(id: Int, userId: String, userPw: String){
-        UserDefaults.standard.set(userId, forKey: "id")
-        UserDefaults.standard.set(userPw, forKey: "pw")
-        
-        UserInfo.shared.id = id
-        UserInfo.shared.userId = userId
-    }
-    
-    func removeUserInfo(){
-        UserDefaults.standard.removeObject(forKey: "id")
-        UserDefaults.standard.removeObject(forKey: "pw")
-        
-        UserInfo.shared.clearUserInfo()
-    }
-    
-    func removeAppointmentInfo(){
-        self.timer?.invalidate()
-        AppointmentInfo.shared.clearAppointmentInfo()
     }
 }

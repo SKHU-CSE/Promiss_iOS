@@ -27,4 +27,5 @@ struct APIConstants {
     static let AcceptInviteURL: String = AppointmentURL + "/acceptInvite"
     static let AppInfoURL: String = AppointmentURL + "/getAppointment"
     static let AppDetailInfoURL: String = AppointmentURL + "/getAppointment_detail"
+    static let LeaveURL: String = AppointmentURL + "/leave"
 }
