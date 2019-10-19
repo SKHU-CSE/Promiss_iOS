@@ -49,4 +49,28 @@ struct SearchPlaceService {
             }
         }
     }
+    
+
+    func getAddress(latitude: Double, longitude: Double, completion: @escaping (_ address: Address) -> Void) {
+        
+        let reverseGeocodingURL = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?coords=\(longitude),\(latitude)&output=json&orders=roadaddr,addr"
+        Alamofire.request(reverseGeocodingURL, method: .get, encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
+            print("주소 결과 응답: \(response)")
+            
+            switch response.result{
+            case .success:
+                guard let result = response.data else {return}
+                do {
+                    let decoder = JSONDecoder()
+                    let json = try decoder.decode(Address.self, from: result)
+                    completion(json)
+                } catch {
+                    print("error!\(error)")
+                }
+            default:
+                return
+            }
+        }
+    }
 }

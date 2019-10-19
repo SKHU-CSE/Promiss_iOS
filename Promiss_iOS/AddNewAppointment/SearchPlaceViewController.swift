@@ -77,12 +77,17 @@ extension SearchPlaceViewController: UITextFieldDelegate{
 }
 
 extension SearchPlaceViewController: NMFMapViewDelegate{
+    // 지도 탭
     func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
         self.view.endEditing(true)
     }
 
-    func mapViewRegionIsChanging(_ mapView: NMFMapView, byReason reason: Int) {
+    // 지도 위치 이동
+    func mapView(_ mapView: NMFMapView, regionDidChangeAnimated animated: Bool, byReason reason: Int) {
         mapCoordination = NMGLatLng(lat: mapView.latitude, lng: mapView.longitude)
+        SearchPlaceService.shared.getAddress(latitude: mapCoordination.lat, longitude: mapCoordination.lng) { addressResult in
+            self.addressLabel.text = addressResult.roadNextJibun
+        }
     }
 }
 
@@ -100,6 +105,7 @@ extension SearchPlaceViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
+    // 검색 결과 선택
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let place = placesList[indexPath.row]
 
@@ -121,6 +127,7 @@ extension SearchPlaceViewController: UITableViewDataSource, UITableViewDelegate{
         addressLabel.text = place.address()
     }
     
+    // 테이블 뷰 스크롤 시
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
     }
