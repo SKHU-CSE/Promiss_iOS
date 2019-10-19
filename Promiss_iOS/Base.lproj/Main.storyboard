@@ -2555,6 +2555,7 @@
                         <outlet property="detailAddressTextField" destination="0E4-Rw-HYE" id="PCH-jW-sJc"/>
                         <outlet property="fineLabel" destination="G1E-2D-XBY" id="DiS-Zo-lAW"/>
                         <outlet property="memberCountLabel" destination="PGn-OY-cxR" id="kYi-wQ-ebZ"/>
+                        <outlet property="memberTableView" destination="Ba4-yY-wc1" id="wal-2w-GUG"/>
                         <outlet property="nameLabel" destination="ZNq-Rm-w2i" id="LzS-oL-vA8"/>
                         <outlet property="plusButton" destination="8dy-rj-GBc" id="p6p-nV-6V5"/>
                         <outlet property="timeLabel" destination="ljj-oB-x08" id="p34-4z-5Np"/>
