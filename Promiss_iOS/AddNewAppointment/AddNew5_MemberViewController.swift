@@ -11,13 +11,16 @@ import UIKit
 class AddNew5_MemberViewController: UIViewController {
 
     @IBOutlet weak var memberView: UIView!
-    @IBOutlet weak var memberSearchView: UISearchBar!
+    @IBOutlet weak var memberSearchTextField: UITextField!
     @IBOutlet weak var memberSearchTableView: UITableView!
     @IBOutlet weak var nextButton: UIButton!
+    
+    var userList: [UserData?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewDesign()
+        setupDelegate()
     }
     
     @IBAction func clickBackButton(_ sender: Any) {
@@ -44,16 +47,16 @@ class AddNew5_MemberViewController: UIViewController {
             fineMoney: info.fineMoney,
             members: []) { addResult in
                 
-                switch addResult.result {
-                case 1000:  //fail
-                    self.showFailAlert()
-                case 2000:  //success
-                    guard let data = addResult.data else {return}
-                    AppointmentInfo.shared.saveAppointmentInfo(data: data)
-                    self.showNextViewController()
-                default:
-                    return
-                }
+            switch addResult.result {
+            case 1000:  //fail
+                self.showFailAlert()
+            case 2000:  //success
+                guard let data = addResult.data else {return}
+                AppointmentInfo.shared.saveAppointmentInfo(data: data)
+                self.showNextViewController()
+            default:
+                return
+            }
         }
     }
 }
@@ -63,6 +66,13 @@ extension AddNew5_MemberViewController {
         memberView.setAsWhiteBorderView()
         memberSearchTableView.setAsWhiteBorderView()
         nextButton.setAsYellowButton()
+    }
+    
+    func setupDelegate(){
+        memberSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        memberSearchTextField.delegate = self
+        memberSearchTableView.delegate = self
+        memberSearchTableView.dataSource = self
     }
     
     func showExitAlert() {
@@ -88,4 +98,32 @@ extension AddNew5_MemberViewController {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew6") else { return }
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+}
+
+extension AddNew5_MemberViewController: UITextFieldDelegate{
+    @objc func textFieldDidChange(_ textfield: UITextField){
+        guard let keyword = textfield.text else {return}
+        UserService.shared.findUser(userID: keyword) { data in
+            self.userList.removeAll()
+            for user in data{
+                self.userList.append(user)
+            }
+            self.memberSearchTableView.reloadData()
+        }
+    }
+}
+
+extension AddNew5_MemberViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        cell.textLabel!.text = userList[indexPath.row]?.user_name
+        cell.detailTextLabel!.text = "+"
+        return cell
+    }
+    
+    
 }

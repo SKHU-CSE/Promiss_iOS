@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        LoginService.shared.login(id, pw) { loginResult in
+        UserService.shared.login(id, pw) { loginResult in
             switch loginResult.result {
             case 1000:  //fail
                 self.showLoginFailAlert()

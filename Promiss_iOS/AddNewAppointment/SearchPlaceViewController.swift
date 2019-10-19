@@ -75,7 +75,7 @@ extension SearchPlaceViewController: UITextFieldDelegate{
         searchResultTableView.isHidden = false
         
         // 검색 (서버통신)
-        SearchPlaceService.shared.getSearchResult(keyword: keyword, latitude: mapCoordination.lat, longitude: mapCoordination.lng) { places in
+        AddressService.shared.getSearchResult(keyword: keyword, latitude: mapCoordination.lat, longitude: mapCoordination.lng) { places in
             
             self.placesList.removeAll()
             for place in places {
@@ -96,7 +96,7 @@ extension SearchPlaceViewController: NMFMapViewDelegate{
     // 지도 위치 이동
     func mapView(_ mapView: NMFMapView, regionDidChangeAnimated animated: Bool, byReason reason: Int) {
         mapCoordination = NMGLatLng(lat: mapView.latitude, lng: mapView.longitude)
-        SearchPlaceService.shared.getAddress(latitude: mapCoordination.lat, longitude: mapCoordination.lng) { addressResult in
+        AddressService.shared.getAddress(latitude: mapCoordination.lat, longitude: mapCoordination.lng) { addressResult in
             self.addressLabel.text = addressResult.roadNextJibun
         }
     }

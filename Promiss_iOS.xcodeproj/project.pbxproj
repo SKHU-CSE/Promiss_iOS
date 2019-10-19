@@ -25,15 +25,14 @@
 		3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */; };
 		3A4131A623218F5A003F0931 /* UnsubscribeViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4131A523218F5A003F0931 /* UnsubscribeViewController1.swift */; };
 		3A457E35235AD93B0068AC76 /* SearchPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A457E34235AD93B0068AC76 /* SearchPlaceViewController.swift */; };
-		3A457E37235B0AFF0068AC76 /* SearchPlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A457E36235B0AFF0068AC76 /* SearchPlaceService.swift */; };
+		3A457E37235B0AFF0068AC76 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A457E36235B0AFF0068AC76 /* AddressService.swift */; };
 		3A457E39235B0BAC0068AC76 /* SearchPlaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A457E38235B0BAC0068AC76 /* SearchPlaceResult.swift */; };
 		3A66CF6A234EFE1A006FE754 /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF68234EFE1A006FE754 /* DetailInfoViewController.swift */; };
 		3A66CF6B234EFE1A006FE754 /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */; };
-		3A66CF6F23584D37006FE754 /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF6E23584D37006FE754 /* SignupService.swift */; };
+		3A66CF6F23584D37006FE754 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF6E23584D37006FE754 /* UserService.swift */; };
 		3A66CF7223584DA3006FE754 /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7123584DA3006FE754 /* UserResult.swift */; };
 		3A66CF7423584F02006FE754 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7323584F02006FE754 /* APIConstants.swift */; };
 		3A66CF76235858EF006FE754 /* ErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF75235858EF006FE754 /* ErrorResult.swift */; };
-		3A66CF79235879FF006FE754 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF78235879FF006FE754 /* LoginService.swift */; };
 		3A66CF7D2358802C006FE754 /* MainViewController+user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7C2358802C006FE754 /* MainViewController+user.swift */; };
 		3A66CF7F23588718006FE754 /* LoginViewController+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF7E23588718006FE754 /* LoginViewController+layout.swift */; };
 		3A66CF812358923D006FE754 /* AppointmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF802358923D006FE754 /* AppointmentService.swift */; };
@@ -75,15 +74,14 @@
 		3A4131A123218DFE003F0931 /* ChangePwdViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwdViewController1.swift; sourceTree = "<group>"; };
 		3A4131A523218F5A003F0931 /* UnsubscribeViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsubscribeViewController1.swift; sourceTree = "<group>"; };
 		3A457E34235AD93B0068AC76 /* SearchPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewController.swift; sourceTree = "<group>"; };
-		3A457E36235B0AFF0068AC76 /* SearchPlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceService.swift; sourceTree = "<group>"; };
+		3A457E36235B0AFF0068AC76 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
 		3A457E38235B0BAC0068AC76 /* SearchPlaceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceResult.swift; sourceTree = "<group>"; };
 		3A66CF68234EFE1A006FE754 /* DetailInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailInfoViewController.swift; path = Promiss_iOS/DetailInfo/DetailInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddMemberViewController.swift; path = Promiss_iOS/DetailInfo/AddMemberViewController.swift; sourceTree = SOURCE_ROOT; };
-		3A66CF6E23584D37006FE754 /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
+		3A66CF6E23584D37006FE754 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3A66CF7123584DA3006FE754 /* UserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResult.swift; sourceTree = "<group>"; };
 		3A66CF7323584F02006FE754 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		3A66CF75235858EF006FE754 /* ErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResult.swift; sourceTree = "<group>"; };
-		3A66CF78235879FF006FE754 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		3A66CF7C2358802C006FE754 /* MainViewController+user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+user.swift"; sourceTree = "<group>"; };
 		3A66CF7E23588718006FE754 /* LoginViewController+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+layout.swift"; sourceTree = "<group>"; };
 		3A66CF802358923D006FE754 /* AppointmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentService.swift; sourceTree = "<group>"; };
@@ -211,10 +209,9 @@
 		3A66CF6D23584D16006FE754 /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
-				3A66CF6E23584D37006FE754 /* SignupService.swift */,
-				3A66CF78235879FF006FE754 /* LoginService.swift */,
+				3A66CF6E23584D37006FE754 /* UserService.swift */,
 				3A66CF802358923D006FE754 /* AppointmentService.swift */,
-				3A457E36235B0AFF0068AC76 /* SearchPlaceService.swift */,
+				3A457E36235B0AFF0068AC76 /* AddressService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -440,19 +437,18 @@
 				957AF9852332596500C6A764 /* ChangePwdViewController2.swift in Sources */,
 				3A66CF7223584DA3006FE754 /* UserResult.swift in Sources */,
 				3A34A41B233241F0008BB7E7 /* AddNew1_NameViewController.swift in Sources */,
-				3A457E37235B0AFF0068AC76 /* SearchPlaceService.swift in Sources */,
+				3A457E37235B0AFF0068AC76 /* AddressService.swift in Sources */,
 				3A66CF6A234EFE1A006FE754 /* DetailInfoViewController.swift in Sources */,
 				3A457E39235B0BAC0068AC76 /* SearchPlaceResult.swift in Sources */,
 				3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */,
 				3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */,
 				3A34A41F23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift in Sources */,
 				3A34A430233745F4008BB7E7 /* UIView+.swift in Sources */,
-				3A66CF79235879FF006FE754 /* LoginService.swift in Sources */,
 				3A66CF852358C457006FE754 /* AppointmentResult.swift in Sources */,
 				3A34A42E23373F57008BB7E7 /* UITextField+.swift in Sources */,
 				3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */,
 				3A457E35235AD93B0068AC76 /* SearchPlaceViewController.swift in Sources */,
-				3A66CF6F23584D37006FE754 /* SignupService.swift in Sources */,
+				3A66CF6F23584D37006FE754 /* UserService.swift in Sources */,
 				3A7308E5233B8EB800847A1E /* Keys.swift in Sources */,
 				3A66CF7423584F02006FE754 /* APIConstants.swift in Sources */,
 				3A34A438233A3DEC008BB7E7 /* MainViewController+map.swift in Sources */,

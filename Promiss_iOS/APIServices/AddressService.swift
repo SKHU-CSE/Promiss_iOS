@@ -9,8 +9,8 @@
 import Foundation
 import Alamofire
 
-struct SearchPlaceService {
-    static let shared = SearchPlaceService()
+struct AddressService {
+    static let shared = AddressService()
     let header: HTTPHeaders = [
         "Content-Type" : "application/json",
         "X-NCP-APIGW-API-KEY-ID" : Keys.shared.NMFClientId,
