@@ -80,4 +80,9 @@ extension MainViewController {
         
         UserInfo.shared.clearUserInfo()
     }
+    
+    func removeAppointmentInfo(){
+        self.timer?.invalidate()
+        AppointmentInfo.shared.clearAppointmentInfo()
+    }
 }

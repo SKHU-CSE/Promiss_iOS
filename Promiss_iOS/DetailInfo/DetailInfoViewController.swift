@@ -9,12 +9,25 @@
 import UIKit
 
 class DetailInfoViewController: UIViewController {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var detailAddressTextField: UITextView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var fineLabel: UILabel!
+    
+    @IBOutlet weak var memberCountLabel: UILabel!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var appointmentCancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewDesign()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getDetailInfo()
     }
     
     @IBAction func clickExitButton(_ sender: Any) {
@@ -54,5 +67,53 @@ extension DetailInfoViewController {
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+    
+    func getDetailInfo(){
+        AppointmentService.shared.getDetailAppointmentInfo(id: AppointmentInfo.shared.id) { detailResult in
+            
+            switch detailResult.result{
+            case 2000:
+                guard let data = detailResult.data else { return }
+                self.nameLabel.text = data.name
+                self.addressLabel.text = data.address
+                self.detailAddressTextField.text = data.detail
+                self.detailAddressTextField.isEditable = false
+                self.dateLabel.text = self.getDateString(org: data.date)
+                self.timeLabel.text = self.getDateTimeString(org: data.dateTime)
+                self.fineLabel.text = "\(data.fineTime)분 마다 \(data.fineMoney)원"
+                self.memberCountLabel.text = "(총 \(data.members?.count ?? 0)명)"
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    func getDateString(org: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        guard let date: Date = dateFormatter.date(from: org) else {return org}
+
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    func getDateTimeString(org: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+
+        guard let time: Date = dateFormatter.date(from: org) else {return org}
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour], from: time)
+        var ampm = "오전"
+        if components.hour! > 12 {
+            ampm = "오후"
+        }
+        
+        dateFormatter.dateFormat = "hh:mm"
+        return "\(ampm) \(dateFormatter.string(from: time))"
     }
 }

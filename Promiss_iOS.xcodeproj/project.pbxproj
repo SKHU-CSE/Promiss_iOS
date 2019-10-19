@@ -214,11 +214,11 @@
 		3A66CF7023584D78006FE754 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3A66CF7123584DA3006FE754 /* UserResult.swift */,
 				3A66CF7323584F02006FE754 /* APIConstants.swift */,
+				3A66CF7123584DA3006FE754 /* UserResult.swift */,
+				3A66CF842358C457006FE754 /* AppointmentResult.swift */,
 				3A66CF75235858EF006FE754 /* ErrorResult.swift */,
 				3A66CF822358BF56006FE754 /* UserInfo.swift */,
-				3A66CF842358C457006FE754 /* AppointmentResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
