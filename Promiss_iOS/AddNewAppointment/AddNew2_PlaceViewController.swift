@@ -11,10 +11,13 @@ import NMapsMap
 
 class AddNew2_PlaceViewController: UIViewController {
 
-    @IBOutlet weak var naverMapView: NMFNaverMapView!
+    @IBOutlet weak var mapView: NMFMapView!
     @IBOutlet weak var addressView: UIView!
+    @IBOutlet weak var addressButton: UIButton!
     @IBOutlet weak var detailAddressTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
+    
+    var dstMarker: NMFMarker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,9 @@ class AddNew2_PlaceViewController: UIViewController {
     @IBAction func clickNextButton(_ sender: Any) {
         showNextViewController()
     }
+    @IBAction func clickAddressButton(_ sender: Any) {
+        goToSearchPlace()
+    }
 }
 
 extension AddNew2_PlaceViewController {
@@ -43,7 +49,7 @@ extension AddNew2_PlaceViewController {
     }
     
     func setupDelegate() {
-        naverMapView.delegate = self
+        mapView.delegate = self
     }
 
     func showExitAlert() {
@@ -86,9 +92,23 @@ extension AddNew2_PlaceViewController: NMFMapViewDelegate{
     }
     
     func goToSearchPlace(){
-        guard let searchPlaceVC = self.storyboard?.instantiateViewController(withIdentifier: "searchPlaceVC") else { return }
+        let searchPlaceVC = self.storyboard?.instantiateViewController(withIdentifier: "searchPlaceVC") as! SearchPlaceViewController
         
+        searchPlaceVC.presentingVC = self
         searchPlaceVC.modalPresentationStyle = .fullScreen
         self.present(searchPlaceVC, animated: true, completion: nil)
+    }
+    
+    func getPlaceInfo(address: String, lat: Double, lng: Double){
+        // 주소 변경
+        addressButton.setTitle(address, for: .normal)
+        
+        // 지도 이동
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng))
+        mapView.moveCamera(cameraUpdate)
+        
+        // 마커 생성
+        dstMarker = NMFMarker(position: NMGLatLng(lat: lat, lng: lng))
+        dstMarker?.mapView = mapView
     }
 }

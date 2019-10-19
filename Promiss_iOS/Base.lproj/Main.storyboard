@@ -708,6 +708,9 @@
                                 <state key="normal" title="여기로 설정하기">
                                     <color key="titleColor" red="0.21960784310000001" green="0.24637588860000001" blue="0.51767313479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickSetButton:" destination="0lj-Pf-UwL" eventType="touchUpInside" id="rSb-tG-5l0"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTS-os-AmI">
                                 <rect key="frame" x="0.0" y="762" width="414" height="40"/>
@@ -1431,10 +1434,6 @@
                                     <action selector="clickNextButton:" destination="fOK-XE-XWL" eventType="touchUpInside" id="ysM-Q2-qqH"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUX-Fn-ZEC" customClass="NMFNaverMapView">
-                                <rect key="frame" x="16" y="215.5" width="382" height="298"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1FQ-zF-pgt">
                                 <rect key="frame" x="25" y="533.5" width="364" height="35"/>
                                 <subviews>
@@ -1443,6 +1442,9 @@
                                         <state key="normal" title="현재 위치의 주소가 표시됩니다.">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickAddressButton:" destination="fOK-XE-XWL" eventType="touchUpInside" id="Eiv-qz-bkB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnN-3R-T6C">
                                         <rect key="frame" x="8" y="2" width="31" height="31"/>
@@ -1451,6 +1453,9 @@
                                             <constraint firstAttribute="height" constant="31" id="kRi-zH-rlr"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="clickAddressButton:" destination="fOK-XE-XWL" eventType="touchUpInside" id="IId-vH-8ro"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1481,6 +1486,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUX-Fn-ZEC" customClass="NMFMapView">
+                                <rect key="frame" x="16" y="215.5" width="382" height="298"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.22352941179999999" green="0.25490196079999999" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1518,9 +1527,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="K4P-Kd-LLS"/>
                     <connections>
+                        <outlet property="addressButton" destination="5oT-6M-bc2" id="9BG-sp-LQf"/>
                         <outlet property="addressView" destination="1FQ-zF-pgt" id="jTQ-Uf-gvJ"/>
                         <outlet property="detailAddressTextView" destination="Zv7-VV-Vkm" id="1yX-ho-YQt"/>
-                        <outlet property="naverMapView" destination="vUX-Fn-ZEC" id="CaZ-dd-vdV"/>
+                        <outlet property="mapView" destination="vUX-Fn-ZEC" id="MSy-pL-m0T"/>
                         <outlet property="nextButton" destination="cbl-ZU-kgW" id="6Rp-aG-6oE"/>
                     </connections>
                 </viewController>

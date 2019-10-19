@@ -20,6 +20,7 @@ class SearchPlaceViewController: UIViewController {
     
     var placesList: [SearchPlaceResult.Place] = []
     var mapCoordination: NMGLatLng = NMGLatLng(lat: 37.541, lng: 126.986)
+    var presentingVC: AddNew2_PlaceViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,16 @@ class SearchPlaceViewController: UIViewController {
     
     @IBAction func clickExitButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func clickSetButton(_ sender: Any) {
+        let address = self.addressLabel.text ?? ""
+        let lat = self.mapCoordination.lat
+        let lng = self.mapCoordination.lng
+        
+        dismiss(animated: true) {
+            self.presentingVC?.getPlaceInfo(address: address, lat: lat, lng: lng)
+        }
     }
 }
 
