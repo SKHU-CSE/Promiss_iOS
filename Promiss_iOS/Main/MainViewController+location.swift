@@ -54,6 +54,7 @@ extension MainViewController: CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization() // 항상 위치정보를 사용한다는 판업이 발생
         locationManager.startUpdatingLocation()
+        print("updateLoction")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) { //위치가 업데이트될때마다

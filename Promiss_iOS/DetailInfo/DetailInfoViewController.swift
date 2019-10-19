@@ -61,7 +61,7 @@ extension DetailInfoViewController {
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "나가기", style: .destructive, handler: {
             action in
-            self.dismiss(animated: true, completion: nil)
+            self.leaveAppointment()
         })
         
         alert.addAction(cancelAction)
@@ -115,5 +115,28 @@ extension DetailInfoViewController {
         
         dateFormatter.dateFormat = "hh:mm"
         return "\(ampm) \(dateFormatter.string(from: time))"
+    }
+    
+    func leaveAppointment(){
+        AppointmentService.shared.leaveAppointment(id: UserInfo.shared.id, appointmentId: AppointmentInfo.shared.id) { isEnable in
+            if isEnable {
+                let alert = UIAlertController(title: "약속 나가기", message: "완료되었습니다.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: {
+                    action in
+                    AppointmentInfo.shared.clearAppointmentInfo()
+                    self.dismiss(animated: true, completion: nil)
+                })
+                
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
+                return
+            }
+            
+            let alert = UIAlertController(title: "실패", message: "네트워크에 문제가 있습니다. 잠시 후 시도해 주세요.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+        }
     }
 }

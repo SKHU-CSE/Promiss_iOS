@@ -112,4 +112,42 @@ struct AppointmentService {
             
         }
     }
+    
+    func leaveAppointment(id: Int, appointmentId: Int, completion: @escaping (_ : Bool) -> Void){
+        let body: Parameters = [
+            "id": id,
+            "appoint_id": appointmentId
+        ]
+        
+        Alamofire.request(APIConstants.LeaveURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON{ response in
+            print("약속 나가기 응답: \(response)")
+            
+            switch response.result {
+            case .success:
+                guard let result = response.data else {return}
+                
+                do {
+                    let object = try JSONSerialization.jsonObject(with: result, options: []) as? NSDictionary
+                    guard let jsonObject = object else {return}
+                    
+                    
+                    let checkCode = jsonObject.value(forKey: "result") as! String
+                    
+                    if checkCode == "OK" {
+                        completion(true)
+                    }else {
+                        completion(false)
+                    }
+                } catch {
+                    print("error!\(error)")
+                }
+                
+            case .failure(let err):
+                print(err.localizedDescription)
+                
+                
+            }
+        }
+        
+    }
 }

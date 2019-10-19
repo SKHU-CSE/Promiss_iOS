@@ -13,8 +13,8 @@ extension MainViewController {
         let current = Date(timeIntervalSinceNow: 9*60*60)
         let interval = AppointmentInfo.shared.time.timeIntervalSince(current)
         AppointmentInfo.shared.leftTime = Int(interval)
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(decreaseTime), userInfo: nil, repeats: true)
+        AppointmentInfo.shared.timer?.invalidate()
+        AppointmentInfo.shared.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(decreaseTime), userInfo: nil, repeats: true)
     }
     
     @objc func decreaseTime(){
@@ -30,7 +30,7 @@ extension MainViewController {
             AppointmentInfo.shared.leftTime -= 1
             leftTimeLabel.text = getLeftTimeString(time: leftTime)
         } else { // 시간 종료 시
-            timer?.invalidate()
+            AppointmentInfo.shared.timer?.invalidate()
             self.navigationController?.popViewController(animated: false)
             appointmentStatus = .Done
         }

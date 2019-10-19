@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     let locationManager = CLLocationManager()
     var myLocationMarker: NMFMarker = NMFMarker()
     var locationFollowMode: Bool = true
-    var timer: Timer?
     var appointmentStatus: AppStatus = .Done {
         didSet{
             self.setupMainInfo()
@@ -104,8 +103,7 @@ extension MainViewController {
         
         let okAction = UIAlertAction(title: "확인", style: .default) { action in
             self.goToLogin()
-            self.removeUserInfo()
-            self.removeAppointmentInfo()
+            UserInfo.shared.clearUserInfo()
             AppointmentInfo.shared.clearAppointmentInfo()
         }
         

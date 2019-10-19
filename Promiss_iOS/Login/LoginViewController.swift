@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
                 self.showLoginFailAlert()
             case 2000:  //success
                 guard let data = loginResult.data else {return}
-                self.saveUserInfo(id: data.id, userId: data.user_name, userPw: data.user_pw)
+                UserInfo.shared.saveUserInfo(id: data.id, userId: data.user_name, userPw: data.user_pw)
                 self.dismiss(animated: true, completion: nil)
             default:
                 return
@@ -54,14 +54,6 @@ extension LoginViewController {
     private func goToSignUp() {
         guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "signup") as? SignupViewController else { return }
         self.present(signUpViewController, animated: true)
-    }
-    
-    private func saveUserInfo(id: Int, userId: String, userPw: String){
-        UserDefaults.standard.set(userId, forKey: "id")
-        UserDefaults.standard.set(userPw, forKey: "pw")
-        
-        UserInfo.shared.id = id
-        UserInfo.shared.userId = userId
     }
     
     private func showLoginFailAlert() {
