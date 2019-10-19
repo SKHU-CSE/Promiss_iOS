@@ -19,6 +19,7 @@ class AddNew2_PlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewDesign()
+        setupDelegate()
     }
 
     @IBAction func clickBackButton(_ sender: Any) {
@@ -39,6 +40,10 @@ extension AddNew2_PlaceViewController {
         addressView.setAsWhiteBorderView()
         detailAddressTextView.setWhiteBorder()
         nextButton.setAsYellowButton()
+    }
+    
+    func setupDelegate() {
+        naverMapView.delegate = self
     }
 
     func showExitAlert() {
@@ -65,12 +70,25 @@ extension AddNew2_PlaceViewController {
     }
 }
 
-extension UITextView {
-    func setWhiteBorder() {
-        self.layer.cornerRadius = 6
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.white.cgColor
-        self.backgroundColor = UIColor.clear
-        self.textColor = UIColor.white
+
+extension AddNew2_PlaceViewController: NMFMapViewDelegate{
+    func mapView(_ mapView: NMFMapView, didTap symbol: NMFSymbol) -> Bool {
+        goToSearchPlace()
+        return true
+    }
+    
+    func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
+        goToSearchPlace()
+    }
+    
+    func mapViewRegionIsChanging(_ mapView: NMFMapView, byReason reason: Int) {
+        goToSearchPlace()
+    }
+    
+    func goToSearchPlace(){
+        guard let searchPlaceVC = self.storyboard?.instantiateViewController(withIdentifier: "searchPlaceVC") else { return }
+        
+        searchPlaceVC.modalPresentationStyle = .fullScreen
+        self.present(searchPlaceVC, animated: true, completion: nil)
     }
 }
