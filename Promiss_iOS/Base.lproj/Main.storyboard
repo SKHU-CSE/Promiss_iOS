@@ -2118,7 +2118,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용자 검색" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57O-le-HWx">
-                                <rect key="frame" x="25" y="283.5" width="364" height="22"/>
+                                <rect key="frame" x="25" y="247.5" width="364" height="22"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2137,15 +2137,48 @@
                                     <action selector="clickNextButton:" destination="R0l-Jm-q0e" eventType="touchUpInside" id="tCR-0a-3Dw"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pia-Ha-PMs">
-                                <rect key="frame" x="25" y="208.5" width="364" height="35"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pia-Ha-PMs" customClass="TagListView" customModule="TagListView">
+                                <rect key="frame" x="25" y="203.5" width="364" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="OWl-9N-eIy"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="OWl-9N-eIy"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.21960784310000001" green="0.24637588860000001" blue="0.51767313479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                        <color key="value" red="1" green="0.96078431369999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="removeButtonIconSize">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableRemoveButton" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="removeIconLineColor">
+                                        <color key="value" red="0.21960784310000001" green="0.24637588860000001" blue="0.51767313479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTextColor">
+                                        <color key="value" red="0.21960784310000001" green="0.24637588860000001" blue="0.51767313479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginX">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginY">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ejR-wc-SE2">
-                                <rect key="frame" x="25" y="389.5" width="364" height="352.5"/>
+                                <rect key="frame" x="25" y="353.5" width="364" height="388.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="DPk-Rf-enX" detailTextLabel="o3e-ic-4aN" style="IBUITableViewCellStyleValue1" id="Y38-vU-PtX">
@@ -2175,7 +2208,7 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WZ2-rR-MA6">
-                                <rect key="frame" x="25" y="335.5" width="364" height="35"/>
+                                <rect key="frame" x="25" y="299.5" width="364" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ChH-0u-ROY"/>
                                 </constraints>
@@ -2192,7 +2225,7 @@
                             <constraint firstItem="pia-Ha-PMs" firstAttribute="centerX" secondItem="Nfg-y0-3iz" secondAttribute="centerX" id="7XH-4S-0wP"/>
                             <constraint firstItem="fUu-3N-INF" firstAttribute="top" secondItem="I9k-Ud-vhZ" secondAttribute="bottom" constant="35" id="8Rl-P4-YeP"/>
                             <constraint firstItem="pia-Ha-PMs" firstAttribute="leading" secondItem="ptV-3U-OF3" secondAttribute="leading" id="95S-cz-Iwy"/>
-                            <constraint firstItem="pia-Ha-PMs" firstAttribute="top" secondItem="ptV-3U-OF3" secondAttribute="bottom" constant="15" id="Avb-w1-UNi"/>
+                            <constraint firstItem="pia-Ha-PMs" firstAttribute="top" secondItem="ptV-3U-OF3" secondAttribute="bottom" constant="10" id="Avb-w1-UNi"/>
                             <constraint firstItem="fUu-3N-INF" firstAttribute="centerX" secondItem="Nfg-y0-3iz" secondAttribute="centerX" id="Bbk-3C-YJ5"/>
                             <constraint firstItem="eKg-n5-DDS" firstAttribute="leading" secondItem="z8v-ZK-2wg" secondAttribute="leading" id="EcI-38-Pak"/>
                             <constraint firstItem="I9k-Ud-vhZ" firstAttribute="top" secondItem="eKg-n5-DDS" secondAttribute="bottom" id="Fs3-2J-YHn"/>
@@ -2209,7 +2242,7 @@
                             <constraint firstItem="ptV-3U-OF3" firstAttribute="leading" secondItem="fUu-3N-INF" secondAttribute="leading" id="mat-fr-o8R"/>
                             <constraint firstItem="eKg-n5-DDS" firstAttribute="top" secondItem="Nfg-y0-3iz" secondAttribute="top" id="qV6-G8-gGG"/>
                             <constraint firstItem="iSJ-H8-A4Y" firstAttribute="top" secondItem="ejR-wc-SE2" secondAttribute="bottom" constant="30" id="qbP-vs-sbK"/>
-                            <constraint firstItem="57O-le-HWx" firstAttribute="top" secondItem="pia-Ha-PMs" secondAttribute="bottom" constant="40" id="rXJ-CD-JEr"/>
+                            <constraint firstItem="57O-le-HWx" firstAttribute="top" secondItem="pia-Ha-PMs" secondAttribute="bottom" constant="20" id="rXJ-CD-JEr"/>
                             <constraint firstItem="ejR-wc-SE2" firstAttribute="leading" secondItem="57O-le-HWx" secondAttribute="leading" id="vTu-Wy-NDK"/>
                             <constraint firstItem="I9k-Ud-vhZ" firstAttribute="leading" secondItem="z8v-ZK-2wg" secondAttribute="leading" id="vfG-fm-cZy"/>
                             <constraint firstItem="iSJ-H8-A4Y" firstAttribute="leading" secondItem="z8v-ZK-2wg" secondAttribute="leading" constant="16" id="yWs-ok-lhv"/>
