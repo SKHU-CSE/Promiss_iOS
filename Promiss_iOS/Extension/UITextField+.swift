@@ -28,3 +28,10 @@ extension UITextField {
         }
     }
 }
+
+extension UITextView {
+    func setWhiteBorder() {
+        self.setAsWhiteBorderView()
+        self.textColor = UIColor.white
+    }
+}

@@ -60,6 +60,9 @@ extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) { //위치가 업데이트될때마다
         if let coor = manager.location?.coordinate{
             print("\(String(coor.latitude))/\(String(coor.longitude))")
+            UserInfo.shared.longitude = coor.longitude
+            UserInfo.shared.latitude = coor.latitude
+            
             updateMarker(coor.latitude, coor.longitude)
             if locationFollowMode {
                 print("followmode")

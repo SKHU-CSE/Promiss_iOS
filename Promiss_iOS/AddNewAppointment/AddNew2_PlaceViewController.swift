@@ -11,14 +11,18 @@ import NMapsMap
 
 class AddNew2_PlaceViewController: UIViewController {
 
-    @IBOutlet weak var naverMapView: NMFNaverMapView!
+    @IBOutlet weak var mapView: NMFMapView!
     @IBOutlet weak var addressView: UIView!
+    @IBOutlet weak var addressButton: UIButton!
     @IBOutlet weak var detailAddressTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
+    
+    var dstMarker: NMFMarker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewDesign()
+        setupDelegate()
     }
 
     @IBAction func clickBackButton(_ sender: Any) {
@@ -32,6 +36,9 @@ class AddNew2_PlaceViewController: UIViewController {
     @IBAction func clickNextButton(_ sender: Any) {
         showNextViewController()
     }
+    @IBAction func clickAddressButton(_ sender: Any) {
+        goToSearchPlace()
+    }
 }
 
 extension AddNew2_PlaceViewController {
@@ -39,6 +46,10 @@ extension AddNew2_PlaceViewController {
         addressView.setAsWhiteBorderView()
         detailAddressTextView.setWhiteBorder()
         nextButton.setAsYellowButton()
+    }
+    
+    func setupDelegate() {
+        mapView.delegate = self
     }
 
     func showExitAlert() {
@@ -54,23 +65,56 @@ extension AddNew2_PlaceViewController {
     }
     
     func showNextViewController() {
+        guard let marker = dstMarker else {
+            let alert = UIAlertController(title: "약속 만들기", message: "먼저 정확한 장소를 설정해 주세요.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew3") as? AddNew3_DateTimeViewController else { return }
-        
-        AppointmentInfo.shared.address = "성공회대학교"
-        AppointmentInfo.shared.detailAddress = "정보과학관 6109 프로젝트실"
-        AppointmentInfo.shared.latitude = 37.487117
-        AppointmentInfo.shared.longitude = 126.826409
-        
         self.navigationController?.pushViewController(nextVC, animated: true)
+        
+        AppointmentInfo.shared.address = addressButton.title(for: .normal)
+        AppointmentInfo.shared.detailAddress = detailAddressTextView.text
+        AppointmentInfo.shared.latitude = marker.position.lat
+        AppointmentInfo.shared.longitude = marker.position.lng
     }
 }
 
-extension UITextView {
-    func setWhiteBorder() {
-        self.layer.cornerRadius = 6
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.white.cgColor
-        self.backgroundColor = UIColor.clear
-        self.textColor = UIColor.white
+
+extension AddNew2_PlaceViewController: NMFMapViewDelegate{
+    func mapView(_ mapView: NMFMapView, didTap symbol: NMFSymbol) -> Bool {
+        goToSearchPlace()
+        return true
+    }
+    
+    func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
+        goToSearchPlace()
+    }
+    
+    func mapViewRegionIsChanging(_ mapView: NMFMapView, byReason reason: Int) {
+        goToSearchPlace()
+    }
+    
+    func goToSearchPlace(){
+        let searchPlaceVC = self.storyboard?.instantiateViewController(withIdentifier: "searchPlaceVC") as! SearchPlaceViewController
+        
+        searchPlaceVC.presentingVC = self
+        searchPlaceVC.modalPresentationStyle = .fullScreen
+        self.present(searchPlaceVC, animated: true, completion: nil)
+    }
+    
+    func getPlaceInfo(address: String, lat: Double, lng: Double){
+        // 주소 변경
+        addressButton.setTitle(address, for: .normal)
+        
+        // 지도 이동
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng))
+        mapView.moveCamera(cameraUpdate)
+        
+        // 마커 생성
+        dstMarker = NMFMarker(position: NMGLatLng(lat: lat, lng: lng))
+        dstMarker?.mapView = mapView
     }
 }
