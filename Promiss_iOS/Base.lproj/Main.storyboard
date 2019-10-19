@@ -2639,50 +2639,55 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="cCG-LV-6ul">
-                                <rect key="frame" x="16" y="287.5" width="382" height="56"/>
-                                <textInputTraits key="textInputTraits" smartQuotesType="no"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bv7-6T-NWV">
-                                <rect key="frame" x="30" y="373.5" width="354" height="363.5"/>
+                                <rect key="frame" x="30" y="352.5" width="354" height="384.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xpI-TA-cpc">
+                                <rect key="frame" x="30" y="287.5" width="354" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="iHE-tT-udM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.22352941179999999" green="0.25490196079999999" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="4dI-YV-n7P" firstAttribute="bottom" secondItem="18i-4D-utL" secondAttribute="bottom" constant="25" id="1xt-6E-LBg"/>
                             <constraint firstItem="iNs-KY-ZRx" firstAttribute="leading" secondItem="i5N-G9-69z" secondAttribute="leading" id="3N9-Pd-lPD"/>
-                            <constraint firstItem="cCG-LV-6ul" firstAttribute="leading" secondItem="4dI-YV-n7P" secondAttribute="leading" constant="16" id="3yo-zH-ZYR"/>
                             <constraint firstItem="4dI-YV-n7P" firstAttribute="trailing" secondItem="bv7-6T-NWV" secondAttribute="trailing" constant="30" id="4Vf-Q5-lct"/>
                             <constraint firstAttribute="trailing" secondItem="iNs-KY-ZRx" secondAttribute="trailing" id="4iY-ZO-wW9"/>
                             <constraint firstItem="Qe0-Lt-2js" firstAttribute="top" secondItem="iNs-KY-ZRx" secondAttribute="bottom" id="6VC-Bs-FKw"/>
-                            <constraint firstItem="cCG-LV-6ul" firstAttribute="top" secondItem="0dz-xi-ZRj" secondAttribute="bottom" constant="8" id="AKM-PW-zk3"/>
                             <constraint firstItem="t5I-tG-kd0" firstAttribute="leading" secondItem="Afn-Dt-k2z" secondAttribute="leading" id="Cls-cp-8R0"/>
-                            <constraint firstItem="cCG-LV-6ul" firstAttribute="centerX" secondItem="i5N-G9-69z" secondAttribute="centerX" id="D5Z-gj-BH7"/>
                             <constraint firstItem="bv7-6T-NWV" firstAttribute="leading" secondItem="4dI-YV-n7P" secondAttribute="leading" constant="30" id="Izu-hP-3Kw"/>
                             <constraint firstItem="t5I-tG-kd0" firstAttribute="top" secondItem="Afn-Dt-k2z" secondAttribute="bottom" constant="20" id="JNy-M5-g7G"/>
                             <constraint firstItem="18i-4D-utL" firstAttribute="top" secondItem="bv7-6T-NWV" secondAttribute="bottom" constant="40" id="KAH-Gv-4eV"/>
+                            <constraint firstItem="xpI-TA-cpc" firstAttribute="centerX" secondItem="i5N-G9-69z" secondAttribute="centerX" id="LNn-18-vc8"/>
                             <constraint firstItem="iNs-KY-ZRx" firstAttribute="top" secondItem="i5N-G9-69z" secondAttribute="top" id="MOu-Vv-05n"/>
                             <constraint firstItem="4dI-YV-n7P" firstAttribute="trailing" secondItem="Qe0-Lt-2js" secondAttribute="trailing" id="Nuy-HX-PcJ"/>
                             <constraint firstItem="0dz-xi-ZRj" firstAttribute="top" secondItem="t5I-tG-kd0" secondAttribute="bottom" constant="40" id="P34-cL-Dfg"/>
+                            <constraint firstItem="bv7-6T-NWV" firstAttribute="top" secondItem="xpI-TA-cpc" secondAttribute="bottom" constant="30" id="adr-Ta-XXj"/>
                             <constraint firstItem="Afn-Dt-k2z" firstAttribute="leading" secondItem="4dI-YV-n7P" secondAttribute="leading" constant="30" id="bd4-i8-HtJ"/>
                             <constraint firstItem="4dI-YV-n7P" firstAttribute="trailing" secondItem="18i-4D-utL" secondAttribute="trailing" constant="16" id="c4H-td-eET"/>
                             <constraint firstItem="bv7-6T-NWV" firstAttribute="centerX" secondItem="i5N-G9-69z" secondAttribute="centerX" id="dbz-eW-oVu"/>
                             <constraint firstItem="Qe0-Lt-2js" firstAttribute="top" secondItem="4dI-YV-n7P" secondAttribute="top" id="fOc-tT-dSg"/>
                             <constraint firstItem="Qe0-Lt-2js" firstAttribute="leading" secondItem="i5N-G9-69z" secondAttribute="leading" id="gAk-Rh-fuF"/>
+                            <constraint firstItem="xpI-TA-cpc" firstAttribute="top" secondItem="0dz-xi-ZRj" secondAttribute="bottom" constant="8" id="iL8-Yb-ggL"/>
                             <constraint firstItem="Afn-Dt-k2z" firstAttribute="top" secondItem="Qe0-Lt-2js" secondAttribute="bottom" constant="40" id="nM1-FM-Vjb"/>
+                            <constraint firstItem="xpI-TA-cpc" firstAttribute="leading" secondItem="0dz-xi-ZRj" secondAttribute="leading" id="p2b-EU-4F4"/>
                             <constraint firstItem="t5I-tG-kd0" firstAttribute="trailing" secondItem="Afn-Dt-k2z" secondAttribute="trailing" id="prc-xz-Tos"/>
                             <constraint firstItem="Afn-Dt-k2z" firstAttribute="centerX" secondItem="i5N-G9-69z" secondAttribute="centerX" id="voD-N1-cK5"/>
                             <constraint firstItem="0dz-xi-ZRj" firstAttribute="leading" secondItem="t5I-tG-kd0" secondAttribute="leading" id="yhD-rh-Obz"/>
-                            <constraint firstItem="bv7-6T-NWV" firstAttribute="top" secondItem="cCG-LV-6ul" secondAttribute="bottom" constant="30" id="z2e-G5-HJ0"/>
                             <constraint firstItem="18i-4D-utL" firstAttribute="leading" secondItem="4dI-YV-n7P" secondAttribute="leading" constant="16" id="zEb-QR-aL3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4dI-YV-n7P"/>
                     </view>
+                    <connections>
+                        <outlet property="memberListView" destination="t5I-tG-kd0" id="aPv-ZK-e6U"/>
+                        <outlet property="userSearchTableView" destination="bv7-6T-NWV" id="f33-Ql-9L6"/>
+                        <outlet property="userSearchTextField" destination="xpI-TA-cpc" id="OYt-C6-1ua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTr-mM-xvc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

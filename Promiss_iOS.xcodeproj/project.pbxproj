@@ -141,8 +141,8 @@
 		3A34A439233B7752008BB7E7 /* DetailInfo */ = {
 			isa = PBXGroup;
 			children = (
-				3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */,
 				3A66CF68234EFE1A006FE754 /* DetailInfoViewController.swift */,
+				3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */,
 			);
 			path = DetailInfo;
 			sourceTree = "<unknown>";

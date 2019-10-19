@@ -64,7 +64,6 @@ class AddNew5_MemberViewController: UIViewController {
 extension AddNew5_MemberViewController {
     func setupViewDesign() {
         memberView.setAsWhiteBorderView()
-        memberSearchTableView.setAsWhiteBorderView()
         nextButton.setAsYellowButton()
     }
     
@@ -124,6 +123,4 @@ extension AddNew5_MemberViewController: UITableViewDelegate, UITableViewDataSour
         cell.detailTextLabel!.text = "+"
         return cell
     }
-    
-    
 }
