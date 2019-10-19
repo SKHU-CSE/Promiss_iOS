@@ -23,7 +23,7 @@ class DetailInfoViewController: UIViewController {
     
     @IBOutlet weak var appointmentCancelButton: UIButton!
     
-    var memberIDList: [String?] = []
+    var memberIDList: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +61,9 @@ extension DetailInfoViewController {
 
     // MARK: - 뷰 전환
     func goToAddMemberVC() {
-        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addMember") else {
-            print("addMember 없음")
-            return
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addMember") as! AddMemberViewController
+        for memID in memberIDList{
+            nextVC.invitedMemberSet.insert(memID)
         }
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

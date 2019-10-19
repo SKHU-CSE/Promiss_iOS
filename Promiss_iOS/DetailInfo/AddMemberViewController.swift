@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import TagListView
 
 class AddMemberViewController: UIViewController {
 
-    @IBOutlet weak var memberListView: UIView!
+    @IBOutlet weak var memberListView: TagListView!
     @IBOutlet weak var userSearchTextField: UITextField!
     @IBOutlet weak var userSearchTableView: UITableView!
     
     var userList: [UserData?] = []
+    var invitedMemberSet = Set<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +33,18 @@ class AddMemberViewController: UIViewController {
 
 extension AddMemberViewController {
     func setupDesgin(){
-        memberListView.setAsWhiteBorderView()
+        memberListView.backgroundColor = UIColor.clear
         userSearchTextField.setWhiteBorder()
     }
     
-    func setupDelegate() { userSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
-               userSearchTextField.delegate = self
-               userSearchTableView.delegate = self
-               userSearchTableView.dataSource = self
+    func setupDelegate() {
+        userSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        userSearchTextField.delegate = self
+        
+        userSearchTableView.delegate = self
+        userSearchTableView.dataSource = self
+        
+        memberListView.delegate = self
     }
     
     func showInviteAlert() {
@@ -71,8 +77,49 @@ extension AddMemberViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-        cell.textLabel!.text = userList[indexPath.row]?.user_name
-        cell.detailTextLabel!.text = "+"
+        
+        let userName = userList[indexPath.row]?.user_name ?? "unknown"
+        cell.textLabel!.text = userName
+        
+        if invitedMemberSet.contains(userName){
+            cell.detailTextLabel!.text = "초대됨"
+            
+        } else if userList[indexPath.row]?.appointment_id == AppointmentInfo.shared.id {
+            cell.detailTextLabel!.text = "초대됨"
+            
+        } else {
+            cell.detailTextLabel!.text = "+"
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        guard let text = cell?.textLabel?.text else {return}
+        if invitedMemberSet.contains(text) {
+            cell?.isSelected = false
+            return
+        }
+        inviteMember(cell: cell, title: text)
+    }
+    
+    func inviteMember(cell: UITableViewCell?, title: String){
+        cell?.detailTextLabel?.text = "초대됨"
+        memberListView.addTag(title)
+        invitedMemberSet.insert(title)
+        userSearchTableView.reloadData()
+    }
+    
+    func removeMember(title: String){
+        memberListView.removeTag(title)
+        invitedMemberSet.remove(title)
+        userSearchTableView.reloadData()
+    }
+}
+
+extension AddMemberViewController: TagListViewDelegate {
+    func tagRemoveButtonPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        removeMember(title: title)
     }
 }
