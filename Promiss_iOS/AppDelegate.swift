@@ -8,14 +8,20 @@
 
 import UIKit
 import NMapsMap
+import PusherSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var pusher: Pusher?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         NMFAuthManager.shared().clientId = Keys.shared.NMFClientId
+        
+        let options = PusherClientOptions(host: .cluster(Keys.shared.PusherCluster))
+        pusher = Pusher(key: Keys.shared.PusherAppKey, options: options)
+
         return true
     }
 
@@ -25,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        pusher?.disconnect()
+        print("pusher disconnect")
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -38,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        pusher?.disconnect()
+        print("pusher disconnect")
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 

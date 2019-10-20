@@ -27,6 +27,8 @@
 		3A457E35235AD93B0068AC76 /* SearchPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A457E34235AD93B0068AC76 /* SearchPlaceViewController.swift */; };
 		3A457E37235B0AFF0068AC76 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A457E36235B0AFF0068AC76 /* AddressService.swift */; };
 		3A457E39235B0BAC0068AC76 /* SearchPlaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A457E38235B0BAC0068AC76 /* SearchPlaceResult.swift */; };
+		3A4A983C235C889300BDA051 /* MainViewController+pusher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A983B235C889300BDA051 /* MainViewController+pusher.swift */; };
+		3A4A983E235C940E00BDA051 /* PusherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A983D235C940E00BDA051 /* PusherResult.swift */; };
 		3A66CF6A234EFE1A006FE754 /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF68234EFE1A006FE754 /* DetailInfoViewController.swift */; };
 		3A66CF6B234EFE1A006FE754 /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */; };
 		3A66CF6F23584D37006FE754 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF6E23584D37006FE754 /* UserService.swift */; };
@@ -76,6 +78,8 @@
 		3A457E34235AD93B0068AC76 /* SearchPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewController.swift; sourceTree = "<group>"; };
 		3A457E36235B0AFF0068AC76 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
 		3A457E38235B0BAC0068AC76 /* SearchPlaceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceResult.swift; sourceTree = "<group>"; };
+		3A4A983B235C889300BDA051 /* MainViewController+pusher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+pusher.swift"; sourceTree = "<group>"; };
+		3A4A983D235C940E00BDA051 /* PusherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherResult.swift; sourceTree = "<group>"; };
 		3A66CF68234EFE1A006FE754 /* DetailInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailInfoViewController.swift; path = Promiss_iOS/DetailInfo/DetailInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddMemberViewController.swift; path = Promiss_iOS/DetailInfo/AddMemberViewController.swift; sourceTree = SOURCE_ROOT; };
 		3A66CF6E23584D37006FE754 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				3A34A41C23324763008BB7E7 /* MainViewController+layout.swift */,
 				3A66CF7C2358802C006FE754 /* MainViewController+user.swift */,
 				3A66CF8623598F91006FE754 /* MainViewController+timer.swift */,
+				3A4A983B235C889300BDA051 /* MainViewController+pusher.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				3A66CF7123584DA3006FE754 /* UserResult.swift */,
 				3A66CF842358C457006FE754 /* AppointmentResult.swift */,
 				3A66CF75235858EF006FE754 /* ErrorResult.swift */,
+				3A4A983D235C940E00BDA051 /* PusherResult.swift */,
 				3A66CF822358BF56006FE754 /* UserInfo.swift */,
 				3A457E38235B0BAC0068AC76 /* SearchPlaceResult.swift */,
 			);
@@ -424,6 +430,7 @@
 				3A66CF76235858EF006FE754 /* ErrorResult.swift in Sources */,
 				955078E8231D3E1800311DB8 /* LoginViewController.swift in Sources */,
 				3A66CF812358923D006FE754 /* AppointmentService.swift in Sources */,
+				3A4A983E235C940E00BDA051 /* PusherResult.swift in Sources */,
 				3A34A42C23373D8E008BB7E7 /* UIButton+.swift in Sources */,
 				3A34A42323325544008BB7E7 /* AddNew4_PenaltyViewController.swift in Sources */,
 				3A34A41D23324763008BB7E7 /* MainViewController+layout.swift in Sources */,
@@ -448,6 +455,7 @@
 				3A34A42E23373F57008BB7E7 /* UITextField+.swift in Sources */,
 				3A4131A223218DFE003F0931 /* ChangePwdViewController1.swift in Sources */,
 				3A457E35235AD93B0068AC76 /* SearchPlaceViewController.swift in Sources */,
+				3A4A983C235C889300BDA051 /* MainViewController+pusher.swift in Sources */,
 				3A66CF6F23584D37006FE754 /* UserService.swift in Sources */,
 				3A7308E5233B8EB800847A1E /* Keys.swift in Sources */,
 				3A66CF7423584F02006FE754 /* APIConstants.swift in Sources */,

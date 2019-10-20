@@ -33,11 +33,17 @@ extension MainViewController {
             createOrDetailButton.isHidden = false
             createOrDetailButton.setTitle("상세보기", for: .normal)
             
+            // pusher 연결 해제
+            disconnectPusher()
+            
         case .Done:
             appointmentNameLabel.text = "현재 약속이 없습니다."
             leftTimeLabel.text = ""
             createOrDetailButton.isHidden = false
             createOrDetailButton.setTitle("약속 만들기", for: .normal)
+            
+            // pusher 연결 해제
+            disconnectPusher()
             return
         }
     }

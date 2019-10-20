@@ -28,11 +28,17 @@ extension MainViewController {
                 UserInfo.shared.saveUserInfo(id: data.id, userId: data.user_name, userPw: data.user_pw)
                 
                 guard let appointmentID = data.appointment_id else {
+                    if self.appointmentStatus == .Progress{
+                        self.disconnectPusher()
+                    }
                     self.appointmentStatus = .Done
                     self.checkInvite(id: data.id)
                     return
                 }
                 if data.appointment_id == -1 {
+                    if self.appointmentStatus == .Progress{
+                        self.disconnectPusher()
+                    }
                     self.appointmentStatus = .Done
                     self.checkInvite(id: data.id)
                 } else {
@@ -53,17 +59,27 @@ extension MainViewController {
                 // 약속 대기중
                 if data.status == 0 {
                     AppointmentInfo.shared.saveAppointmentInfo(data: data)
+                    if self.appointmentStatus == .Progress{
+                        self.disconnectPusher()
+                    }
                     self.appointmentStatus = .Wait
                 }
                 // 약속 종료
                 else if data.status == 2 {
                     AppointmentInfo.shared.clearAppointmentInfo()
+                    if self.appointmentStatus == .Progress{
+                        self.disconnectPusher()
+                    }
                     self.appointmentStatus = .Done
                 }
                 
             case 2000: // 약속 실행 중
                 guard let data = appointmentResult.data else {return}
                 AppointmentInfo.shared.saveAppointmentInfo(data: data)
+                
+                if (self.appointmentStatus != .Progress) {
+                    self.connectPusher()
+                }
                 self.appointmentStatus = .Progress
                 
             default:
@@ -89,10 +105,13 @@ extension MainViewController {
             AppointmentInfo.shared.saveAppointmentInfo(data: data)
             switch data.status {
             case 0:
+                if self.appointmentStatus == .Progress{ self.disconnectPusher() }
                 self.appointmentStatus = .Wait
             case 1:
+                if (self.appointmentStatus != .Progress) { self.connectPusher() }
                 self.appointmentStatus = .Progress
             case 2:
+            if self.appointmentStatus == .Progress{ self.disconnectPusher() }
                 self.appointmentStatus = .Done
             default:
                 return

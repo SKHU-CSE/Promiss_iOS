@@ -17,6 +17,9 @@ extension UIColor {
     @nonobjc class var pmDarkBlue: UIColor {
         return UIColor(red: 57 / 255, green: 65 / 255, blue: 128 / 255, alpha: 1.0)
     }
+    @nonobjc class var pmDarkBluewithAlpha: UIColor {
+        return UIColor(red: 57 / 255, green: 65 / 255, blue: 128 / 255, alpha: 0.3)
+    }
     
     @nonobjc class var pmLemon: UIColor {
         return UIColor(red: 1, green: 245 / 255, blue: 117 / 255, alpha: 1.0)
@@ -24,6 +27,10 @@ extension UIColor {
     
     @nonobjc class var pmIndiPink: UIColor {
         return UIColor(red: 248 / 255, green: 105 / 255, blue: 110 / 255, alpha: 1.0)
+    }
+    
+    @nonobjc class var pmGreen: UIColor {
+        return UIColor(red: 146 / 255, green: 208 / 255, blue: 80 / 255, alpha: 1.0)
     }
     
     @nonobjc class var pmSkyBlue: UIColor {
