@@ -30,6 +30,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var logoLabel: UILabel!
     
+    @IBOutlet weak var inviteMessageView: UIView!
+    @IBOutlet weak var inviteAppointmentNameLable: UILabel!
+    
     @IBOutlet weak var appointmentNameLabel: UILabel!
     @IBOutlet weak var leftTimeLabel: UILabel!
     
@@ -40,6 +43,7 @@ class MainViewController: UIViewController {
         
         setupTitleView()
         setupMapView()
+        setupInviteView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +76,23 @@ class MainViewController: UIViewController {
         case .Done:
             goToAddNewAppointment()
         }
+    }
+    
+    @IBAction func clickInviteAcceptButton(_ sender: Any) {
+        inviteMessageView.alpha = 1
+        UIView.animate(withDuration: 1.0, animations: ({
+          self.inviteMessageView.alpha  = 0
+        }))
+        
+        print("초대수락")
+    }
+    @IBAction func clickInviteRejectButton(_ sender: Any) {
+        inviteMessageView.alpha = 1
+        UIView.animate(withDuration: 1.0, animations: ({
+          self.inviteMessageView.alpha  = 0
+        }))
+        
+        print("초대거절")
     }
 }
 
@@ -145,4 +166,14 @@ extension MainViewController {
         self.present(loginVC, animated: true)
     }
     
+    func showInviteMessage(appointmentName: String){
+        inviteMessageView.isHidden = false
+
+        inviteMessageView.center.y = -(self.view.frame.height + 30)
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 10.0, initialSpringVelocity: 10.0, options: .curveEaseOut, animations: ({
+            self.inviteMessageView.center.y = 110
+        }), completion: nil)
+        
+        inviteAppointmentNameLable.text = appointmentName
+    }
 }
