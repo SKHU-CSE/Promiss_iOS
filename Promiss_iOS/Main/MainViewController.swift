@@ -30,6 +30,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var logoLabel: UILabel!
     
+    @IBOutlet weak var inviteMessageView: UIView!
+    @IBOutlet weak var inviteAppointmentNameLable: UILabel!
+    
     @IBOutlet weak var appointmentNameLabel: UILabel!
     @IBOutlet weak var leftTimeLabel: UILabel!
     
@@ -40,6 +43,7 @@ class MainViewController: UIViewController {
         
         setupTitleView()
         setupMapView()
+        setupInviteView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +68,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func clickCreateOrDetailButton(_ sender: Any) {
+        print("여기가 문제임. 얘가 영문 모를 곳에서 계속 호출되는 중임")
         switch appointmentStatus{
         case .Progress:
             break
@@ -72,6 +77,17 @@ class MainViewController: UIViewController {
         case .Done:
             goToAddNewAppointment()
         }
+    }
+    
+    @IBAction func clickInviteAcceptButton(_ sender: Any) {
+        acceptInvite(accept: true)
+        hideInviteMessage()
+        print("초대수락")
+    }
+    @IBAction func clickInviteRejectButton(_ sender: Any) {
+        acceptInvite(accept: false)
+        hideInviteMessage()
+        print("초대거절")
     }
 }
 
@@ -134,6 +150,7 @@ extension MainViewController {
     }
     
     func goToAddNewAppointment() {
+        print("얘가 문제인줄 알았는데 얘를 호출하는 곳을 가봤더니")
         guard let addNewVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew") else {return}
         addNewVC.modalPresentationStyle = .fullScreen
         self.present(addNewVC, animated: true, completion: nil)
@@ -145,4 +162,21 @@ extension MainViewController {
         self.present(loginVC, animated: true)
     }
     
+    func showInviteMessage(appointmentName: String){
+        inviteMessageView.alpha = 1
+        inviteMessageView.center.y = -(self.view.frame.height + 30)
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 10.0, initialSpringVelocity: 10.0, options: .curveEaseOut, animations: ({
+            self.inviteMessageView.center.y = 110
+        }), completion: nil)
+        
+        inviteAppointmentNameLable.text = appointmentName
+    }
+    
+    func hideInviteMessage() {
+        inviteMessageView.alpha = 1
+        UIView.animate(withDuration: 1.0, animations: ({
+          self.inviteMessageView.alpha  = 0
+        }))
+        
+    }
 }

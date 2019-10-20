@@ -29,10 +29,12 @@ extension MainViewController {
                 
                 guard let appointmentID = data.appointment_id else {
                     self.appointmentStatus = .Done
+                    self.checkInvite(id: data.id)
                     return
                 }
                 if data.appointment_id == -1 {
                     self.appointmentStatus = .Done
+                    self.checkInvite(id: data.id)
                 } else {
                     self.getAppointmentInfo(id: appointmentID)
                 }
@@ -69,5 +71,34 @@ extension MainViewController {
             }
             self.getLeftTime()
         })
+    }
+    
+    func checkInvite(id: Int) {
+        AppointmentService.shared.checkInvite(id: id) { result in
+            switch result.result{
+            case 2000:
+                self.showInviteMessage(appointmentName: result.data?.name ?? "약속")
+            default:
+                break
+            }
+        }
+    }
+    
+    func acceptInvite(accept: Bool){
+        AppointmentService.shared.acceptInvite(id: UserInfo.shared.id, accept: accept) { (data) in
+            AppointmentInfo.shared.saveAppointmentInfo(data: data)
+            switch data.status {
+            case 0:
+                self.appointmentStatus = .Wait
+            case 1:
+                self.appointmentStatus = .Progress
+            case 2:
+                self.appointmentStatus = .Done
+            default:
+                return
+            }
+            self.setupMainInfo()
+            self.getLeftTime()
+        }
     }
 }
