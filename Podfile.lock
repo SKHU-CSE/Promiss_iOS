@@ -1,24 +1,40 @@
 PODS:
   - Alamofire (4.9.0)
+  - CryptoSwift (0.15.0)
   - NMapsMap (3.2.1)
+  - PusherSwift (7.2.0):
+    - CryptoSwift (~> 0.9)
+    - ReachabilitySwift (= 4.3.0)
+    - Starscream (~> 3.0.5)
+  - ReachabilitySwift (4.3.0)
+  - Starscream (3.0.6)
   - TagListView (1.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.9.0)
   - NMapsMap (~> 3.2.0)
+  - PusherSwift (~> 7.2.0)
   - TagListView (~> 1.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CryptoSwift
     - NMapsMap
+    - PusherSwift
+    - ReachabilitySwift
+    - Starscream
     - TagListView
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  CryptoSwift: 769f58a9e89f64e8796c2e59ce5f002dc81a2438
   NMapsMap: 432c7f5e90f5c406d52c3137f425143352d78430
+  PusherSwift: a5369a01e8a9106b4897e9186265af1426726062
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: 5fd4a65fa9b129baeec1a17191af9606ec8db30b
+PODFILE CHECKSUM: d1d3c26b6f744431d482160cfcddd5273f5c33b0
 
 COCOAPODS: 1.8.4
