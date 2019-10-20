@@ -144,10 +144,43 @@ struct AppointmentService {
                 
             case .failure(let err):
                 print(err.localizedDescription)
-                
-                
             }
         }
+    }
+    
+    func inviteMembers(appointID: Int, num: Int, members: [Int], completion: @escaping () -> Void){
         
+        var body: Parameters = [
+            "id": appointID,
+            "num": num
+        ]
+        for i in 0..<members.count {
+            body.updateValue(members[i], forKey: "member_id\(i)")
+        }
+        
+        Alamofire.request(APIConstants.NewMemberURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON{ response in
+            print("약속 초대 응답: \(response)")
+            
+            switch response.result {
+            case .success:
+                guard let result = response.data else {return}
+                
+                do {
+                    let object = try JSONSerialization.jsonObject(with: result, options: []) as? NSDictionary
+                    guard let jsonObject = object else {return}
+                    
+                    let checkCode = jsonObject.value(forKey: "result") as! String
+                    
+                    if checkCode == "OK" {
+                        completion()
+                    }
+                } catch {
+                    print("error!\(error)")
+                }
+                
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
     }
 }

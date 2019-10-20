@@ -23,7 +23,8 @@ class DetailInfoViewController: UIViewController {
     
     @IBOutlet weak var appointmentCancelButton: UIButton!
     
-    var memberIDList: [String] = []
+    var invitedMemberName: [String] = []
+    var invitedMemberID: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +63,8 @@ extension DetailInfoViewController {
     // MARK: - 뷰 전환
     func goToAddMemberVC() {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addMember") as! AddMemberViewController
-        for memID in memberIDList{
-            nextVC.invitedMemberSet.insert(memID)
+        for i in 0..<invitedMemberID.count{
+            nextVC.invitedMemberDict.updateValue(invitedMemberID[i], forKey: invitedMemberName[i])
         }
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -161,9 +162,11 @@ extension DetailInfoViewController {
             return
         }
         self.memberCountLabel.text = "(총 \(members.count)명)"
-        memberIDList.removeAll()
+        invitedMemberName.removeAll()
+        invitedMemberID.removeAll()
         for mem in members {
-            memberIDList.append(mem.userName)
+            invitedMemberName.append(mem.userName)
+            invitedMemberID.append(mem.userID)
         }
         self.memberTableView.reloadData()
     }
@@ -172,12 +175,12 @@ extension DetailInfoViewController {
 extension DetailInfoViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return memberIDList.count
+        return invitedMemberName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel!.text = memberIDList[indexPath.row]
+        cell.textLabel!.text = invitedMemberName[indexPath.row]
         
        return cell
     }

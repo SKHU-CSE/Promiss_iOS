@@ -17,7 +17,7 @@ class AddNew5_MemberViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     var userList: [UserData?] = []
-    var invitedMemberSet = Set<String>()
+    var invitedMemberDict = Dictionary<String, Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,11 @@ class AddNew5_MemberViewController: UIViewController {
     
     @IBAction func clickNextButton(_ sender: Any) {
         let info = AppointmentInfo.shared
+        var members: [Int] = []
+        for id in invitedMemberDict.values{
+            members.append(id)
+            print(id)
+        }
         
         AppointmentService.shared.addAppointment(
             id: UserInfo.shared.id,
@@ -47,7 +52,7 @@ class AddNew5_MemberViewController: UIViewController {
             time: info.timeString,
             fineTime: info.fineTime,
             fineMoney: info.fineMoney,
-            members: []) { addResult in
+            members: members) { addResult in
                 
             switch addResult.result {
             case 1000:  //fail
@@ -66,6 +71,7 @@ class AddNew5_MemberViewController: UIViewController {
 extension AddNew5_MemberViewController {
     func setupViewDesign() {
         memberView.backgroundColor = UIColor.clear
+        memberSearchTextField.setWhiteBorder()
         nextButton.setAsYellowButton()
     }
     
@@ -126,7 +132,7 @@ extension AddNew5_MemberViewController: UITableViewDelegate, UITableViewDataSour
         let userName = userList[indexPath.row]?.user_name ?? "unknown"
         cell.textLabel!.text = userName
         
-        if invitedMemberSet.contains(userName){
+        if invitedMemberDict.keys.contains(userName){
             cell.detailTextLabel!.text = "초대됨"
             
         } else if UserInfo.shared.userId == userName {
@@ -140,25 +146,25 @@ extension AddNew5_MemberViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
+        guard let data = userList[indexPath.row] else {return}
         
-        guard let text = cell?.textLabel?.text else {return}
-        if invitedMemberSet.contains(text) {
+        if invitedMemberDict.keys.contains(data.user_name) {
             cell?.isSelected = false
             return
         }
-        inviteMember(cell: cell, title: text)
+        inviteMember(cell: cell, name: data.user_name, id: data.id)
     }
     
-    func inviteMember(cell: UITableViewCell?, title: String){
+    func inviteMember(cell: UITableViewCell?, name: String, id: Int){
         cell?.detailTextLabel?.text = "초대됨"
-        memberView.addTag(title)
-        invitedMemberSet.insert(title)
+        memberView.addTag(name)
+        invitedMemberDict.updateValue(id, forKey: name)
         memberSearchTableView.reloadData()
     }
     
     func removeMember(title: String){
         memberView.removeTag(title)
-        invitedMemberSet.remove(title)
+        invitedMemberDict.removeValue(forKey: title)
         memberSearchTableView.reloadData()
     }
 }
