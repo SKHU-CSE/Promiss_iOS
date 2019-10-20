@@ -18,7 +18,7 @@ struct APIConstants {
     static let SignupURL: String = UserURL + "/register"
     static let DeleteURL: String = UserURL + "/delete"
     static let ChangePwdURL: String = UserURL + "/changePassword"
-    static let SearchURL: String = UserURL + "/search"
+    static let SearchUserURL: String = UserURL + "/search"
     
     static let AppointmentURL: String = BaseURL + "/Appointment"
     static let NewAppURL: String = AppointmentURL + "/newAppointment"

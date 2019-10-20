@@ -40,7 +40,7 @@ class SignupViewController: UIViewController {
             return
         }
         
-        SignupService.shared.signup(id, pw) { signupResult in
+        UserService.shared.signup(id, pw) { signupResult in
             switch signupResult.result {
             case 1000:  //fail
                 self.showIdAlertLabel()

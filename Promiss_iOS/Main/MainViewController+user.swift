@@ -16,20 +16,25 @@ extension MainViewController {
             return
         }
         
-        LoginService.shared.login(userId, userPw) { loginResult in
+        UserService.shared.login(userId, userPw) { loginResult in
             switch loginResult.result {
             case 1000:  //fail
                 self.goToLogin()
                 
             case 2000:  //success
                 guard let data = loginResult.data else {return}
-                UserInfo.shared.saveUserInfo(id: data.id, userId: data.user_name, userPw: data.user_pw)
-                self.idLabel.text = userId
                 
+                self.idLabel.text = userId
+                UserInfo.shared.saveUserInfo(id: data.id, userId: data.user_name, userPw: data.user_pw)
+                
+                guard let appointmentID = data.appointment_id else {
+                    self.appointmentStatus = .Done
+                    return
+                }
                 if data.appointment_id == -1 {
                     self.appointmentStatus = .Done
                 } else {
-                    self.getAppointmentInfo(id: data.appointment_id)
+                    self.getAppointmentInfo(id: appointmentID)
                 }
                 
             default:

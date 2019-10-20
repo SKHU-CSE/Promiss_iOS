@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.9.0)
   - NMapsMap (3.2.1)
+  - TagListView (1.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.9.0)
   - NMapsMap (~> 3.2.0)
+  - TagListView (~> 1.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - NMapsMap
+    - TagListView
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   NMapsMap: 432c7f5e90f5c406d52c3137f425143352d78430
+  TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: c29c4fe39c0284035a5a4c91a5bcc69a87261ccd
+PODFILE CHECKSUM: 5fd4a65fa9b129baeec1a17191af9606ec8db30b
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.8.4

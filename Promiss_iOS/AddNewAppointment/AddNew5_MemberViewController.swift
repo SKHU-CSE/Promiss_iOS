@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import TagListView
 
 class AddNew5_MemberViewController: UIViewController {
 
-    @IBOutlet weak var memberView: UIView!
-    @IBOutlet weak var memberSearchView: UISearchBar!
+    @IBOutlet weak var memberView: TagListView!
+    @IBOutlet weak var memberSearchTextField: UITextField!
     @IBOutlet weak var memberSearchTableView: UITableView!
     @IBOutlet weak var nextButton: UIButton!
+    
+    var userList: [UserData?] = []
+    var invitedMemberDict = Dictionary<String, Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewDesign()
+        setupDelegate()
     }
     
     @IBAction func clickBackButton(_ sender: Any) {
@@ -30,6 +35,11 @@ class AddNew5_MemberViewController: UIViewController {
     
     @IBAction func clickNextButton(_ sender: Any) {
         let info = AppointmentInfo.shared
+        var members: [Int] = []
+        for id in invitedMemberDict.values{
+            members.append(id)
+            print(id)
+        }
         
         AppointmentService.shared.addAppointment(
             id: UserInfo.shared.id,
@@ -42,27 +52,35 @@ class AddNew5_MemberViewController: UIViewController {
             time: info.timeString,
             fineTime: info.fineTime,
             fineMoney: info.fineMoney,
-            members: []) { addResult in
+            members: members) { addResult in
                 
-                switch addResult.result {
-                case 1000:  //fail
-                    self.showFailAlert()
-                case 2000:  //success
-                    guard let data = addResult.data else {return}
-                    AppointmentInfo.shared.saveAppointmentInfo(data: data)
-                    self.showNextViewController()
-                default:
-                    return
-                }
+            switch addResult.result {
+            case 1000:  //fail
+                self.showFailAlert()
+            case 2000:  //success
+                guard let data = addResult.data else {return}
+                AppointmentInfo.shared.saveAppointmentInfo(data: data)
+                self.showNextViewController()
+            default:
+                return
+            }
         }
     }
 }
 
 extension AddNew5_MemberViewController {
     func setupViewDesign() {
-        memberView.setAsWhiteBorderView()
-        memberSearchTableView.setAsWhiteBorderView()
+        memberView.backgroundColor = UIColor.clear
+        memberSearchTextField.setWhiteBorder()
         nextButton.setAsYellowButton()
+    }
+    
+    func setupDelegate(){
+        memberSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        memberSearchTextField.delegate = self
+        memberSearchTableView.delegate = self
+        memberSearchTableView.dataSource = self
+        memberView.delegate = self
     }
     
     func showExitAlert() {
@@ -87,5 +105,72 @@ extension AddNew5_MemberViewController {
     func showNextViewController() {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew6") else { return }
         self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+}
+
+extension AddNew5_MemberViewController: UITextFieldDelegate{
+    @objc func textFieldDidChange(_ textfield: UITextField){
+        guard let keyword = textfield.text else {return}
+        UserService.shared.findUser(userID: keyword) { data in
+            self.userList.removeAll()
+            for user in data{
+                self.userList.append(user)
+            }
+            self.memberSearchTableView.reloadData()
+        }
+    }
+}
+
+extension AddNew5_MemberViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        
+        let userName = userList[indexPath.row]?.user_name ?? "unknown"
+        cell.textLabel!.text = userName
+        
+        if invitedMemberDict.keys.contains(userName){
+            cell.detailTextLabel!.text = "초대됨"
+            
+        } else if UserInfo.shared.userId == userName {
+            cell.detailTextLabel!.text = "초대됨"
+            
+        } else {
+            cell.detailTextLabel!.text = "+"
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        guard let data = userList[indexPath.row] else {return}
+        
+        if invitedMemberDict.keys.contains(data.user_name) {
+            cell?.isSelected = false
+            return
+        }
+        inviteMember(cell: cell, name: data.user_name, id: data.id)
+    }
+    
+    func inviteMember(cell: UITableViewCell?, name: String, id: Int){
+        cell?.detailTextLabel?.text = "초대됨"
+        memberView.addTag(name)
+        invitedMemberDict.updateValue(id, forKey: name)
+        memberSearchTableView.reloadData()
+    }
+    
+    func removeMember(title: String){
+        memberView.removeTag(title)
+        invitedMemberDict.removeValue(forKey: title)
+        memberSearchTableView.reloadData()
+    }
+}
+
+extension AddNew5_MemberViewController: TagListViewDelegate {
+    func tagRemoveButtonPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        removeMember(title: title)
     }
 }

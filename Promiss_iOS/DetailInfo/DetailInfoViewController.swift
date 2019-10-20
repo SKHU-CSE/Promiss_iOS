@@ -19,11 +19,17 @@ class DetailInfoViewController: UIViewController {
     
     @IBOutlet weak var memberCountLabel: UILabel!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var memberTableView: UITableView!
+    
     @IBOutlet weak var appointmentCancelButton: UIButton!
+    
+    var invitedMemberName: [String] = []
+    var invitedMemberID: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewDesign()
+        setupDelegate()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,15 +49,22 @@ class DetailInfoViewController: UIViewController {
 }
 
 extension DetailInfoViewController {
+    // MARK: - setup
     func setupViewDesign() {
         plusButton.setImage(UIImage(named: "btn_plus"), for: .normal)
         appointmentCancelButton.layer.cornerRadius = 6
     }
     
+    func setupDelegate(){
+        memberTableView.delegate = self
+        memberTableView.dataSource = self
+    }
+
+    // MARK: - 뷰 전환
     func goToAddMemberVC() {
-        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addMember") else {
-            print("addMember 없음")
-            return
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "addMember") as! AddMemberViewController
+        for i in 0..<invitedMemberID.count{
+            nextVC.invitedMemberDict.updateValue(invitedMemberID[i], forKey: invitedMemberName[i])
         }
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -69,20 +82,14 @@ extension DetailInfoViewController {
         present(alert, animated: true)
     }
     
-    func getDetailInfo(){
-        AppointmentService.shared.getDetailAppointmentInfo(id: AppointmentInfo.shared.id) { detailResult in
+    
+    // MARK: - 통신
+    private func getDetailInfo(){ AppointmentService.shared.getDetailAppointmentInfo(id: AppointmentInfo.shared.id) { detailResult in
             
             switch detailResult.result{
             case 2000:
                 guard let data = detailResult.data else { return }
-                self.nameLabel.text = data.name
-                self.addressLabel.text = data.address
-                self.detailAddressTextField.text = data.detail
-                self.detailAddressTextField.isEditable = false
-                self.dateLabel.text = self.getDateString(org: data.date)
-                self.timeLabel.text = self.getDateTimeString(org: data.dateTime)
-                self.fineLabel.text = "\(data.fineTime)분 마다 \(data.fineMoney)원"
-                self.memberCountLabel.text = "(총 \(data.members?.count ?? 0)명)"
+                self.setupDetailInfo(data: data)
                 
             default:
                 break
@@ -90,34 +97,7 @@ extension DetailInfoViewController {
         }
     }
     
-    func getDateString(org: String) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-
-        guard let date: Date = dateFormatter.date(from: org) else {return org}
-
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        return dateFormatter.string(from: date)
-    }
-    
-    func getDateTimeString(org: String) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm:ss"
-
-        guard let time: Date = dateFormatter.date(from: org) else {return org}
-        
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour], from: time)
-        var ampm = "오전"
-        if components.hour! > 12 {
-            ampm = "오후"
-        }
-        
-        dateFormatter.dateFormat = "hh:mm"
-        return "\(ampm) \(dateFormatter.string(from: time))"
-    }
-    
-    func leaveAppointment(){
+    private func leaveAppointment(){
         AppointmentService.shared.leaveAppointment(id: UserInfo.shared.id, appointmentId: AppointmentInfo.shared.id) { isEnable in
             if isEnable {
                 let alert = UIAlertController(title: "약속 나가기", message: "완료되었습니다.", preferredStyle: .alert)
@@ -138,5 +118,70 @@ extension DetailInfoViewController {
             alert.addAction(okAction)
             self.present(alert, animated: true)
         }
+    }
+    
+    // MARK: - 기능
+    private func getDateString(org: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        guard let date: Date = dateFormatter.date(from: org) else {return org}
+
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    private func getDateTimeString(org: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+
+        guard let time: Date = dateFormatter.date(from: org) else {return org}
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour], from: time)
+        var ampm = "오전"
+        if components.hour! > 12 {
+            ampm = "오후"
+        }
+        
+        dateFormatter.dateFormat = "hh:mm"
+        return "\(ampm) \(dateFormatter.string(from: time))"
+    }
+    
+    private func setupDetailInfo(data: AppointmentData){
+        self.nameLabel.text = data.name
+        self.addressLabel.text = data.address
+        self.detailAddressTextField.text = data.detail
+        self.detailAddressTextField.isEditable = false
+        self.dateLabel.text = self.getDateString(org: data.date)
+        self.timeLabel.text = self.getDateTimeString(org: data.dateTime)
+        self.fineLabel.text = "\(data.fineTime)분 마다 \(data.fineMoney)원"
+        
+        guard let members = data.members else {
+            self.memberCountLabel.text = "(총 0명)"
+            return
+        }
+        self.memberCountLabel.text = "(총 \(members.count)명)"
+        invitedMemberName.removeAll()
+        invitedMemberID.removeAll()
+        for mem in members {
+            invitedMemberName.append(mem.userName)
+            invitedMemberID.append(mem.userID)
+        }
+        self.memberTableView.reloadData()
+    }
+}
+
+extension DetailInfoViewController: UITableViewDataSource, UITableViewDelegate {
+    // MARK: - UITableViewDelegate, UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return invitedMemberName.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.textLabel!.text = invitedMemberName[indexPath.row]
+        
+       return cell
     }
 }
