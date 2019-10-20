@@ -83,4 +83,22 @@ extension MainViewController {
             }
         }
     }
+    
+    func acceptInvite(accept: Bool){
+        AppointmentService.shared.acceptInvite(id: UserInfo.shared.id, accept: accept) { (data) in
+            AppointmentInfo.shared.saveAppointmentInfo(data: data)
+            switch data.status {
+            case 0:
+                self.appointmentStatus = .Wait
+            case 1:
+                self.appointmentStatus = .Progress
+            case 2:
+                self.appointmentStatus = .Done
+            default:
+                return
+            }
+            self.setupMainInfo()
+            self.getLeftTime()
+        }
+    }
 }

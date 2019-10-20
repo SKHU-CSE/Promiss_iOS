@@ -74,6 +74,7 @@ extension DetailInfoViewController {
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "나가기", style: .destructive, handler: {
             action in
+            AppointmentInfo.shared.timer?.invalidate()
             self.leaveAppointment()
         })
         

@@ -38,11 +38,12 @@ extension MainViewController {
             leftTimeLabel.text = ""
             createOrDetailButton.isHidden = false
             createOrDetailButton.setTitle("약속 만들기", for: .normal)
+            return
         }
     }
     
     func setupInviteView() {
         inviteMessageView.layer.cornerRadius = 20
-        inviteMessageView.isHidden = true
+        inviteMessageView.alpha = 0
     }
 }

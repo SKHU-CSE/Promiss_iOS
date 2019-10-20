@@ -209,4 +209,37 @@ struct AppointmentService {
              }
          }
     }
+    
+    func acceptInvite(id: Int, accept: Bool, completion: @escaping (_: AppointmentData) -> Void){
+        var acceptInt = 0
+        if accept{
+            acceptInt = 1
+        }
+        
+        let body: Parameters = [
+            "id": id,
+            "accept": acceptInt
+        ]
+                
+         Alamofire.request(APIConstants.AcceptInviteURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON{ response in
+             print("초대수락 응답: \(response)")
+             switch response.result {
+             case .success:
+                 guard let result = response.data else {return}
+                 
+                 do {
+                     let decoder = JSONDecoder()
+                     let json = try decoder.decode(AppointmentResult.self, from: result)
+                    guard let data = json.data else {return}
+                     
+                    completion(data)
+                 } catch {
+                     print(error.localizedDescription)
+                 }
+                 
+             case .failure(let err):
+                 print(err.localizedDescription)
+             }
+         }
+    }
 }
