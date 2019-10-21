@@ -19,6 +19,9 @@ extension MainViewController {
         gradientLayer.locations = [0.0, 1.0]
         
         self.titleView.layer.insertSublayer(gradientLayer, at: 0)
+        
+        self.memberCollectionView.delegate = self
+        self.memberCollectionView.dataSource = self
     }
     
     func setupMainInfo() {
@@ -33,11 +36,17 @@ extension MainViewController {
             createOrDetailButton.isHidden = false
             createOrDetailButton.setTitle("상세보기", for: .normal)
             
+            // pusher 연결 해제
+            disconnectPusher()
+            
         case .Done:
             appointmentNameLabel.text = "현재 약속이 없습니다."
             leftTimeLabel.text = ""
             createOrDetailButton.isHidden = false
             createOrDetailButton.setTitle("약속 만들기", for: .normal)
+            
+            // pusher 연결 해제
+            disconnectPusher()
             return
         }
     }
@@ -45,5 +54,22 @@ extension MainViewController {
     func setupInviteView() {
         inviteMessageView.layer.cornerRadius = 20
         inviteMessageView.alpha = 0
+    }
+    
+    func setupFineLabel() {
+        fineLabel.isHidden = false
+        guard let members = PusherInfo.shared.members else {
+            fineLabel.text = "현재 벌금: 0원"
+            return
+        }
+        
+        var fine: Int?
+        for mem in members{
+            if UserInfo.shared.id == mem.id {
+                fine = mem.fineCurrent
+                break
+            }
+        }
+        fineLabel.text = "현재 벌금: \(fine ?? 0)원"
     }
 }

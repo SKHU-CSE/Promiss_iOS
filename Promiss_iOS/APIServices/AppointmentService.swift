@@ -15,6 +15,7 @@ struct AppointmentService {
         "Content-Type" : "application/json"
     ]
     
+    // MARK: - 약속 만들기
     func addAppointment(id: Int, name: String, address: String, detail: String, latitude: Double, longitude: Double, date: String, time: String, fineTime: Int, fineMoney: Int, members: [Int], completion: @escaping (_ result: AppointmentResult) -> Void) {
         
         var body: Parameters = [
@@ -57,6 +58,7 @@ struct AppointmentService {
         }
     }
     
+    // MARK: - 약속 정보 받아오기
     func getAppointmentInfo(id: Int, completion: @escaping (_ result: AppointmentResult) -> Void) {
         
         let body: Parameters = [
@@ -85,6 +87,7 @@ struct AppointmentService {
         }
     }
     
+    // MARK: - 약속 상세정보 받아오기
     func getDetailAppointmentInfo(id: Int, completion: @escaping (_ result: AppointmentResult) -> Void) {
         
         let body: Parameters = [
@@ -113,6 +116,7 @@ struct AppointmentService {
         }
     }
     
+    // MARK: - 약속 나가기
     func leaveAppointment(id: Int, appointmentId: Int, completion: @escaping (_ : Bool) -> Void){
         let body: Parameters = [
             "id": id,
@@ -148,6 +152,7 @@ struct AppointmentService {
         }
     }
     
+    // MARK: - 멤버 초대하기
     func inviteMembers(appointID: Int, num: Int, members: [Int], completion: @escaping () -> Void){
         
         var body: Parameters = [
@@ -184,6 +189,7 @@ struct AppointmentService {
         }
     }
     
+    // MARK: - 나에게 온 초대 확인
     func checkInvite(id: Int, completion: @escaping (_ : AppointmentResult) -> Void) {
         let body: Parameters = [
             "id": id
@@ -210,6 +216,7 @@ struct AppointmentService {
          }
     }
     
+    // MARK: - 초대 수락, 거절
     func acceptInvite(id: Int, accept: Bool, completion: @escaping (_: AppointmentData) -> Void){
         var acceptInt = 0
         if accept{

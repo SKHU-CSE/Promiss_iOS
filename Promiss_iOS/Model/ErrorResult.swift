@@ -11,5 +11,5 @@ import Foundation
 struct ErrorResult {
     let result: Int
     let messgae: Data?
-    let data: [Any?]
+    let data: [Any]
 }

@@ -23,8 +23,14 @@ extension MainViewController {
         
         if leftTime >= 0 {
             if leftTime < 7200 {
+                if (self.appointmentStatus != .Progress) {
+                    self.connectPusher()
+                }
                 appointmentStatus = .Progress
             } else {
+                if self.appointmentStatus == .Progress{
+                    self.disconnectPusher()
+                }
                 appointmentStatus = .Wait
             }
             AppointmentInfo.shared.leftTime -= 1
@@ -32,6 +38,9 @@ extension MainViewController {
         } else { // 시간 종료 시
             AppointmentInfo.shared.timer?.invalidate()
             self.navigationController?.popViewController(animated: false)
+            if self.appointmentStatus == .Progress{
+                self.disconnectPusher()
+            }
             appointmentStatus = .Done
         }
     }

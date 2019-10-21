@@ -9,5 +9,6 @@ target 'Promiss_iOS' do
   pod 'NMapsMap', '~> 3.2.0'
   pod 'Alamofire', '~> 4.9.0'
   pod 'TagListView', '~> 1.0'
+  pod 'PusherSwift', '~> 7.2.0'
 
 end

@@ -13,6 +13,11 @@ class MainViewController: UIViewController {
 
     let locationManager = CLLocationManager()
     var myLocationMarker: NMFMarker = NMFMarker()
+    var destinationMarker: NMFMarker = NMFMarker()
+    var memberMarkers: [NMFMarker] = [] {
+        didSet { self.memberCollectionView.reloadData()}
+    }
+    var circle = NMFCircleOverlay()
     var locationFollowMode: Bool = true
     var appointmentStatus: AppStatus = .Done {
         didSet{
@@ -37,6 +42,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var leftTimeLabel: UILabel!
     
     @IBOutlet weak var createOrDetailButton: UIButton!
+    
+    @IBOutlet weak var memberCollectionView: UICollectionView!
+    @IBOutlet weak var fineLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +76,6 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func clickCreateOrDetailButton(_ sender: Any) {
-        print("여기가 문제임. 얘가 영문 모를 곳에서 계속 호출되는 중임")
         switch appointmentStatus{
         case .Progress:
             break
@@ -150,7 +157,6 @@ extension MainViewController {
     }
     
     func goToAddNewAppointment() {
-        print("얘가 문제인줄 알았는데 얘를 호출하는 곳을 가봤더니")
         guard let addNewVC = self.storyboard?.instantiateViewController(withIdentifier: "addNew") else {return}
         addNewVC.modalPresentationStyle = .fullScreen
         self.present(addNewVC, animated: true, completion: nil)
@@ -177,6 +183,5 @@ extension MainViewController {
         UIView.animate(withDuration: 1.0, animations: ({
           self.inviteMessageView.alpha  = 0
         }))
-        
     }
 }
