@@ -26,7 +26,6 @@ extension MainViewController {
     func updateLocationMarker(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees){
         myLocationMarker.position = NMGLatLng(lat: latitude, lng: longitude)
         myLocationMarker.captionText = "내 위치"
-        myLocationMarker.mapView = naverMapView
     }
     
     // 카메라 위치 갱신
@@ -40,10 +39,10 @@ extension MainViewController {
         removeCircleAndMarker()
         myLocationMarker.mapView = nil
         
-        let colors = [UIColor.pmIndiPink, UIColor.yellow, UIColor.pmGreen, UIColor.pmSkyBlue, UIColor.pmSeaBlue]
         AppointmentService.shared.getDetailAppointmentInfo(id: AppointmentInfo.shared.id) { detailResult in
             guard let detail = detailResult.data else {return}
-
+            let colors = [UIColor.pmIndiPink, UIColor.yellow, UIColor.pmGreen, UIColor.pmSkyBlue, UIColor.pmSeaBlue]
+            
             // 목적지 마커
             self.destinationMarker.position = NMGLatLng(lat: detail.latitude, lng: detail.longitude)
             self.destinationMarker.captionText = detail.name
@@ -62,15 +61,15 @@ extension MainViewController {
                 self.memberMarkers.append(marker)
                 marker.position = NMGLatLng(lat: members[i].latitude, lng: members[i].longitude)
                 switch i%5 {
-                case 0:
-                    marker.iconImage = NMF_MARKER_IMAGE_RED
                 case 1:
-                    marker.iconImage = NMF_MARKER_IMAGE_YELLOW
+                    marker.iconImage = NMF_MARKER_IMAGE_RED
                 case 2:
-                    marker.iconImage = NMF_MARKER_IMAGE_GREEN
+                    marker.iconImage = NMF_MARKER_IMAGE_YELLOW
                 case 3:
-                    marker.iconImage = NMF_MARKER_IMAGE_LIGHTBLUE
+                    marker.iconImage = NMF_MARKER_IMAGE_GREEN
                 case 4:
+                    marker.iconImage = NMF_MARKER_IMAGE_LIGHTBLUE
+                case 0:
                     marker.iconImage = NMF_MARKER_IMAGE_BLUE
                 default:
                     return

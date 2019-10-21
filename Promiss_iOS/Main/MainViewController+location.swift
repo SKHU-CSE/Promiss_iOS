@@ -62,10 +62,10 @@ extension MainViewController: CLLocationManagerDelegate {
             print("\(String(coor.latitude))/\(String(coor.longitude))")
             UserInfo.shared.longitude = coor.longitude
             UserInfo.shared.latitude = coor.latitude
+            self.updateMyLocation(lat: coor.latitude, lng: coor.longitude)
             
             updateLocationMarker(coor.latitude, coor.longitude)
-            if locationFollowMode {
-                print("followmode")
+            if locationFollowMode && appointmentStatus != .Progress{
                 updateCamera(coor.latitude, coor.longitude)
             }
         }

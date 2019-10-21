@@ -30,6 +30,7 @@
 		3A4A983C235C889300BDA051 /* MainViewController+pusher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A983B235C889300BDA051 /* MainViewController+pusher.swift */; };
 		3A4A983E235C940E00BDA051 /* PusherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A983D235C940E00BDA051 /* PusherResult.swift */; };
 		3A4A9840235D2F2E00BDA051 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A983F235D2F2E00BDA051 /* MyCollectionViewCell.swift */; };
+		3A4A9842235D47F200BDA051 /* MessageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A9841235D47F200BDA051 /* MessageResult.swift */; };
 		3A66CF6A234EFE1A006FE754 /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF68234EFE1A006FE754 /* DetailInfoViewController.swift */; };
 		3A66CF6B234EFE1A006FE754 /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */; };
 		3A66CF6F23584D37006FE754 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66CF6E23584D37006FE754 /* UserService.swift */; };
@@ -82,6 +83,7 @@
 		3A4A983B235C889300BDA051 /* MainViewController+pusher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+pusher.swift"; sourceTree = "<group>"; };
 		3A4A983D235C940E00BDA051 /* PusherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherResult.swift; sourceTree = "<group>"; };
 		3A4A983F235D2F2E00BDA051 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A4A9841235D47F200BDA051 /* MessageResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResult.swift; sourceTree = "<group>"; };
 		3A66CF68234EFE1A006FE754 /* DetailInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailInfoViewController.swift; path = Promiss_iOS/DetailInfo/DetailInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		3A66CF69234EFE1A006FE754 /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddMemberViewController.swift; path = Promiss_iOS/DetailInfo/AddMemberViewController.swift; sourceTree = SOURCE_ROOT; };
 		3A66CF6E23584D37006FE754 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				3A4A983D235C940E00BDA051 /* PusherResult.swift */,
 				3A66CF822358BF56006FE754 /* UserInfo.swift */,
 				3A457E38235B0BAC0068AC76 /* SearchPlaceResult.swift */,
+				3A4A9841235D47F200BDA051 /* MessageResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				3A457E39235B0BAC0068AC76 /* SearchPlaceResult.swift in Sources */,
 				3A413193231FC6C3003F0931 /* MainViewController.swift in Sources */,
 				3A413198231FC7C9003F0931 /* UIColor+.swift in Sources */,
+				3A4A9842235D47F200BDA051 /* MessageResult.swift in Sources */,
 				3A34A41F23324AFA008BB7E7 /* AddNew2_PlaceViewController.swift in Sources */,
 				3A34A430233745F4008BB7E7 /* UIView+.swift in Sources */,
 				3A66CF852358C457006FE754 /* AppointmentResult.swift in Sources */,

@@ -55,4 +55,21 @@ extension MainViewController {
         inviteMessageView.layer.cornerRadius = 20
         inviteMessageView.alpha = 0
     }
+    
+    func setupFineLabel() {
+        fineLabel.isHidden = false
+        guard let members = PusherInfo.shared.members else {
+            fineLabel.text = "현재 벌금: 0원"
+            return
+        }
+        
+        var fine: Int?
+        for mem in members{
+            if UserInfo.shared.id == mem.id {
+                fine = mem.fineCurrent
+                break
+            }
+        }
+        fineLabel.text = "현재 벌금: \(fine ?? 0)원"
+    }
 }

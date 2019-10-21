@@ -120,4 +120,9 @@ extension MainViewController {
             self.getLeftTime()
         }
     }
+    
+    func updateMyLocation(lat: Double, lng: Double){
+        guard let id = UserInfo.shared.id else {return}
+        UserService.shared.updateMyLoction(id: id, lat: lat, lng: lng)
+    }
 }

@@ -44,6 +44,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var createOrDetailButton: UIButton!
     
     @IBOutlet weak var memberCollectionView: UICollectionView!
+    @IBOutlet weak var fineLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

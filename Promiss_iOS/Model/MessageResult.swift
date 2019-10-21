@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct MessageResult: Codable {
+    let result: String
+    let messgae: String?
+}

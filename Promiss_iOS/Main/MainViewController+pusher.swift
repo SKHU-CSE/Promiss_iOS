@@ -31,6 +31,7 @@ extension MainViewController {
 
                     print("PUSHER INFO")
                     self.updateCircleAndMarker()
+                    self.setupFineLabel()
                     
                 } catch {
                     print(error.localizedDescription)
@@ -40,6 +41,7 @@ extension MainViewController {
 
         pusher.connect()
         self.createCircleAndMarker()
+        self.setupFineLabel()
         print("pusher connect")
     }
     
@@ -48,6 +50,7 @@ extension MainViewController {
         guard let pusher = appDelegate.pusher else {return}
         pusher.disconnect()
         removeCircleAndMarker()
+        fineLabel.isHidden = true
     }
 }
 
@@ -85,5 +88,22 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         cell.nameLabel.text = memberMarkers[indexPath.row-1].captionText
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            updateCamera(destinationMarker.position.lat, destinationMarker.position.lng)
+            return
+        }
+        
+        if memberMarkers[indexPath.row - 1].position.lat != 0 && memberMarkers[indexPath.row - 1].position.lng != 0 {
+            updateCamera(memberMarkers[indexPath.row - 1].position.lat, memberMarkers[indexPath.row - 1].position.lng)
+            return
+        }
+        
+        let alert = UIAlertController(title: "사용자 위치 확인", message: "사용자의 위치를 확인할 수 없습니다.\n잠시 후 시도해주세요.", preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title:"확인", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }

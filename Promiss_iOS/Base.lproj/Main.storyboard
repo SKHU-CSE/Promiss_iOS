@@ -139,20 +139,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eX1-lp-LkN">
-                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.96078431372549022" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="2v8-oB-i9n"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="약속 만들기">
-                                    <color key="titleColor" red="0.22352941176470587" green="0.25490196078431371" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickCreateOrDetailButton:" destination="W02-5c-NIt" eventType="touchUpInside" id="ZeG-Sf-PGK"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9X0-43-6JG">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -204,6 +190,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eX1-lp-LkN">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.96078431372549022" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2v8-oB-i9n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="약속 만들기">
+                                    <color key="titleColor" red="0.22352941176470587" green="0.25490196078431371" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickCreateOrDetailButton:" destination="W02-5c-NIt" eventType="touchUpInside" id="ZeG-Sf-PGK"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CzP-gr-SaP">
                                 <rect key="frame" x="0.0" y="762" width="414" height="40"/>
                                 <subviews>
@@ -235,6 +235,23 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJB-AJ-hsh" customClass="NMFMapView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="718"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 벌금" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mce-Mg-pv5">
+                                        <rect key="frame" x="30" y="625" width="354" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="HGv-iW-BXe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Mce-Mg-pv5" firstAttribute="leading" secondItem="oJB-AJ-hsh" secondAttribute="leading" constant="30" id="iNB-p9-VdP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mce-Mg-pv5" secondAttribute="trailing" constant="30" id="jxw-6P-jMZ"/>
+                                    <constraint firstItem="Mce-Mg-pv5" firstAttribute="centerX" secondItem="oJB-AJ-hsh" secondAttribute="centerX" id="nc3-Af-xlH"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1F2-sM-jHz">
                                 <rect key="frame" x="321" y="712" width="73" height="30"/>
@@ -375,6 +392,7 @@
                             <constraint firstItem="At0-00-L5n" firstAttribute="leading" secondItem="Ybj-4B-ncW" secondAttribute="leading" id="Rud-gT-dL7"/>
                             <constraint firstItem="19H-Zt-ZXF" firstAttribute="trailing" secondItem="oJB-AJ-hsh" secondAttribute="trailing" id="UUl-nc-xpR"/>
                             <constraint firstItem="9X0-43-6JG" firstAttribute="leading" secondItem="19H-Zt-ZXF" secondAttribute="leading" id="Uoe-Yu-vRv"/>
+                            <constraint firstItem="1F2-sM-jHz" firstAttribute="top" secondItem="Mce-Mg-pv5" secondAttribute="bottom" constant="8" id="X5P-rW-7Nj"/>
                             <constraint firstItem="19H-Zt-ZXF" firstAttribute="trailing" secondItem="At0-00-L5n" secondAttribute="trailing" id="X9p-OF-kNv"/>
                             <constraint firstItem="19H-Zt-ZXF" firstAttribute="bottom" secondItem="eX1-lp-LkN" secondAttribute="bottom" id="bcR-SM-60J"/>
                             <constraint firstItem="19H-Zt-ZXF" firstAttribute="trailing" secondItem="yux-MT-i8D" secondAttribute="trailing" constant="20" id="coh-2J-tYd"/>
@@ -390,6 +408,7 @@
                     <connections>
                         <outlet property="appointmentNameLabel" destination="Pnn-7O-FBZ" id="IGh-dh-5ZW"/>
                         <outlet property="createOrDetailButton" destination="eX1-lp-LkN" id="C9c-L9-rt9"/>
+                        <outlet property="fineLabel" destination="Mce-Mg-pv5" id="VjB-6t-eKf"/>
                         <outlet property="idLabel" destination="oK5-Yb-htn" id="NMH-kG-mdK"/>
                         <outlet property="inviteAppointmentNameLable" destination="TcM-7Q-WoU" id="U0L-1h-p8y"/>
                         <outlet property="inviteMessageView" destination="yux-MT-i8D" id="ViN-r8-h3x"/>
