@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Promiss_iOS.xcodeproj">
+      location = "group:/Users/lim/Projects/2019/Pro-miss/Workspace/Promiss_iOS/PRO-MISS.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

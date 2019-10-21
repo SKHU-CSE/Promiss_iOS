@@ -1597,13 +1597,13 @@
                                             <action selector="clickAddressButton:" destination="fOK-XE-XWL" eventType="touchUpInside" id="Eiv-qz-bkB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnN-3R-T6C">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnN-3R-T6C">
                                         <rect key="frame" x="8" y="2" width="31" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="31" id="Dkq-S6-hVO"/>
                                             <constraint firstAttribute="height" constant="31" id="kRi-zH-rlr"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" image="img_location"/>
                                         <connections>
                                             <action selector="clickAddressButton:" destination="fOK-XE-XWL" eventType="touchUpInside" id="IId-vH-8ro"/>
                                         </connections>
@@ -2936,5 +2936,6 @@
     </scenes>
     <resources>
         <image name="btn_profile" width="40.5" height="39.5"/>
+        <image name="img_location" width="31" height="31"/>
     </resources>
 </document>

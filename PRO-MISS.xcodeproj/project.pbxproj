@@ -98,7 +98,7 @@
 		3A66CF8623598F91006FE754 /* MainViewController+timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+timer.swift"; sourceTree = "<group>"; };
 		3A7308E4233B8EB800847A1E /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		6B67DB339D22453514AA148A /* Pods_Promiss_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Promiss_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		955078CE231D2BDD00311DB8 /* Promiss_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Promiss_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		955078CE231D2BDD00311DB8 /* PRO-MISS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PRO-MISS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		955078D1231D2BDD00311DB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		955078D6231D2BDD00311DB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		955078D8231D2BDE00311DB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 		955078CF231D2BDD00311DB8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				955078CE231D2BDD00311DB8 /* Promiss_iOS.app */,
+				955078CE231D2BDD00311DB8 /* PRO-MISS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,9 +313,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		955078CD231D2BDD00311DB8 /* Promiss_iOS */ = {
+		955078CD231D2BDD00311DB8 /* PRO-MISS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 955078E0231D2BDE00311DB8 /* Build configuration list for PBXNativeTarget "Promiss_iOS" */;
+			buildConfigurationList = 955078E0231D2BDE00311DB8 /* Build configuration list for PBXNativeTarget "PRO-MISS" */;
 			buildPhases = (
 				4F725504A6F889684F06F6FA /* [CP] Check Pods Manifest.lock */,
 				955078CA231D2BDD00311DB8 /* Sources */,
@@ -327,9 +327,9 @@
 			);
 			dependencies = (
 			);
-			name = Promiss_iOS;
+			name = "PRO-MISS";
 			productName = Promiss_iOS;
-			productReference = 955078CE231D2BDD00311DB8 /* Promiss_iOS.app */;
+			productReference = 955078CE231D2BDD00311DB8 /* PRO-MISS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -348,7 +348,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 955078C9231D2BDD00311DB8 /* Build configuration list for PBXProject "Promiss_iOS" */;
+			buildConfigurationList = 955078C9231D2BDD00311DB8 /* Build configuration list for PBXProject "PRO-MISS" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -361,7 +361,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				955078CD231D2BDD00311DB8 /* Promiss_iOS */,
+				955078CD231D2BDD00311DB8 /* PRO-MISS */,
 			);
 		};
 /* End PBXProject section */
@@ -655,7 +655,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		955078C9231D2BDD00311DB8 /* Build configuration list for PBXProject "Promiss_iOS" */ = {
+		955078C9231D2BDD00311DB8 /* Build configuration list for PBXProject "PRO-MISS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				955078DE231D2BDE00311DB8 /* Debug */,
@@ -664,7 +664,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		955078E0231D2BDE00311DB8 /* Build configuration list for PBXNativeTarget "Promiss_iOS" */ = {
+		955078E0231D2BDE00311DB8 /* Build configuration list for PBXNativeTarget "PRO-MISS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				955078E1231D2BDE00311DB8 /* Debug */,

@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var pusher: Pusher?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        sleep(3)
         NMFAuthManager.shared().clientId = Keys.shared.NMFClientId
         
         let options = PusherClientOptions(host: .cluster(Keys.shared.PusherCluster))
