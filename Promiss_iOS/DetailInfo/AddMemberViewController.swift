@@ -22,6 +22,7 @@ class AddMemberViewController: UIViewController {
         super.viewDidLoad()
         setupDesgin()
         setupDelegate()
+        setupTextField()
     }
     
     @IBAction func clickExitButton(_ sender: Any) { self.navigationController?.popViewController(animated: true)
@@ -41,6 +42,10 @@ extension AddMemberViewController {
     func setupDesgin(){
         memberListView.backgroundColor = UIColor.clear
         userSearchTextField.setWhiteBorder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+          self.view.endEditing(true)
     }
     
     func setupDelegate() {
@@ -64,6 +69,21 @@ extension AddMemberViewController {
 }
 
 extension AddMemberViewController: UITextFieldDelegate{
+    
+    private func setupTextField(){
+        userSearchTextField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -200
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
+    }
+    
     @objc func textFieldDidChange(_ textfield: UITextField){
         guard let keyword = textfield.text else {return}
         UserService.shared.findUser(userID: keyword) { data in
@@ -73,6 +93,11 @@ extension AddMemberViewController: UITextFieldDelegate{
             }
             self.userSearchTableView.reloadData()
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
