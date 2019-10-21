@@ -54,3 +54,36 @@ extension MainViewController {
 extension MainViewController: PusherDelegate{
     
 }
+
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return memberMarkers.count + 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "markerInfoCell", for: indexPath) as! MyCollectionViewCell
+        
+        if indexPath.row == 0 {
+            cell.imageView.image = UIImage(named: "marker_destination")
+            cell.nameLabel.text = ""
+            return cell
+        }
+        
+        switch indexPath.row % 5 {
+        case 1:
+            cell.imageView.image = UIImage(named: "marker_red")
+        case 2:
+            cell.imageView.image = UIImage(named: "marker_yellow")
+        case 3:
+            cell.imageView.image = UIImage(named: "marker_green")
+        case 4:
+            cell.imageView.image = UIImage(named: "marker_skyblue")
+        case 0:
+            cell.imageView.image = UIImage(named: "marker_blue")
+        default:
+            break
+        }
+        cell.nameLabel.text = memberMarkers[indexPath.row-1].captionText
+        return cell
+    }
+}

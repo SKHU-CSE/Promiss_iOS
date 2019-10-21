@@ -19,6 +19,9 @@ extension MainViewController {
         gradientLayer.locations = [0.0, 1.0]
         
         self.titleView.layer.insertSublayer(gradientLayer, at: 0)
+        
+        self.memberCollectionView.delegate = self
+        self.memberCollectionView.dataSource = self
     }
     
     func setupMainInfo() {

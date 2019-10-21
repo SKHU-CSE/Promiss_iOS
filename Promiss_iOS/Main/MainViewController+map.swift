@@ -25,6 +25,7 @@ extension MainViewController {
     // 내 위치 마커 위치 갱신
     func updateLocationMarker(_ latitude:CLLocationDegrees , _ longitude: CLLocationDegrees){
         myLocationMarker.position = NMGLatLng(lat: latitude, lng: longitude)
+        myLocationMarker.captionText = "내 위치"
         myLocationMarker.mapView = naverMapView
     }
     

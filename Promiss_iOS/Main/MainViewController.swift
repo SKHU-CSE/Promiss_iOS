@@ -12,9 +12,11 @@ import NMapsMap
 class MainViewController: UIViewController {
 
     let locationManager = CLLocationManager()
-    var myLocationMarker: NMFMarker = NMFMarker(position: NMGLatLng(lat: 0, lng: 0), iconImage: NMFOverlayImage(name: "marker_mylocation"))
+    var myLocationMarker: NMFMarker = NMFMarker()
     var destinationMarker: NMFMarker = NMFMarker()
-    var memberMarkers: [NMFMarker] = []
+    var memberMarkers: [NMFMarker] = [] {
+        didSet { self.memberCollectionView.reloadData()}
+    }
     var circle = NMFCircleOverlay()
     var locationFollowMode: Bool = true
     var appointmentStatus: AppStatus = .Done {
@@ -40,6 +42,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var leftTimeLabel: UILabel!
     
     @IBOutlet weak var createOrDetailButton: UIButton!
+    
+    @IBOutlet weak var memberCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,6 +182,5 @@ extension MainViewController {
         UIView.animate(withDuration: 1.0, animations: ({
           self.inviteMessageView.alpha  = 0
         }))
-        
     }
 }
